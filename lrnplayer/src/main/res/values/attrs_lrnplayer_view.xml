@@ -1,0 +1,8 @@
+<resources>
+
+    <declare-styleable name="LRNPlayerView">
+        <attr name="videoId" format="string" />
+        <attr name="accessToken" format="string" />
+    </declare-styleable>
+
+</resources>
