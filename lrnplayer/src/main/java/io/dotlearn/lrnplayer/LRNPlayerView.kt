@@ -1,13 +1,20 @@
 package io.dotlearn.lrnplayer
 
 import android.content.Context
-import android.graphics.drawable.Drawable
-import android.text.TextPaint
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.util.AttributeSet
-import android.view.View
 import android.widget.FrameLayout
 import android.view.LayoutInflater
+import android.view.View
 import android.webkit.WebView
+import android.widget.ProgressBar
+import io.dotlearn.lrnplayer.error.ErrorCode
+import io.dotlearn.lrnplayer.error.LRNPlayerException
+import io.dotlearn.lrnplayer.listener.OnCompletionListener
+import io.dotlearn.lrnplayer.listener.OnDownloadProgressListener
+import io.dotlearn.lrnplayer.listener.OnErrorListener
+import io.dotlearn.lrnplayer.listener.OnPreparedListener
 
 
 /**
@@ -15,10 +22,21 @@ import android.webkit.WebView
  */
 class LRNPlayerView: FrameLayout {
 
-    private var accessToken: String? = null
-    private var videoId: String? = null
+    // region View Variables
     private lateinit var webView: WebView
+    private lateinit var progressView: ProgressBar
+    // endregion
 
+    // region Listener Variables
+    private var prepareListener: OnPreparedListener? = null
+    private var completionListener: OnCompletionListener? = null
+    private var downloadProgressListener: OnDownloadProgressListener? = null
+    private var errorListener: OnErrorListener? = null
+    // endregion
+
+    private var isPrepared = false
+
+    // region View Init
     constructor(context:Context) : super(context) {
         init(null, 0)
     }
@@ -35,18 +53,81 @@ class LRNPlayerView: FrameLayout {
         // Load attributes
         val a = context.obtainStyledAttributes(attrs, R.styleable.LRNPlayerView, defStyle, 0)
 
-        accessToken = a.getString(R.styleable.LRNPlayerView_accessToken)
-        videoId = a.getString(R.styleable.LRNPlayerView_videoId)
+        val showProgress = a.getBoolean(R.styleable.LRNPlayerView_showProgress, true)
+        val progressColor = a.getColor(R.styleable.LRNPlayerView_progressColor, Color.WHITE)
         a.recycle()
 
         val layoutView = LayoutInflater.from(context).inflate(R.layout.layout_lrnplayer, this)
-
         webView = layoutView.findViewById(R.id.lrn_web_view)
+        progressView = layoutView.findViewById(R.id.lrn_progress_View)
+
+        progressView.visibility = if(showProgress) View.VISIBLE else View.GONE
+        progressView.indeterminateDrawable.setColorFilter(progressColor, PorterDuff.Mode.MULTIPLY)
+    }
+    // endregion
+
+    fun prepare(accessToken: String, videoId: String, onPrepareListener: OnPreparedListener) {
+        prepareListener = onPrepareListener
+
+        // TODO: Prepare the WebView for playing
     }
 
-    fun load(accessToken: String, videoId: String) {
-        this.accessToken = accessToken
-        this.videoId = videoId
+    fun start() {
+        checkIsPrepared()
+        // TODO start from WebView
     }
+
+    fun pause() {
+        checkIsPrepared()
+        // TODO pause from WebView
+    }
+
+    fun seek() {
+        checkIsPrepared()
+        // TODO seek to from WebView
+    }
+
+    fun seekTo(seekPos: Long) {
+        checkIsPrepared()
+        // TODO seek to from WebView
+    }
+
+    fun getCurrentPosition() {
+        checkIsPrepared()
+        // TODO get current position from WebView
+    }
+
+    fun getDuration() {
+        checkIsPrepared()
+        // TODO get duration from WebView
+    }
+
+    fun setOnCompletionListener(completionListener: OnCompletionListener) {
+        this.completionListener = completionListener
+    }
+
+    fun setOnErrorListener(errorListener: OnErrorListener) {
+        this.errorListener = errorListener
+    }
+
+    fun setOnDownloadListener(downloadProgressListener: OnDownloadProgressListener) {
+        this.downloadProgressListener = downloadProgressListener
+    }
+
+    // region Helper Methods
+    private fun onError(errorCode: ErrorCode) {
+        if(errorListener == null) {
+            throw LRNPlayerException(errorCode)
+        } else {
+            errorListener?.onError(this, errorCode)
+        }
+    }
+
+    private fun checkIsPrepared() {
+        if(!isPrepared) {
+            onError(ErrorCode.NOT_PREPARED)
+        }
+    }
+    // endregion
 
 }

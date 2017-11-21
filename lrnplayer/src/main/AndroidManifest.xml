@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="io.dotlearn.lrnplayer">
 
+    <!-- Start Protection Normal Permission -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- End Protection Normal Permission -->
 
 </manifest>

@@ -1,8 +1,8 @@
 <resources>
 
     <declare-styleable name="LRNPlayerView">
-        <attr name="videoId" format="string" />
-        <attr name="accessToken" format="string" />
+        <attr name="showProgress" format="string" />
+        <attr name="progressColor" format="color" />
     </declare-styleable>
 
 </resources>
