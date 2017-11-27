@@ -2,9 +2,10 @@ package io.dotlearn.vectorizedvideo
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import io.dotlearn.lrnplayer.LRNPlayerView
 import io.dotlearn.lrnplayer.error.ErrorCode
-import io.dotlearn.lrnplayer.listener.OnCompletionListener
+import io.dotlearn.lrnplayer.listener.OnPlaybackCompletionListener
 import io.dotlearn.lrnplayer.listener.OnDownloadProgressListener
 import io.dotlearn.lrnplayer.listener.OnErrorListener
 import io.dotlearn.lrnplayer.listener.OnPreparedListener
@@ -15,35 +16,41 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val accessToken = "accessToken"
-        val videoId = "videoId"
+        val token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfaWQiOiJkb3RsZWFybl9pbyIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJzYW5kYm94Ijp0cnVlLCJ0b2tlbl9pZCI6IjlhM2QwODMwLWE5NTMtNGE0Yi1iOWY5LTI3ZjZlODg4ODdmZCJ9.lMRw8ELT5unXc6BxYFQqv2g5Ysg9jWW48zy2WiFwcoo";
+        val videoId = "b78154c8-4d28-4cdc-b672-a2d6ef9f3810"
+
 
         val lrnPlayerView = findViewById<LRNPlayerView>(R.id.lrn_player_view)
-        lrnPlayerView.prepare(accessToken, videoId, object: OnPreparedListener {
+        lrnPlayerView.debug(true)
 
-            override fun onPrepared(lrnPlayerView: LRNPlayerView) {
-                lrnPlayerView.start()
+        Handler().postDelayed({
+            lrnPlayerView.prepare(token, videoId, true, object: OnPreparedListener {
+
+                override fun onPrepared(lrnPlayerView: LRNPlayerView) {
+                    lrnPlayerView.start()
+                }
+
             }
+            )
+        }, 2000)
 
-        }
-        )
+        lrnPlayerView.setOnCompletionListener(object: OnPlaybackCompletionListener {
 
-        lrnPlayerView.setOnCompletionListener(object: OnCompletionListener {
-
-            override fun onCompletion(lrnPlayerView: LRNPlayerView) {
+            override fun onPlaybackCompletion(lrnPlayerView: LRNPlayerView) {
             }
 
         })
+
         lrnPlayerView.setOnErrorListener(object: OnErrorListener {
 
-            override fun onError(lrnPlayerView: LRNPlayerView, errorCode: ErrorCode): Boolean {
-                return false
+            override fun onError(lrnPlayerView: LRNPlayerView, errorCode: ErrorCode) {
             }
 
         })
+
         lrnPlayerView.setOnDownloadListener(object: OnDownloadProgressListener{
 
-            override fun onDownloadProgress(downloadedBytes: Long, totalBytes: Long) {
+            override fun onDownloadProgress(lrnPlayerView: LRNPlayerView, downloadedBytes: Long, totalBytes: Long) {
             }
 
         })

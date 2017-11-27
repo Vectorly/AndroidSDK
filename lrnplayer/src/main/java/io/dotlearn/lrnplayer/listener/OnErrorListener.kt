@@ -9,13 +9,11 @@ import io.dotlearn.lrnplayer.LRNPlayerView
 interface OnErrorListener {
 
     /**
-     * Called to indicate an error.
+     * Called to indicate an error. Not having an OnErrorListener at all, will cause an exception to be thrown.
      *
      * @param lrnPlayerView the LRNPlayerView the error pertains to
      * @param errorCode An [ErrorCode] specific to the error that occurred
-     * @return True if the method handled the error, false if it didn't. Returning false,
-     * or not having an OnErrorListener at all, will cause the OnCompletionListener to be called.
      */
-    fun onError (lrnPlayerView: LRNPlayerView, errorCode: ErrorCode): Boolean
+    fun onError (lrnPlayerView: LRNPlayerView, errorCode: ErrorCode)
 
 }

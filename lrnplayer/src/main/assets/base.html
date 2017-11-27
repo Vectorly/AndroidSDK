@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <title>Video Player</title>
+</head>
+
+<script type="application/javascript" src="lrn.js"></script>
+
+<body>
+
+    <div id="container"></div>
+
+    <script type="application/javascript">
+        var prepare = function(accessToken, videoId, shouldAutoPlay, videoWidth, videoHeight) {
+            Android.log("Preparing video");
+            Android.log("Access token: " + accessToken);
+            Android.log("Video Id: " + videoId);
+            Android.log("Should auto play: " + shouldAutoPlay);
+            Android.log("Video width: " + videoWidth);
+            Android.log("Video height: " + videoHeight);
+
+            var options = {
+                autoplay: shouldAutoPlay,
+                width: videoWidth,
+                height: videoHeight
+            };
+
+            lrn.load(accessToken, videoId, 'container', options, function(vectorizedVideo) {
+                console.log("Video prepared!");
+                Android.onMediaPrepared()
+            });
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,5 +1,7 @@
 package io.dotlearn.lrnplayer.listener
 
+import io.dotlearn.lrnplayer.LRNPlayerView
+
 /**
  * Interface definition for a callback to be invoked when a vectorized video is being downloaded
  */
@@ -13,6 +15,6 @@ interface OnDownloadProgressListener {
      * @param downloadedBytes The number of bytes downloaded
      * @param totalBytes The total size of the vectorized video file in bytes
      */
-    fun onDownloadProgress(downloadedBytes: Long, totalBytes: Long)
+    fun onDownloadProgress(lrnPlayerView: LRNPlayerView, downloadedBytes: Long, totalBytes: Long)
 
 }
