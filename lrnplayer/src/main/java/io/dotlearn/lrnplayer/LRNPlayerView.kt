@@ -2,23 +2,18 @@ package io.dotlearn.lrnplayer
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
-import android.graphics.PorterDuff
 import android.util.AttributeSet
-import android.widget.FrameLayout
 import android.view.LayoutInflater
-import android.view.View
 import android.webkit.ConsoleMessage
 import android.webkit.WebChromeClient
 import android.webkit.WebView
-import android.widget.ProgressBar
+import android.webkit.WebViewClient
+import android.widget.FrameLayout
 import io.dotlearn.lrnplayer.error.ErrorCode
-import io.dotlearn.lrnplayer.listener.OnPlaybackCompletionListener
 import io.dotlearn.lrnplayer.listener.OnDownloadProgressListener
 import io.dotlearn.lrnplayer.listener.OnErrorListener
+import io.dotlearn.lrnplayer.listener.OnPlaybackCompletionListener
 import io.dotlearn.lrnplayer.listener.OnPreparedListener
-import android.webkit.WebViewClient
-import android.widget.Toast
 import io.dotlearn.lrnplayer.utils.DisplayUtils
 
 /**
@@ -28,7 +23,6 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
 
     // region View Variables
     private lateinit var mWebView: WebView
-    private lateinit var mProgressView: ProgressBar
     // endregion
 
     private var mIsPrepared = false
@@ -50,26 +44,21 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
     @SuppressLint("SetJavaScriptEnabled", "AddJavascriptInterface")
     private fun init(attrs:AttributeSet?, defStyle:Int) {
         // Load attributes
-        val a = context.obtainStyledAttributes(attrs, R.styleable.LRNPlayerView, defStyle, 0)
+        /*val a = context.obtainStyledAttributes(attrs, R.styleable.LRNPlayerView, defStyle, 0)
 
         val showProgress = a.getBoolean(R.styleable.LRNPlayerView_showProgress, true)
-        val progressColor = a.getColor(R.styleable.LRNPlayerView_progressColor, Color.WHITE)
-        a.recycle()
+        a.recycle()*/
 
         val layoutView = LayoutInflater.from(context).inflate(R.layout.layout_lrnplayer, this)
         mWebView = layoutView.findViewById(R.id.lrn_web_view)
-        mProgressView = layoutView.findViewById(R.id.lrn_progress_View)
 
         mWebInterface = LRNPlayerWebInterface(this)
 
         val webSettings = mWebView.settings
         webSettings.javaScriptEnabled = true
-        webSettings.loadWithOverviewMode = true
-        webSettings.useWideViewPort = true
+        /*webSettings.loadWithOverviewMode = true
+        webSettings.useWideViewPort = true*/
         mWebView.addJavascriptInterface(mWebInterface, "Android")
-
-        mProgressView.visibility = if(showProgress) View.VISIBLE else View.GONE
-        mProgressView.indeterminateDrawable.setColorFilter(progressColor, PorterDuff.Mode.MULTIPLY)
     }
     // endregion
 
@@ -77,21 +66,11 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
         mWebInterface.debug = debug
     }
 
-    override fun showProgress() {
-        mProgressView.visibility = View.VISIBLE
-    }
-
-    override fun hideProgress() {
-        mProgressView.visibility = View.GONE
-    }
-
     override fun prepare(accessToken: String, videoId: String, autoStart: Boolean,
                 onPrepareListener: OnPreparedListener) {
         mWebInterface.prepareListener = onPrepareListener
-        showProgress()
 
-        val width = DisplayUtils.getScreenWidth(context)
-        Toast.makeText(context, "Width: " + width, Toast.LENGTH_LONG).show()
+        val width = DisplayUtils.px2dp(context,DisplayUtils.getScreenWidth(context))
         val height = DisplayUtils.getHeightToMaintain169AspectRatio(width)
 
         mWebView.webViewClient = object : WebViewClient() {

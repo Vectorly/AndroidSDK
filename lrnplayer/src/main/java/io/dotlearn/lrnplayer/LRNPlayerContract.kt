@@ -20,8 +20,6 @@ internal interface LRNPlayerContract {
         fun pause()
         fun seekTo(seekPos: Long)
 
-        fun showProgress()
-        fun hideProgress()
     }
 
     interface PlayerWebInterface {

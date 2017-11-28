@@ -23,7 +23,6 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView):
     override fun onMediaPrepared() {
         log(debug, "OnMediaPrepared called")
         prepareListener?.onPrepared(lrnPlayerView)
-        lrnPlayerView.hideProgress()
     }
 
     @JavascriptInterface
