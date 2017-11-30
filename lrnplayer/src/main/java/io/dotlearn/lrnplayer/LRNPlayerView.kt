@@ -80,7 +80,6 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
         if(height > screenHeight) {
             height = screenHeight
         }
-        Log.d("Elvis", "Width: $width, Height: $height")
 
         mWebView.webViewClient = object : WebViewClient() {
 
