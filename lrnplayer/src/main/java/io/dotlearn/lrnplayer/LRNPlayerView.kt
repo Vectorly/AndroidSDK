@@ -107,7 +107,7 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
 
     override fun start() {
         if(checkIsPrepared()) {
-            mWebView.loadUrl("javascript:start()")
+            mWebView.loadUrl("javascript:play()")
         }
     }
 
@@ -155,7 +155,8 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
     private fun checkIsPrepared(): Boolean {
         if(!mIsPrepared) {
             //onError(ErrorCode.NOT_PREPARED)
-            return false
+            return true
+            //return false
         }
 
         return true

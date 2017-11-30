@@ -29,7 +29,8 @@ internal interface LRNPlayerContract {
         fun onMetadata(metaData: String)
         fun onError(e: String)
         fun onError(errorCode: ErrorCode)
-        fun onDownloadProgress(progress: Long)
+        fun onDownloadProgress(progress: Float)
+        fun onGetPosition(position: Long)
         fun onPlaybackCompleted()
         fun log(format: String)
 

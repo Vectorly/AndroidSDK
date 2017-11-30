@@ -27,7 +27,7 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView):
 
     @JavascriptInterface
     override fun onMetadata(metaData: String) {
-        log(debug, "OnMetadata called")
+        log(debug, "onMetadata($metaData)")
 
         metadataLoadedListener?.onMetadataLoaded(lrnPlayerView, metaData)
     }
@@ -53,11 +53,17 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView):
     }
 
     @JavascriptInterface
-    override fun onDownloadProgress(bytesDownloaded: Long, totalBytes: Long) {
+    override fun onDownloadProgress(progress: Float) {
         log(debug, "OnDownloadProgress called")
-        log(debug, "Bytes downloaded = $bytesDownloaded, Total bytes = $totalBytes")
+        log(debug, "Progress = $progress")
 
-        downloadProgressListener?.onDownloadProgress(lrnPlayerView, bytesDownloaded, totalBytes)
+        downloadProgressListener?.onDownloadProgress(lrnPlayerView, progress)
+    }
+
+    @JavascriptInterface
+    override fun onGetPosition(position: Long) {
+        log(debug, "OnGetPosition called")
+        log(debug, "Position: $position")
     }
 
     @JavascriptInterface

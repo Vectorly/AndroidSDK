@@ -8,13 +8,11 @@ import io.dotlearn.lrnplayer.LRNPlayerView
 interface OnDownloadProgressListener {
 
     /**
-     * Called when a chunk of the vectorized video file is downloaded. To calculate the percentage
-     * of the vectorized video that has been downloaded, divide [downloadedBytes] by [totalBytes].
-     * Example: ([downloadedBytes] / [totalBytes]) * 100f
+     * Called when a chunk of the vectorized video file is downloaded.
      *
-     * @param downloadedBytes The number of bytes downloaded
-     * @param totalBytes The total size of the vectorized video file in bytes
+     * @param progress The download progress, from 0 to 1. Where 0 represent zero percent and 1
+     * represents 100%
      */
-    fun onDownloadProgress(lrnPlayerView: LRNPlayerView, downloadedBytes: Long, totalBytes: Long)
+    fun onDownloadProgress(lrnPlayerView: LRNPlayerView, progress: Float)
 
 }

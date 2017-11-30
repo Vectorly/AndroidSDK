@@ -55,30 +55,35 @@
 
     var play = function() {
         if (typeof vectorizedVideo !== 'undefined') {
+            Android.log("Starting playback");
             vectorizedVideo.play();
         }
     }
 
     var pause = function() {
         if (typeof vectorizedVideo !== 'undefined') {
+            Android.log("Pausing playback");
             vectorizedVideo.pause();
         }
     }
 
     var seekTo = function(seekToPos) {
         if (typeof vectorizedVideo !== 'undefined') {
+            Android.log("Seeking to: " + seekToPos);
             vectorizedVideo.seek(seekToPos);
         }
     }
 
     var getMetadata = function() {
         if (typeof vectorizedVideo !== 'undefined') {
+            Android.log("Getting metadata");
             Android.onMetadata(vectorizedVideo.meta);
         }
     }
 
     var getPosition = function() {
         if (typeof vectorizedVideo !== 'undefined') {
+            Android.log("Getting playback position");
             Android.onGetPosition(vectorizedVideo.getTime());
         }
     }

@@ -16,6 +16,8 @@ import io.dotlearn.lrnplayer.listener.OnPreparedListener
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var lrnPlayerView: LRNPlayerView;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val videoId = "6320ea83-a12e-4091-bce6-3060ceba29bc"
 
 
-        val lrnPlayerView = findViewById<LRNPlayerView>(R.id.lrn_player_view)
+        lrnPlayerView = findViewById(R.id.lrn_player_view)
         lrnPlayerView.debug(true)
 
         lrnPlayerView.prepare(token, videoId, true, object: OnPreparedListener {
@@ -58,9 +60,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     @Override
+    override fun onPause() {
+        super.onPause()
+        lrnPlayerView.pause()
+    }
+
+    @Override
+    override fun onResume() {
+        super.onResume()
+        lrnPlayerView.start()
+    }
+
+    @Override
     override fun onDestroy() {
         super.onDestroy()
-        findViewById<LRNPlayerView>(R.id.lrn_player_view).release()
+        lrnPlayerView.release()
     }
 
 }
