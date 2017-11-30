@@ -2,13 +2,16 @@ package io.dotlearn.lrnplayer
 
 import android.util.Log
 import android.webkit.JavascriptInterface
+import com.google.gson.Gson
 import io.dotlearn.lrnplayer.error.ErrorCode
 import io.dotlearn.lrnplayer.error.LRNPlayerException
+import io.dotlearn.lrnplayer.info.Metadata
 import io.dotlearn.lrnplayer.listener.*
 
 internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView):
         LRNPlayerContract.PlayerWebInterface {
 
+    private val gson = Gson()
     internal var debug = false
 
     // region Listener Variables
@@ -29,7 +32,7 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView):
     override fun onMetadata(metaData: String) {
         log(debug, "onMetadata($metaData)")
 
-        metadataLoadedListener?.onMetadataLoaded(lrnPlayerView, metaData)
+        metadataLoadedListener?.onMetadataLoaded(lrnPlayerView, gson.fromJson(metaData, Metadata::class.java))
     }
 
     @JavascriptInterface
