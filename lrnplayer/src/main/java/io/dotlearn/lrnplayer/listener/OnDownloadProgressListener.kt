@@ -10,9 +10,8 @@ interface OnDownloadProgressListener {
     /**
      * Called when a chunk of the vectorized video file is downloaded.
      *
-     * @param progress The download progress, from 0 to 1. Where 0 represent zero percent and 1
-     * represents 100%
+     * @param progressPercent The download progress percentage, from 0% to 100%.
      */
-    fun onDownloadProgress(lrnPlayerView: LRNPlayerView, progress: Float)
+    fun onDownloadProgress(lrnPlayerView: LRNPlayerView, progressPercent: Float)
 
 }

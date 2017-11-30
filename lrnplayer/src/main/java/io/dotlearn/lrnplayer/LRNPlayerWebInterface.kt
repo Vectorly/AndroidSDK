@@ -3,9 +3,8 @@ package io.dotlearn.lrnplayer
 import android.util.Log
 import android.webkit.JavascriptInterface
 import com.google.gson.Gson
-import io.dotlearn.lrnplayer.error.ErrorCode
 import io.dotlearn.lrnplayer.error.LRNPlayerException
-import io.dotlearn.lrnplayer.info.Metadata
+import io.dotlearn.lrnplayer.model.Metadata
 import io.dotlearn.lrnplayer.listener.*
 
 internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView):

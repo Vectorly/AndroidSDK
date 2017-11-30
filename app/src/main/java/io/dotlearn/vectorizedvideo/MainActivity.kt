@@ -1,17 +1,8 @@
 package io.dotlearn.vectorizedvideo
 
-import android.content.Context
-import android.graphics.Point
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
-import android.view.WindowManager
 import io.dotlearn.lrnplayer.LRNPlayerView
-import io.dotlearn.lrnplayer.error.ErrorCode
-import io.dotlearn.lrnplayer.listener.OnPlaybackCompletionListener
-import io.dotlearn.lrnplayer.listener.OnDownloadProgressListener
-import io.dotlearn.lrnplayer.listener.OnErrorListener
 import io.dotlearn.lrnplayer.listener.OnPreparedListener
 
 class MainActivity : AppCompatActivity() {

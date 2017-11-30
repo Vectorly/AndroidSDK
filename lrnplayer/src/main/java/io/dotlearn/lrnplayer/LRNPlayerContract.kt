@@ -1,6 +1,5 @@
 package io.dotlearn.lrnplayer
 
-import io.dotlearn.lrnplayer.error.ErrorCode
 import io.dotlearn.lrnplayer.listener.OnPlaybackCompletionListener
 import io.dotlearn.lrnplayer.listener.OnDownloadProgressListener
 import io.dotlearn.lrnplayer.listener.OnErrorListener
