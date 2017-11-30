@@ -20,24 +20,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.e("TAGGA", "Width: " + getScreenWidth())
         val token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfaWQiOiJkb3RsZWFybl9pbyIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJzYW5kYm94Ijp0cnVlLCJ0b2tlbl9pZCI6IjlhM2QwODMwLWE5NTMtNGE0Yi1iOWY5LTI3ZjZlODg4ODdmZCJ9.lMRw8ELT5unXc6BxYFQqv2g5Ysg9jWW48zy2WiFwcoo";
-        val videoId = "b78154c8-4d28-4cdc-b672-a2d6ef9f3810"
+        val videoId = "6320ea83-a12e-4091-bce6-3060ceba29bc"
 
 
         val lrnPlayerView = findViewById<LRNPlayerView>(R.id.lrn_player_view)
         lrnPlayerView.debug(true)
 
-        Handler().postDelayed({
-            lrnPlayerView.prepare(token, videoId, true, object: OnPreparedListener {
+        lrnPlayerView.prepare(token, videoId, true, object: OnPreparedListener {
 
-                override fun onPrepared(lrnPlayerView: LRNPlayerView) {
-                    lrnPlayerView.start()
-                }
-
+            override fun onPrepared(lrnPlayerView: LRNPlayerView) {
+                lrnPlayerView.start()
             }
-            )
-        }, 2000)
+
+        })
 
         /*lrnPlayerView.setOnCompletionListener(object: OnPlaybackCompletionListener {
 
@@ -61,10 +57,10 @@ class MainActivity : AppCompatActivity() {
         })*/
     }
 
-    fun getScreenWidth(): Int {
-        val size = Point()
-        windowManager.defaultDisplay.getSize(size)
-        return size.x
+    @Override
+    override fun onDestroy() {
+        super.onDestroy()
+        findViewById<LRNPlayerView>(R.id.lrn_player_view).release()
     }
 
 }

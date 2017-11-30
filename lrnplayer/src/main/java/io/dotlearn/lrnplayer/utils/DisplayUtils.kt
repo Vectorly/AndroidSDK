@@ -4,9 +4,6 @@ import android.content.Context
 import android.graphics.Point
 import android.view.WindowManager
 import android.util.DisplayMetrics
-import android.view.Display
-
-
 
 object DisplayUtils {
 
@@ -27,9 +24,15 @@ object DisplayUtils {
         return size.x
     }
 
-    fun getHeightToMaintain169AspectRatio(width: Int): Int {
-        val aspectRatio = 1.77777778
-        return (width / aspectRatio).toInt()
+    fun getScreenHeight(context: Context): Int {
+        val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val size = Point()
+        wm.defaultDisplay.getSize(size)
+        return size.y
+    }
+
+    fun calculateHeightBasedOnWidthAndAspectRatio(aspectRatio: Double, width: Int): Int {
+        return Math.ceil((width / aspectRatio)).toInt()
     }
 
 }

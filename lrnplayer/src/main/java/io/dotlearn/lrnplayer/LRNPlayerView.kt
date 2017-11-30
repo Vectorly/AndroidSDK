@@ -3,6 +3,7 @@ package io.dotlearn.lrnplayer
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.webkit.ConsoleMessage
 import android.webkit.WebChromeClient
@@ -23,6 +24,7 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
 
     // region View Variables
     private lateinit var mWebView: WebView
+    private lateinit var mContainerView: FrameLayout
     // endregion
 
     private var mIsPrepared = false
@@ -50,6 +52,7 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
         a.recycle()*/
 
         val layoutView = LayoutInflater.from(context).inflate(R.layout.layout_lrnplayer, this)
+        mContainerView = layoutView.findViewById(R.id.lrn_container)
         mWebView = layoutView.findViewById(R.id.lrn_web_view)
 
         mWebInterface = LRNPlayerWebInterface(this)
@@ -71,7 +74,13 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
         mWebInterface.prepareListener = onPrepareListener
 
         val width = DisplayUtils.px2dp(context,DisplayUtils.getScreenWidth(context))
-        val height = DisplayUtils.getHeightToMaintain169AspectRatio(width)
+        val screenHeight = DisplayUtils.px2dp(context, DisplayUtils.getScreenHeight(context))
+        var height = DisplayUtils.calculateHeightBasedOnWidthAndAspectRatio(1.77777778, width)
+
+        if(height > screenHeight) {
+            height = screenHeight
+        }
+        Log.d("Elvis", "Width: $width, Height: $height")
 
         mWebView.webViewClient = object : WebViewClient() {
 
@@ -98,21 +107,21 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
     }
 
     override fun start() {
-        checkIsPrepared()
-
-        mWebView.loadUrl("javascript:start()")
+        if(checkIsPrepared()) {
+            mWebView.loadUrl("javascript:start()")
+        }
     }
 
     override fun pause() {
-        checkIsPrepared()
-
-        mWebView.loadUrl("javascript:pause()")
+        if(checkIsPrepared()) {
+            mWebView.loadUrl("javascript:pause()")
+        }
     }
 
     override fun seekTo(seekPos: Long) {
-        checkIsPrepared()
-
-        mWebView.loadUrl("javascript:seekTo(\"$seekPos\")")
+        if(checkIsPrepared()) {
+            mWebView.loadUrl("javascript:seekTo(\"$seekPos\")")
+        }
     }
 
     override fun setOnCompletionListener(completionListener: OnPlaybackCompletionListener) {
@@ -127,15 +136,30 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
         mWebInterface.downloadProgressListener = downloadProgressListener
     }
 
+    override fun release() {
+        // Loading a blank page
+        mContainerView.removeAllViews()
+        mWebView.clearHistory()
+
+        mWebView.clearCache(false)
+        mWebView.loadUrl("about:blank")
+
+        mWebView.onPause()
+        mWebView.destroy()
+    }
+
     // region Helper Methods
     private fun onError(errorCode: ErrorCode) {
         mWebInterface.onError(errorCode)
     }
 
-    private fun checkIsPrepared() {
+    private fun checkIsPrepared(): Boolean {
         if(!mIsPrepared) {
-            onError(ErrorCode.NOT_PREPARED)
+            //onError(ErrorCode.NOT_PREPARED)
+            return false
         }
+
+        return true
     }
     // endregion
 
