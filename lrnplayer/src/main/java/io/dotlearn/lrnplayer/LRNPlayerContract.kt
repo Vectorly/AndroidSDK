@@ -1,9 +1,7 @@
 package io.dotlearn.lrnplayer
 
-import io.dotlearn.lrnplayer.listener.OnPlaybackCompletionListener
-import io.dotlearn.lrnplayer.listener.OnDownloadProgressListener
-import io.dotlearn.lrnplayer.listener.OnErrorListener
-import io.dotlearn.lrnplayer.listener.OnPreparedListener
+import io.dotlearn.lrnplayer.error.LRNPlayerException
+import io.dotlearn.lrnplayer.listener.*
 
 internal interface LRNPlayerContract {
 
@@ -14,6 +12,7 @@ internal interface LRNPlayerContract {
         fun setOnDownloadListener(downloadProgressListener: OnDownloadProgressListener)
         fun setOnCompletionListener(completionListener: OnPlaybackCompletionListener)
         fun setOnErrorListener(errorListener: OnErrorListener)
+        fun setOnMetadataLoadedListener(metadataLoadedListener: OnMetadataLoadedListener)
 
         fun start()
         fun pause()
@@ -26,8 +25,8 @@ internal interface LRNPlayerContract {
 
         fun onMediaPrepared()
         fun onMetadata(metaData: String)
-        fun onError(e: String)
-        fun onError(errorCode: ErrorCode)
+        fun onError(errorMsg: String)
+        fun onError(e: LRNPlayerException)
         fun onDownloadProgress(progress: Float)
         fun onGetPosition(position: Long)
         fun onPlaybackCompleted()

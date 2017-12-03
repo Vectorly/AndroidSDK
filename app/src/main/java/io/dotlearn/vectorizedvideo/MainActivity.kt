@@ -2,11 +2,16 @@ package io.dotlearn.vectorizedvideo
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.util.Log
 import io.dotlearn.lrnplayer.LRNPlayerView
-import io.dotlearn.lrnplayer.listener.OnPreparedListener
+import io.dotlearn.lrnplayer.error.LRNPlayerException
+import io.dotlearn.lrnplayer.listener.*
+import io.dotlearn.lrnplayer.model.Metadata
 
 class MainActivity : AppCompatActivity() {
 
+    private val LOG_TAG = "LMainActivity"
     private lateinit var lrnPlayerView: LRNPlayerView;
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,26 +33,49 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        /*lrnPlayerView.setOnCompletionListener(object: OnPlaybackCompletionListener {
+        /*Handler().postDelayed({
+            lrnPlayerView.prepare(token, "a3a39100-6c60-4db1-bc18-f70e77af272a",
+                    true, object: OnPreparedListener {
 
-            override fun onPlaybackCompletion(lrnPlayerView: LRNPlayerView) {
-            }
+                override fun onPrepared(lrnPlayerView: LRNPlayerView) {
+                    lrnPlayerView.start()
+                }
 
-        })
+            })
+        },
+                20000)*/
 
         lrnPlayerView.setOnErrorListener(object: OnErrorListener {
 
-            override fun onError(lrnPlayerView: LRNPlayerView, errorCode: ErrorCode) {
+            override fun onError(lrnPlayerView: LRNPlayerView, e: LRNPlayerException) {
+                Log.d(LOG_TAG, "onError: $e")
             }
 
         })
 
-        lrnPlayerView.setOnDownloadListener(object: OnDownloadProgressListener{
+        lrnPlayerView.setOnMetadataLoadedListener(object: OnMetadataLoadedListener {
 
-            override fun onDownloadProgress(lrnPlayerView: LRNPlayerView, downloadedBytes: Long, totalBytes: Long) {
+            override fun onMetadataLoaded(lrnPlayerView: LRNPlayerView, metadata: Metadata) {
+                Log.d(LOG_TAG, "onMetadataLoaded: $metadata")
             }
 
-        })*/
+        })
+
+        lrnPlayerView.setOnDownloadListener(object: OnDownloadProgressListener {
+
+            override fun onDownloadProgress(lrnPlayerView: LRNPlayerView, progressPercent: Float) {
+                Log.d(LOG_TAG, "onDownloadProgress: $progressPercent")
+            }
+
+        })
+
+        lrnPlayerView.setOnCompletionListener(object: OnPlaybackCompletionListener {
+
+            override fun onPlaybackCompletion(lrnPlayerView: LRNPlayerView) {
+                Log.d(LOG_TAG, "onPlaybackCompletion")
+            }
+
+        })
     }
 
     @Override

@@ -2,6 +2,7 @@ package io.dotlearn.lrnplayer
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.support.v4.view.ViewCompat
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,11 +11,9 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.FrameLayout
-import io.dotlearn.lrnplayer.error.ErrorCode
-import io.dotlearn.lrnplayer.listener.OnDownloadProgressListener
-import io.dotlearn.lrnplayer.listener.OnErrorListener
-import io.dotlearn.lrnplayer.listener.OnPlaybackCompletionListener
-import io.dotlearn.lrnplayer.listener.OnPreparedListener
+import io.dotlearn.lrnplayer.error.LRNPlayerException
+import io.dotlearn.lrnplayer.error.LRNPlayerNotPreparedException
+import io.dotlearn.lrnplayer.listener.*
 import io.dotlearn.lrnplayer.utils.DisplayUtils
 
 /**
@@ -23,12 +22,14 @@ import io.dotlearn.lrnplayer.utils.DisplayUtils
 class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
 
     // region View Variables
-    private lateinit var mWebView: WebView
-    private lateinit var mContainerView: FrameLayout
+    private lateinit var webView: WebView
+    private lateinit var containerView: FrameLayout
     // endregion
 
-    private var mIsPrepared = false
-    private lateinit var mWebInterface: LRNPlayerWebInterface
+    private var isPrepared = false
+    private var isWebViewLoaded = false
+    private var prepareRequest: PrepareRequest? = null
+    private lateinit var webInterface: LRNPlayerWebInterface
 
     // region View Init
     constructor(context:Context) : super(context) {
@@ -44,57 +45,22 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
     }
 
     @SuppressLint("SetJavaScriptEnabled", "AddJavascriptInterface")
-    private fun init(attrs:AttributeSet?, defStyle:Int) {
-        // Load attributes
-        /*val a = context.obtainStyledAttributes(attrs, R.styleable.LRNPlayerView, defStyle, 0)
-
-        val showProgress = a.getBoolean(R.styleable.LRNPlayerView_showProgress, true)
-        a.recycle()*/
-
+    private fun init(attrs: AttributeSet?, defStyle: Int) {
         val layoutView = LayoutInflater.from(context).inflate(R.layout.layout_lrnplayer, this)
-        mContainerView = layoutView.findViewById(R.id.lrn_container)
-        mWebView = layoutView.findViewById(R.id.lrn_web_view)
+        containerView = layoutView.findViewById(R.id.lrn_container)
+        webView = layoutView.findViewById(R.id.lrn_web_view)
 
-        mWebInterface = LRNPlayerWebInterface(this)
+        webInterface = LRNPlayerWebInterface(this)
 
-        val webSettings = mWebView.settings
+        val webSettings = webView.settings
         webSettings.javaScriptEnabled = true
-        /*webSettings.loadWithOverviewMode = true
-        webSettings.useWideViewPort = true*/
-        mWebView.addJavascriptInterface(mWebInterface, "Android")
-    }
-    // endregion
 
-    fun debug(debug: Boolean) {
-        mWebInterface.debug = debug
-    }
+        webView.addJavascriptInterface(webInterface, "Android")
 
-    override fun prepare(accessToken: String, videoId: String, autoStart: Boolean,
-                onPrepareListener: OnPreparedListener) {
-        mWebInterface.prepareListener = onPrepareListener
-
-        val width = DisplayUtils.px2dp(context,DisplayUtils.getScreenWidth(context))
-        val screenHeight = DisplayUtils.px2dp(context, DisplayUtils.getScreenHeight(context))
-        var height = DisplayUtils.calculateHeightBasedOnWidthAndAspectRatio(1.77777778, width)
-
-        if(height > screenHeight) {
-            height = screenHeight
-        }
-
-        mWebView.webViewClient = object : WebViewClient() {
-
-            override fun onPageFinished(view: WebView, url: String) {
-                val stringToLoad = "javascript:prepare(\"$accessToken\", \"$videoId\", " +
-                        " $autoStart, $width, $height)"
-                mWebView.loadUrl(stringToLoad)
-            }
-
-        }
-
-        mWebView.webChromeClient = object: WebChromeClient() {
+        webView.webChromeClient = object: WebChromeClient() {
 
             override fun onConsoleMessage(consoleMessage: ConsoleMessage): Boolean {
-                mWebInterface.log("Line no: ${consoleMessage.lineNumber()}," +
+                webInterface.log("Line no: ${consoleMessage.lineNumber()}," +
                         " Source id: ${consoleMessage.sourceId()}," +
                         " Message: ${consoleMessage.message()}")
                 return true
@@ -102,61 +68,135 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
 
         }
 
-        mWebView.loadUrl("file:///android_asset/base.html")
+        webView.webViewClient = object : WebViewClient() {
+
+            override fun onPageFinished(view: WebView, url: String) {
+                isWebViewLoaded = true
+                prepare(prepareRequest)
+            }
+
+        }
+
+        webView.loadUrl("file:///android_asset/base.html")
+    }
+    // endregion
+
+    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+        super.onLayout(changed, l, t, r, b)
+        prepare(prepareRequest)
+    }
+
+    fun debug(debug: Boolean) {
+        webInterface.debug = debug
+    }
+
+    override fun prepare(accessToken: String, videoId: String, autoStart: Boolean,
+                         onPrepareListener: OnPreparedListener) {
+        webInterface.prepareListener = onPrepareListener
+        val prepareRequest = PrepareRequest(accessToken, videoId, autoStart)
+
+        // We need to wait for the View to be laid out before loading the video, so things like
+        // get height and width will work.
+        if(ViewCompat.isLaidOut(this)) {
+            // The view has been laid out, load up the video
+            prepare(prepareRequest)
+        }
+        else {
+            // Save the prepare request to be loaded when the View is laid out
+            this.prepareRequest = prepareRequest
+        }
+    }
+
+    private fun prepare(prepareRequest: PrepareRequest?) {
+        if(prepareRequest != null && isWebViewLoaded) {
+            val widthHeightPair = calculateWidthAndHeight()
+            loadVideo(prepareRequest, widthHeightPair.first, widthHeightPair.second)
+            this.prepareRequest = null
+        }
+    }
+
+    private fun calculateWidthAndHeight(): Pair<Int, Int> {
+        val videoWidth = DisplayUtils.px2dp(context, width)
+        val usableScreenHeight = DisplayUtils.getUsableScreenHeight(context)
+        var videoHeight = DisplayUtils.calculateHeightBasedOnWidthAndAspectRatio(1.77777778,
+                videoWidth)
+
+        if (videoHeight > usableScreenHeight) {
+            videoHeight = usableScreenHeight
+        }
+
+        return Pair(videoWidth, videoHeight)
+    }
+
+    private fun loadVideo(prepareRequest: PrepareRequest, videoWidth: Int, videoHeight: Int) {
+        isPrepared = false
+
+        val stringToLoad = """javascript:prepare(
+                        "${prepareRequest.accessToken}", "${prepareRequest.videoId}",
+                        ${prepareRequest.autoStart}, $videoWidth, $videoHeight);"""
+        webInterface.log(stringToLoad)
+        webView.loadUrl(stringToLoad)
+    }
+
+    fun onPrepared() {
+        isPrepared = true
     }
 
     override fun start() {
         if(checkIsPrepared()) {
-            mWebView.loadUrl("javascript:play()")
+            webView.loadUrl("javascript:play();")
         }
     }
 
     override fun pause() {
         if(checkIsPrepared()) {
-            mWebView.loadUrl("javascript:pause()")
+            webView.loadUrl("javascript:pause();")
         }
     }
 
     override fun seekTo(seekPos: Long) {
         if(checkIsPrepared()) {
-            mWebView.loadUrl("javascript:seekTo(\"$seekPos\")")
+            webView.loadUrl("""javascript:seekTo("$seekPos");""")
         }
     }
 
     override fun setOnCompletionListener(completionListener: OnPlaybackCompletionListener) {
-        mWebInterface.completionListener = completionListener
+        webInterface.completionListener = completionListener
     }
 
     override fun setOnErrorListener(errorListener: OnErrorListener) {
-        mWebInterface.errorListener = errorListener
+        webInterface.errorListener = errorListener
     }
 
     override fun setOnDownloadListener(downloadProgressListener: OnDownloadProgressListener) {
-        mWebInterface.downloadProgressListener = downloadProgressListener
+        webInterface.downloadProgressListener = downloadProgressListener
+    }
+
+    override fun setOnMetadataLoadedListener(metadataLoadedListener: OnMetadataLoadedListener) {
+        webInterface.metadataLoadedListener = metadataLoadedListener
     }
 
     override fun release() {
+        containerView.removeAllViews()
+        webView.clearHistory()
+
+        webView.clearCache(false)
         // Loading a blank page
-        mContainerView.removeAllViews()
-        mWebView.clearHistory()
+        webView.loadUrl("about:blank")
 
-        mWebView.clearCache(false)
-        mWebView.loadUrl("about:blank")
-
-        mWebView.onPause()
-        mWebView.destroy()
+        webView.onPause()
+        webView.destroy()
     }
 
     // region Helper Methods
-    private fun onError(errorCode: ErrorCode) {
-        mWebInterface.onError(errorCode)
+    private fun onError(e: LRNPlayerException) {
+        webInterface.onError(e)
     }
 
     private fun checkIsPrepared(): Boolean {
-        if(!mIsPrepared) {
-            //onError(ErrorCode.NOT_PREPARED)
-            return true
-            //return false
+        if(!isPrepared) {
+            onError(LRNPlayerNotPreparedException("LRNPlayerView is not prepared. Call prepare before using vectorized video playback"))
+            return false
         }
 
         return true

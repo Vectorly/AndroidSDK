@@ -23,55 +23,49 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView):
 
     @JavascriptInterface
     override fun onMediaPrepared() {
-        log(debug, "OnMediaPrepared called")
+        log(debug, "onMediaPrepared()")
+        lrnPlayerView.onPrepared()
         prepareListener?.onPrepared(lrnPlayerView)
     }
 
     @JavascriptInterface
     override fun onMetadata(metaData: String) {
         log(debug, "onMetadata($metaData)")
-
         metadataLoadedListener?.onMetadataLoaded(lrnPlayerView, gson.fromJson(metaData, Metadata::class.java))
     }
 
     @JavascriptInterface
-    override fun onError(e: String) {
-        log(debug, "onError called")
-
-        // todo check if error listener is attached
-        errorListener?.onError(lrnPlayerView, ErrorCode.valueOf(e))
+    override fun onError(errorMsg: String) {
+        log(debug, "onError($errorMsg)")
+        onError(LRNPlayerException(errorMsg))
     }
 
-    override fun onError(errorCode: ErrorCode) {
-        log(debug, "onError called")
-        log(debug, "Error code: ${errorCode.code}, Error message: ${errorCode.message}")
+    override fun onError(e: LRNPlayerException) {
+        log(debug, "onError($e")
 
         if(errorListener == null) {
-            throw LRNPlayerException(errorCode)
+            throw e
         }
         else {
-            errorListener?.onError(lrnPlayerView, errorCode)
+            errorListener?.onError(lrnPlayerView, e)
         }
     }
 
     @JavascriptInterface
     override fun onDownloadProgress(progress: Float) {
-        log(debug, "OnDownloadProgress called")
-        log(debug, "Progress = $progress")
-
+        log(debug, "onDownloadProgress($progress)")
         downloadProgressListener?.onDownloadProgress(lrnPlayerView, progress)
     }
 
     @JavascriptInterface
     override fun onGetPosition(position: Long) {
-        log(debug, "OnGetPosition called")
-        log(debug, "Position: $position")
+        log(debug, "onGetPosition($position)")
+        // TODO add implementation
     }
 
     @JavascriptInterface
     override fun onPlaybackCompleted() {
-        log(debug, "OnPlaybackCompleted called")
-
+        log(debug, "onPlaybackCompleted()")
         completionListener?.onPlaybackCompletion(lrnPlayerView)
     }
 
