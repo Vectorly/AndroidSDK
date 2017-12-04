@@ -116,4 +116,6 @@ You can add some custom optional listeners to the LRNPlayerView
         })
 ```
 
+lrnPlayerView.debug(true)
+
 That's all. You could see all this in action in the sample project in the app module.
