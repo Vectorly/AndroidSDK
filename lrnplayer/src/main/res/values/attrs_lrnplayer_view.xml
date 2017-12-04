@@ -1,8 +1,0 @@
-<resources>
-
-    <declare-styleable name="LRNPlayerView">
-        <attr name="showProgress" format="boolean" />
-        <attr name="progressColor" format="color" />
-    </declare-styleable>
-
-</resources>
