@@ -13,6 +13,7 @@ internal interface LRNPlayerContract {
         fun setOnCompletionListener(completionListener: OnPlaybackCompletionListener)
         fun setOnErrorListener(errorListener: OnErrorListener)
         fun setOnMetadataLoadedListener(metadataLoadedListener: OnMetadataLoadedListener)
+        fun setOnFullScreenToggledListener(fullScreenToggledListener: OnFullScreenToggledListener)
 
         fun start()
         fun pause()
@@ -30,6 +31,7 @@ internal interface LRNPlayerContract {
         fun onDownloadProgress(progress: Float)
         fun onGetPosition(position: Long)
         fun onPlaybackCompleted()
+        fun onFullScreenToggled()
         fun log(format: String)
 
     }

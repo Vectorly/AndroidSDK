@@ -19,6 +19,7 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView):
     internal var downloadProgressListener: OnDownloadProgressListener? = null
     internal var errorListener: OnErrorListener? = null
     internal var metadataLoadedListener: OnMetadataLoadedListener? = null
+    internal var fullScreenToggledListener: OnFullScreenToggledListener? = null
     // endregion
 
     @JavascriptInterface
@@ -72,6 +73,11 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView):
     @JavascriptInterface
     override fun log(format: String) {
         log(debug, format)
+    }
+
+    @JavascriptInterface
+    override fun onFullScreenToggled() {
+        fullScreenToggledListener?.onFullScreenToggled(lrnPlayerView)
     }
 
     private companion object {

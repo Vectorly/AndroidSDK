@@ -39,8 +39,15 @@
                 Android.onMediaPrepared();
 
                 video.onEnd(function() {
+                    Android.log("On playback completed");
                     Android.onPlaybackCompleted();
                 });
+
+                video.onFullscreen(function() {
+                    Android.log("On full screen toggled");
+                    Android.onFullScreenToggled();
+                });
+
             })
             .onError(function(err) {
                 Android.onError(err);

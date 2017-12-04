@@ -1,5 +1,6 @@
 package io.dotlearn.vectorizedvideo
 
+import android.content.pm.ActivityInfo
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -8,6 +9,12 @@ import io.dotlearn.lrnplayer.LRNPlayerView
 import io.dotlearn.lrnplayer.error.LRNPlayerException
 import io.dotlearn.lrnplayer.listener.*
 import io.dotlearn.lrnplayer.model.Metadata
+import android.view.WindowManager
+import android.view.Display
+import android.R.attr.orientation
+import android.content.Context
+import android.content.res.Configuration
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -76,6 +83,21 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+        lrnPlayerView.setOnFullScreenToggledListener(object: OnFullScreenToggledListener {
+
+            override fun onFullScreenToggled(lrnPlayerView: LRNPlayerView) {
+                val display = (getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay
+                val orientation = display.orientation
+
+                when (orientation) {
+                    Configuration.ORIENTATION_PORTRAIT -> requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                    Configuration.ORIENTATION_LANDSCAPE -> requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                }
+            }
+
+        })
+
     }
 
     @Override

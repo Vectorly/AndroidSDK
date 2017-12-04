@@ -176,6 +176,10 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
         webInterface.metadataLoadedListener = metadataLoadedListener
     }
 
+    override fun setOnFullScreenToggledListener(fullScreenToggledListener: OnFullScreenToggledListener) {
+        webInterface.fullScreenToggledListener = fullScreenToggledListener
+    }
+
     override fun release() {
         containerView.removeAllViews()
         webView.clearHistory()

@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="io.dotlearn.vectorizedvideo.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You can place other content together with the player view"/>
 
     <io.dotlearn.lrnplayer.LRNPlayerView
         android:id="@+id/lrn_player_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"/>
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You can place other content together with the player view"/>
+
+</LinearLayout>
