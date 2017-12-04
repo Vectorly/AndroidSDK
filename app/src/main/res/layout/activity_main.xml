@@ -8,19 +8,100 @@
     android:orientation="vertical"
     tools:context="io.dotlearn.vectorizedvideo.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="You can place other content together with the player view"/>
-
     <io.dotlearn.lrnplayer.LRNPlayerView
-        android:id="@+id/lrn_player_view"
-        android:layout_width="280dp"
+        android:id="@+id/lrnPlayerView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="You can place other content together with the player view"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/videoTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            tools:text="You can place other content together with the player view"/>
+
+        <TextView
+            android:id="@+id/videoDescriptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            tools:text="You can place other content together with the player view"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/videoSkipPreviousButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_skip_previous_white_32dp"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="1dp" />
+
+            <ImageButton
+                android:id="@+id/videoPlayButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_play_white_32dp"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="1dp" />
+
+            <ImageButton
+                android:id="@+id/videoPauseButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_pause_white_32dp"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="1dp" />
+
+            <ImageButton
+                android:id="@+id/videoSkipNextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_skip_next_white_32dp"/>
+
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/videoSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/videoStatusTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+    </LinearLayout>
 
 </LinearLayout>

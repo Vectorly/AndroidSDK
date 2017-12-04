@@ -139,6 +139,7 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
     }
 
     fun onPrepared() {
+        webInterface.log("video don ready o")
         isPrepared = true
     }
 

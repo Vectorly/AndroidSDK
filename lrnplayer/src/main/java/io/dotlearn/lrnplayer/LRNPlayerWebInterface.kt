@@ -23,16 +23,9 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView):
     // endregion
 
     @JavascriptInterface
-    override fun onMediaPrepared() {
-        log(debug, "onMediaPrepared()")
-        lrnPlayerView.onPrepared()
-        prepareListener?.onPrepared(lrnPlayerView)
-    }
-
-    @JavascriptInterface
-    override fun onMetadata(metaData: String) {
-        log(debug, "onMetadata($metaData)")
-        metadataLoadedListener?.onMetadataLoaded(lrnPlayerView, gson.fromJson(metaData, Metadata::class.java))
+    override fun onGetPosition(position: Long) {
+        log(debug, "onGetPosition($position)")
+        // TODO add implementation
     }
 
     @JavascriptInterface
@@ -48,36 +41,47 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView):
             throw e
         }
         else {
-            errorListener?.onError(lrnPlayerView, e)
+            lrnPlayerView.post({ errorListener?.onError(lrnPlayerView, e) })
         }
+    }
+
+    @JavascriptInterface
+    override fun onMediaPrepared() {
+        log(debug, "onMediaPrepared()")
+        lrnPlayerView.post({
+            lrnPlayerView.onPrepared()
+            prepareListener?.onPrepared(lrnPlayerView)
+        })
+    }
+
+    @JavascriptInterface
+    override fun onMetadata(metaData: String) {
+        log(debug, "onMetadata($metaData)")
+        lrnPlayerView.post({ metadataLoadedListener?.onMetadataLoaded(lrnPlayerView,
+                gson.fromJson(metaData, Metadata::class.java)) })
     }
 
     @JavascriptInterface
     override fun onDownloadProgress(progress: Float) {
         log(debug, "onDownloadProgress($progress)")
-        downloadProgressListener?.onDownloadProgress(lrnPlayerView, progress)
-    }
-
-    @JavascriptInterface
-    override fun onGetPosition(position: Long) {
-        log(debug, "onGetPosition($position)")
-        // TODO add implementation
+        lrnPlayerView.post({ lrnPlayerView.post({ downloadProgressListener?.onDownloadProgress(lrnPlayerView, progress) }) })
     }
 
     @JavascriptInterface
     override fun onPlaybackCompleted() {
         log(debug, "onPlaybackCompleted()")
-        completionListener?.onPlaybackCompletion(lrnPlayerView)
+        lrnPlayerView.post({ completionListener?.onPlaybackCompletion(lrnPlayerView) })
+    }
+
+    @JavascriptInterface
+    override fun onFullScreenToggled() {
+        log(debug, "onFullScreenToggled")
+        lrnPlayerView.post({ fullScreenToggledListener?.onFullScreenToggled(lrnPlayerView) })
     }
 
     @JavascriptInterface
     override fun log(format: String) {
         log(debug, format)
-    }
-
-    @JavascriptInterface
-    override fun onFullScreenToggled() {
-        fullScreenToggledListener?.onFullScreenToggled(lrnPlayerView)
     }
 
     private companion object {

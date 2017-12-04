@@ -6,95 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8">
     <title>Video Player</title>
+    <script type="application/javascript" src="lrn.js"></script>
 
 </head>
-
-<script type="application/javascript" src="lrn.js"></script>
 
 <body style="margin: 0; padding: 0">
 
     <div id="container"></div>
 
+    <script type="application/javascript">
+        
+        var vectorizedVideo;
+        
+        var prepare = function(accessToken, videoId, shouldAutoPlay, videoWidth, videoHeight) {
+            Android.log("Preparing video");
+            Android.log("Access token: " + accessToken);
+            Android.log("Video Id: " + videoId);
+            Android.log("Should auto play: " + shouldAutoPlay);
+            Android.log("Video width: " + videoWidth);
+            Android.log("Video height: " + videoHeight);
+
+            var options = {
+                autoplay: shouldAutoPlay,
+                width: videoWidth,
+                height: videoHeight
+            };
+
+            lrn.load(accessToken, videoId, 'container', options).then(function(video) {
+                    Android.log("Video prepared!");
+                    vectorizedVideo = video;
+                    Android.onMediaPrepared();
+
+                    video.onEnd(function() {
+                        Android.log("On playback completed");
+                        Android.onPlaybackCompleted();
+                    });
+
+                    video.onFullscreen(function() {
+                        Android.log("On full screen toggled");
+                        Android.onFullScreenToggled();
+                    });
+
+                })
+                .onError(function(err) {
+                    Android.onError(err);
+                })
+                .onDownloadProgress(function(progress) {
+                    Android.onDownloadProgress(progress)
+                })
+                .onMetaData(function(metaData) {
+                    Android.onMetadata(JSON.stringify(metaData))
+                });
+        }
+
+        var play = function() {
+            if (typeof vectorizedVideo !== 'undefined') {
+                Android.log("Starting playback");
+                vectorizedVideo.play();
+            }
+        }
+
+        var pause = function() {
+            if (typeof vectorizedVideo !== 'undefined') {
+                Android.log("Pausing playback");
+                vectorizedVideo.pause();
+            }
+        }
+
+        var seekTo = function(seekToPos) {
+            if (typeof vectorizedVideo !== 'undefined') {
+                Android.log("Seeking to: " + seekToPos);
+                vectorizedVideo.seek(seekToPos);
+            }
+        }
+
+        var getMetadata = function() {
+            if (typeof vectorizedVideo !== 'undefined') {
+                Android.log("Getting metadata");
+                Android.onMetadata(JSON.stringify(vectorizedVideo.meta));
+            }
+        }
+
+        var getPosition = function() {
+            if (typeof vectorizedVideo !== 'undefined') {
+                Android.log("Getting playback position");
+                Android.onGetPosition(vectorizedVideo.getTime());
+            }
+        }
+
+    </script>
+
 </body>
-
-<script type="application/javascript">
-    var vectorizedVideo;
-    var prepare = function(accessToken, videoId, shouldAutoPlay, videoWidth, videoHeight) {
-        Android.log("Preparing video");
-        Android.log("Access token: " + accessToken);
-        Android.log("Video Id: " + videoId);
-        Android.log("Should auto play: " + shouldAutoPlay);
-        Android.log("Video width: " + videoWidth);
-        Android.log("Video height: " + videoHeight);
-
-        var options = {
-            autoplay: shouldAutoPlay,
-            width: videoWidth,
-            height: videoHeight
-        };
-
-        lrn.load(accessToken, videoId, 'container', options).then(function(video) {
-                console.log("Video prepared!");
-                vectorizedVideo = video;
-                Android.onMediaPrepared();
-
-                video.onEnd(function() {
-                    Android.log("On playback completed");
-                    Android.onPlaybackCompleted();
-                });
-
-                video.onFullscreen(function() {
-                    Android.log("On full screen toggled");
-                    Android.onFullScreenToggled();
-                });
-
-            })
-            .onError(function(err) {
-                Android.onError(err);
-            })
-            .onDownloadProgress(function(progress) {
-                Android.onDownloadProgress(progress)
-            })
-            .onMetaData(function(metaData) {
-                Android.onMetadata(JSON.stringify(metaData))
-            });
-    }
-
-    var play = function() {
-        if (typeof vectorizedVideo !== 'undefined') {
-            Android.log("Starting playback");
-            vectorizedVideo.play();
-        }
-    }
-
-    var pause = function() {
-        if (typeof vectorizedVideo !== 'undefined') {
-            Android.log("Pausing playback");
-            vectorizedVideo.pause();
-        }
-    }
-
-    var seekTo = function(seekToPos) {
-        if (typeof vectorizedVideo !== 'undefined') {
-            Android.log("Seeking to: " + seekToPos);
-            vectorizedVideo.seek(seekToPos);
-        }
-    }
-
-    var getMetadata = function() {
-        if (typeof vectorizedVideo !== 'undefined') {
-            Android.log("Getting metadata");
-            Android.onMetadata(JSON.stringify(vectorizedVideo.meta));
-        }
-    }
-
-    var getPosition = function() {
-        if (typeof vectorizedVideo !== 'undefined') {
-            Android.log("Getting playback position");
-            Android.onGetPosition(vectorizedVideo.getTime());
-        }
-    }
-
-</script>
 
 </html>
