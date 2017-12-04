@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         setupAllListeners()
         setupPlaybackControls()
 
-        prepareVideo("6320ea83-a12e-4091-bce6-3060ceba29bc")
+        prepareVideo("6f53f874-f2d7-4e54-b96a-a43a26fcd359")
     }
 
     private fun setupPlaybackControls() {
