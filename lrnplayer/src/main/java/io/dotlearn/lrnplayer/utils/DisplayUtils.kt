@@ -1,38 +1,35 @@
 package io.dotlearn.lrnplayer.utils
 
-import android.content.Context
 import android.graphics.Point
-import android.view.WindowManager
 import android.util.DisplayMetrics
+import android.view.WindowManager
 
-object DisplayUtils {
+internal class DisplayUtils(private val windowManager: WindowManager) {
 
-    fun px2dp(context: Context, px: Int): Int {
-        val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        val display = wm.defaultDisplay
+    internal fun px2dp(px: Int): Int {
+        val display = windowManager.defaultDisplay
 
-        val displaymetrics = DisplayMetrics()
-        display.getMetrics(displaymetrics)
+        val displayMetrics = DisplayMetrics()
+        display.getMetrics(displayMetrics)
 
-        return (px / displaymetrics.density + 0.5f).toInt()
+        return (px / displayMetrics.density + 0.5f).toInt()
     }
 
-    private fun getScreenHeight(context: Context): Int {
-        val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+    private fun getScreenHeight(): Int {
         val size = Point()
-        wm.defaultDisplay.getSize(size)
+        windowManager.defaultDisplay.getSize(size)
         return size.y
     }
 
-    fun getUsableScreenHeight(context: Context): Int {
-        var screenHeight = DisplayUtils.px2dp(context, DisplayUtils.getScreenHeight(context))
+    internal fun getUsableScreenHeight(): Int {
+        var screenHeight = px2dp(getScreenHeight())
         screenHeight -= getControlsHeight(screenHeight)
         return screenHeight
     }
 
-    fun getControlsHeight(screenHeight: Int) = (screenHeight * 0.16).toInt()
+    private fun getControlsHeight(screenHeight: Int) = (screenHeight * 0.16).toInt()
 
-    fun calculateHeightBasedOnWidthAndAspectRatio(aspectRatio: Double, width: Int): Int {
+    internal fun calculateHeightBasedOnWidthAndAspectRatio(aspectRatio: Double, width: Int): Int {
         return Math.ceil((width / aspectRatio)).toInt()
     }
 

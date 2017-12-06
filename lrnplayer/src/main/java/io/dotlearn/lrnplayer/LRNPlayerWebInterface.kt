@@ -20,12 +20,13 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView):
     internal var errorListener: OnErrorListener? = null
     internal var metadataLoadedListener: OnMetadataLoadedListener? = null
     internal var fullScreenToggledListener: OnFullScreenToggledListener? = null
+    internal var getCurrentPositionListener: OnGetCurrentPositionListener? = null
     // endregion
 
     @JavascriptInterface
     override fun onGetPosition(position: Long) {
         log(debug, "onGetPosition($position)")
-        // TODO add implementation
+        getCurrentPositionListener?.onCurrentPlaybackPositionGotten(lrnPlayerView, position)
     }
 
     @JavascriptInterface

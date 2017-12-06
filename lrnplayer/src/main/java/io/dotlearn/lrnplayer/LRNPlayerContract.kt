@@ -14,6 +14,7 @@ internal interface LRNPlayerContract {
         fun setOnErrorListener(errorListener: OnErrorListener)
         fun setOnMetadataLoadedListener(metadataLoadedListener: OnMetadataLoadedListener)
         fun setOnFullScreenToggledListener(fullScreenToggledListener: OnFullScreenToggledListener)
+        fun setOnGetCurrentPositionListener(getCurrentPositionListener: OnGetCurrentPositionListener)
 
         fun start()
         fun pause()

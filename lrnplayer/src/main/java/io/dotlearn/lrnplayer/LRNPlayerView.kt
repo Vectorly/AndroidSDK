@@ -4,8 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.support.v4.view.ViewCompat
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
+import android.view.WindowManager
 import android.webkit.ConsoleMessage
 import android.webkit.WebChromeClient
 import android.webkit.WebView
@@ -13,8 +13,10 @@ import android.webkit.WebViewClient
 import android.widget.FrameLayout
 import io.dotlearn.lrnplayer.error.LRNPlayerException
 import io.dotlearn.lrnplayer.error.LRNPlayerNotPreparedException
+import io.dotlearn.lrnplayer.error.LRNPlayerOfflineException
 import io.dotlearn.lrnplayer.listener.*
 import io.dotlearn.lrnplayer.utils.DisplayUtils
+import io.dotlearn.lrnplayer.utils.WirelessUtils
 
 /**
  * A custom view that plays vectorized videos
@@ -26,6 +28,7 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
     private lateinit var containerView: FrameLayout
     // endregion
 
+    private lateinit var displayUtils: DisplayUtils
     private var isPrepared = false
     private var isWebViewLoaded = false
     private var prepareRequest: PrepareRequest? = null
@@ -50,6 +53,8 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
         containerView = layoutView.findViewById(R.id.lrn_container)
         webView = layoutView.findViewById(R.id.lrn_web_view)
 
+        val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        displayUtils = DisplayUtils(windowManager)
         webInterface = LRNPlayerWebInterface(this)
 
         val webSettings = webView.settings
@@ -116,9 +121,9 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
     }
 
     private fun calculateWidthAndHeight(): Pair<Int, Int> {
-        val videoWidth = DisplayUtils.px2dp(context, width)
-        val usableScreenHeight = DisplayUtils.getUsableScreenHeight(context)
-        var videoHeight = DisplayUtils.calculateHeightBasedOnWidthAndAspectRatio(1.77777778,
+        val videoWidth = displayUtils.px2dp(width)
+        val usableScreenHeight = displayUtils.getUsableScreenHeight()
+        var videoHeight = displayUtils.calculateHeightBasedOnWidthAndAspectRatio(1.77777778,
                 videoWidth)
 
         if (videoHeight > usableScreenHeight) {
@@ -131,11 +136,16 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
     private fun loadVideo(prepareRequest: PrepareRequest, videoWidth: Int, videoHeight: Int) {
         isPrepared = false
 
-        val stringToLoad = """javascript:prepare(
+        if(WirelessUtils.isConnected(context)) {
+            val stringToLoad = """javascript:prepare(
                         "${prepareRequest.accessToken}", "${prepareRequest.videoId}",
                         ${prepareRequest.autoStart}, $videoWidth, $videoHeight);"""
-        webInterface.log(stringToLoad)
-        webView.loadUrl(stringToLoad)
+            webInterface.log(stringToLoad)
+            webView.loadUrl(stringToLoad)
+        }
+        else {
+            webInterface.onError(LRNPlayerOfflineException("Cannot prepare video while the device is offline"))
+        }
     }
 
     fun onPrepared() {
@@ -167,6 +177,10 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
 
     override fun setOnErrorListener(errorListener: OnErrorListener) {
         webInterface.errorListener = errorListener
+    }
+
+    override fun setOnGetCurrentPositionListener(getCurrentPositionListener: OnGetCurrentPositionListener) {
+        webInterface.getCurrentPositionListener = getCurrentPositionListener
     }
 
     override fun setOnDownloadListener(downloadProgressListener: OnDownloadProgressListener) {

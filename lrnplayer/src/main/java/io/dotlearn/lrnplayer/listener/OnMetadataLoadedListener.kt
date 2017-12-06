@@ -11,6 +11,7 @@ interface OnMetadataLoadedListener {
     /**
      * Called when the metadata of the vectorized video file is loaded.
      *
+     * @param lrnPlayerView The LRNPlayerView
      * @param metadata The metadata of the vectorized video
      */
     fun onMetadataLoaded(lrnPlayerView: LRNPlayerView, metadata: Metadata)

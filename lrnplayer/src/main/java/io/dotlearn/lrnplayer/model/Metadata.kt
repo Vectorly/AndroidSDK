@@ -1,5 +1,8 @@
 package io.dotlearn.lrnplayer.model
 
+/**
+ * A model class that holds the metadata for a vectorized video file
+ */
 data class Metadata(
 	val thumbnail: String? = null,
 	val defaultSize: String? = null,
