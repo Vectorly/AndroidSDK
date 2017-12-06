@@ -65,7 +65,8 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView):
     @JavascriptInterface
     override fun onDownloadProgress(progress: Float) {
         log(debug, "onDownloadProgress($progress)")
-        lrnPlayerView.post({ lrnPlayerView.post({ downloadProgressListener?.onDownloadProgress(lrnPlayerView, progress) }) })
+        lrnPlayerView.post({ lrnPlayerView.post({ downloadProgressListener?.
+                onDownloadProgress(lrnPlayerView, progress) }) })
     }
 
     @JavascriptInterface

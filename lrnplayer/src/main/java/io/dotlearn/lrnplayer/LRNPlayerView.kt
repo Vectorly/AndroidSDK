@@ -28,11 +28,11 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
     private lateinit var containerView: FrameLayout
     // endregion
 
-    private lateinit var displayUtils: DisplayUtils
     private var isPrepared = false
     private var isWebViewLoaded = false
     private var prepareRequest: PrepareRequest? = null
     private lateinit var webInterface: LRNPlayerWebInterface
+    private lateinit var displayUtils: DisplayUtils
 
     // region View Init
     constructor(context:Context) : super(context) {
@@ -47,16 +47,22 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
         init(attrs, defStyle)
     }
 
-    @SuppressLint("SetJavaScriptEnabled", "AddJavascriptInterface")
     private fun init(attrs: AttributeSet?, defStyle: Int) {
         val layoutView = LayoutInflater.from(context).inflate(R.layout.layout_lrnplayer, this)
+
         containerView = layoutView.findViewById(R.id.lrn_container)
         webView = layoutView.findViewById(R.id.lrn_web_view)
 
-        val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        displayUtils = DisplayUtils(windowManager)
+        displayUtils = DisplayUtils(getWindowManager())
         webInterface = LRNPlayerWebInterface(this)
 
+        setupWebView()
+    }
+
+    private fun getWindowManager() = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+
+    @SuppressLint("SetJavaScriptEnabled", "AddJavascriptInterface")
+    private fun setupWebView() {
         val webSettings = webView.settings
         webSettings.javaScriptEnabled = true
 
@@ -149,7 +155,6 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
     }
 
     fun onPrepared() {
-        webInterface.log("video don ready o")
         isPrepared = true
     }
 
@@ -221,5 +226,7 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
         return true
     }
     // endregion
+
+    internal class PrepareRequest(val accessToken: String, val videoId: String, val autoStart: Boolean)
 
 }
