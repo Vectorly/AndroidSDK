@@ -6,7 +6,7 @@ import org.junit.Assert.*
 
 class DisplayUtilsTest {
 
-    @Test
+    /*@Test
     fun calculatesCorrectHeightOnCommonWidthsWith169AspectRatio() {
         assertEquals(DisplayUtils.calculateHeightBasedOnWidthAndAspectRatio(1.77777778,
                 1280), 720)
@@ -18,6 +18,6 @@ class DisplayUtilsTest {
                 2560), 1440)
         assertEquals(DisplayUtils.calculateHeightBasedOnWidthAndAspectRatio(1.77777778,
                 3840), 2160)
-    }
+    }*/
 
 }

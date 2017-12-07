@@ -109,20 +109,27 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
         // We need to wait for the View to be laid out before loading the video, so things like
         // get height and width will work.
         if(ViewCompat.isLaidOut(this)) {
+            webInterface.log("View is laid out. Preparing")
             // The view has been laid out, load up the video
             prepare(prepareRequest)
         }
         else {
             // Save the prepare request to be loaded when the View is laid out
+            webInterface.log("View is not laid out. Scheduling video preparation...")
             this.prepareRequest = prepareRequest
         }
     }
 
     private fun prepare(prepareRequest: PrepareRequest?) {
-        if(prepareRequest != null && isWebViewLoaded) {
-            val widthHeightPair = calculateWidthAndHeight()
-            loadVideo(prepareRequest, widthHeightPair.first, widthHeightPair.second)
-            this.prepareRequest = null
+        if(prepareRequest != null) {
+            if(isWebViewLoaded) {
+                val widthHeightPair = calculateWidthAndHeight()
+                loadVideo(prepareRequest, widthHeightPair.first, widthHeightPair.second)
+                this.prepareRequest = null
+            }
+            else {
+                this.prepareRequest = prepareRequest
+            }
         }
     }
 

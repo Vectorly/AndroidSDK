@@ -15,9 +15,8 @@
     <div id="container"></div>
 
     <script type="application/javascript">
-        
         var vectorizedVideo;
-        
+
         var prepare = function(accessToken, videoId, shouldAutoPlay, videoWidth, videoHeight) {
             Android.log("Preparing video");
             Android.log("Access token: " + accessToken);
@@ -49,12 +48,15 @@
 
                 })
                 .onError(function(err) {
+                    Android.log("On error!");
                     Android.onError(err);
                 })
                 .onDownloadProgress(function(progress) {
+                    Android.log("On download progress!");
                     Android.onDownloadProgress(progress)
                 })
                 .onMetaData(function(metaData) {
+                    Android.log("On metadata");
                     Android.onMetadata(JSON.stringify(metaData))
                 });
         }
