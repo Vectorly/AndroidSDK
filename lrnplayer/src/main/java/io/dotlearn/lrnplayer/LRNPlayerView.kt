@@ -166,19 +166,19 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
     }
 
     override fun start() {
-        if(checkIsPrepared()) {
+        if(checkIsPrepared("start()")) {
             webView.loadUrl("javascript:play();")
         }
     }
 
     override fun pause() {
-        if(checkIsPrepared()) {
+        if(checkIsPrepared("pause()")) {
             webView.loadUrl("javascript:pause();")
         }
     }
 
     override fun seekTo(seekPos: Long) {
-        if(checkIsPrepared()) {
+        if(checkIsPrepared("seekTo()")) {
             webView.loadUrl("""javascript:seekTo("$seekPos");""")
         }
     }
@@ -224,9 +224,10 @@ class LRNPlayerView: FrameLayout, LRNPlayerContract.PlayerView {
         webInterface.onError(e)
     }
 
-    private fun checkIsPrepared(): Boolean {
+    private fun checkIsPrepared(actionName: String): Boolean {
         if(!isPrepared) {
-            onError(LRNPlayerNotPreparedException("LRNPlayerView is not prepared. Call prepare before using vectorized video playback"))
+            onError(LRNPlayerNotPreparedException("LRNPlayerView is not prepared. " +
+                    "Ensure that the Player is prepared before calling $actionName"))
             return false
         }
 
