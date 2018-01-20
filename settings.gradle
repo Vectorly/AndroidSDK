@@ -1,1 +1,1 @@
-include ':app', ':lrnplayer'
+include ':app', ':lrnplayer', ':lrncurriculum'
