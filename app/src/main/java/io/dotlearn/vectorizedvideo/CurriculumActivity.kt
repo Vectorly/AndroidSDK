@@ -9,7 +9,7 @@ import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_curriculum.*
 
-import org.dotlearn.lrncurriculum.CuriculumProvider
+import org.dotlearn.lrncurriculum.CurriculumProvider
 import org.dotlearn.lrncurriculum.models.Course
 import org.dotlearn.lrncurriculum.models.Lesson
 import org.dotlearn.lrncurriculum.models.Section
@@ -27,7 +27,7 @@ class CurriculumActivity : AppCompatActivity() {
 
     private fun loadCourses() {
         progressBar.visibility = View.VISIBLE
-        CuriculumProvider.loadCourses(object: CuriculumProvider.CourseCallback {
+        CurriculumProvider.loadCourses(object: CurriculumProvider.CourseCallback {
             override fun onCoursesLoaded(courses: List<Course>) {
                 progressBar.visibility = View.GONE
 
@@ -47,7 +47,7 @@ class CurriculumActivity : AppCompatActivity() {
 
     private fun loadSections(courseId: String) {
         progressBar.visibility = View.VISIBLE
-        CuriculumProvider.loadSections(courseId, object: CuriculumProvider.SectionCallback {
+        CurriculumProvider.loadSections(courseId, object: CurriculumProvider.SectionCallback {
 
             override fun onSectionsLoaded(courseId: String, sections: List<Section>) {
                 progressBar.visibility = View.GONE
@@ -68,7 +68,7 @@ class CurriculumActivity : AppCompatActivity() {
 
     private fun loadLessons(sectionId: String) {
         progressBar.visibility = View.VISIBLE
-        CuriculumProvider.loadLessonsInSections(sectionId, object: CuriculumProvider.SectionLessonCallback {
+        CurriculumProvider.loadLessonsInSections(sectionId, object: CurriculumProvider.SectionLessonCallback {
             override fun onLessonsLoaded(sectionId: String, lessons: List<Lesson>) {
                 progressBar.visibility = View.GONE
 
@@ -88,7 +88,7 @@ class CurriculumActivity : AppCompatActivity() {
 
     private fun loadVideos(lessonId: String) {
         progressBar.visibility = View.VISIBLE
-        CuriculumProvider.loadVideosInLesson(lessonId, object: CuriculumProvider.LessonVideoCallback {
+        CurriculumProvider.loadVideosInLesson(lessonId, object: CurriculumProvider.LessonVideoCallback {
 
             override fun onVideosLoaded(lessonId: String, videos: List<Video>) {
                 progressBar.visibility = View.GONE

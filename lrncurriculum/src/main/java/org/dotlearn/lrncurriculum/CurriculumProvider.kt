@@ -10,7 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 @Suppress("JoinDeclarationAndAssignment")
-object CuriculumProvider {
+object CurriculumProvider {
 
     private val courseCache: LruCache<String, List<Course>>
     private val sectionsCache: LruCache<String, List<Section>>
@@ -103,7 +103,7 @@ object CuriculumProvider {
         }).fetchVideos(courseId)
     }
 
-    fun loadVideosInSection(sectionId: String, callback: CourseVideoCallback) {
+    fun loadVideosInSection(sectionId: String, callback: SectionVideoCallback) {
         SectionVideoFetcher(curriculumService, videosCache, object: SectionVideoFetcher.VideoCallback {
 
             override fun onVideosLoaded(sectionId: String, videos: List<Video>) {
