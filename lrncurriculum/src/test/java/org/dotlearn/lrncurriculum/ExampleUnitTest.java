@@ -1,4 +1,4 @@
-package com.mobymagic.lrncurriculum;
+package org.dotlearn.lrncurriculum;
 
 import org.junit.Test;
 

@@ -1,3 +1,3 @@
-package com.mobymagic.lrncurriculum.models
+package org.dotlearn.lrncurriculum.models
 
 data class Course(val id: String, val name: String)

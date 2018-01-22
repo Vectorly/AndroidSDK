@@ -10,6 +10,8 @@ import io.dotlearn.lrnplayer.model.Metadata
 import io.dotlearn.lrnplayer.utils.FullScreenUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
+const val EXTRA_VIDEO_ID = "EXTRA_VIDEO_ID"
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         setupAllListeners()
         setupPlaybackControls()
 
-        prepareVideo("6f53f874-f2d7-4e54-b96a-a43a26fcd359")
+        prepareVideo(intent.getStringExtra(EXTRA_VIDEO_ID))
     }
 
     private fun setupPlaybackControls() {

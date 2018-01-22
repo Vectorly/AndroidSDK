@@ -1,4 +1,4 @@
-package com.mobymagic.lrncurriculum;
+package org.dotlearn.lrncurriculum;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.mobymagic.lrncurriculum.test", appContext.getPackageName());
+        assertEquals("org.dotlearn.lrncurriculum.test", appContext.getPackageName());
     }
 }
