@@ -39,13 +39,12 @@ you can jump some steps.
 #### Load all available courses
 Use the code below to load a list of all available courses
 ```kotlin
-    CurriculumProvider.loadLessonsInSections(sectionId, object: CurriculumProvider.SectionLessonCallback {
-                
-                override fun onLessonsLoaded(sectionId: String, lessons: List<Lesson>) {
+    CurriculumProvider.loadCourses(object: CurriculumProvider.CourseCallback {
+                override fun onCoursesLoaded(courses: List<Course>) {
                     // The list of available courses was successfully loaded
                 }
     
-                override fun onLessonsLoadFailed(sectionId: String, t: Throwable) {
+                override fun onCoursesLoadFailed(t: Throwable) {
                     // An error occurred while loading courses
                 }
     
