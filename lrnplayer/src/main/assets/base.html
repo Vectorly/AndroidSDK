@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8">
     <title>Video Player</title>
-    <script type="application/javascript" src="lrn.js"></script>
+    <script type="application/javascript" src="vv.js"></script>
 
 </head>
 
@@ -17,49 +17,72 @@
     <script type="application/javascript">
         var vectorizedVideo;
 
-        var prepare = function(accessToken, videoId, shouldAutoPlay, videoWidth, videoHeight) {
-            Android.log("Preparing video");
-            Android.log("Access token: " + accessToken);
-            Android.log("Video Id: " + videoId);
-            Android.log("Should auto play: " + shouldAutoPlay);
+        function base64toBlob(b64Data, contentType, sliceSize) {
+            contentType = contentType || '';
+            sliceSize = sliceSize || 512;
+
+            var byteCharacters = atob(b64Data);
+            var byteArrays = [];
+
+            for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+                var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+                var byteNumbers = new Array(slice.length);
+                for (var i = 0; i < slice.length; i++) {
+                    byteNumbers[i] = slice.charCodeAt(i);
+                }
+
+                var byteArray = new Uint8Array(byteNumbers);
+
+                byteArrays.push(byteArray);
+            }
+
+            var blob = new Blob(byteArrays, {
+                type: contentType
+            });
+            return blob;
+        }
+
+        var loadVideo = function(videoDataBase64Encoded, videoWidth, videoHeight, hideControls, fullscreenEnabled) {
+            Android.log("Loading video");
             Android.log("Video width: " + videoWidth);
             Android.log("Video height: " + videoHeight);
 
-            var options = {
-                autoplay: shouldAutoPlay,
-                width: videoWidth,
-                height: videoHeight
-            };
+            var containerId = "container";
+            var containerElement = document.getElementById(containerId);
+            var videoBlob = base64toBlob(videoDataBase64Encoded);
 
-            lrn.load(accessToken, videoId, 'container', options).then(function(video) {
+            containerElement.style.width = videoWidth + "px";
+            containerElement.style.height = videoHeight + "px";
+
+            vv.load(videoBlob, containerId, {
+                width: videoWidth,
+                height: videoHeight,
+                hideControls: hideControls,
+                fullscreen: fullscreenEnabled,
+                autoplay: false,
+                callback: function(videoInterface) {
                     Android.log("Video prepared!");
-                    vectorizedVideo = video;
+                    vectorizedVideo = videoInterface;
+
+                    containerElement.style.width = videoWidth + "px";
+                    containerElement.style.height = videoHeight + "px";
+
                     Android.onMediaPrepared();
 
-                    video.onEnd(function() {
+                    vectorizedVideo.onEnd(function() {
                         Android.log("On playback completed");
                         Android.onPlaybackCompleted();
                     });
 
-                    video.onFullscreen(function() {
+                    vectorizedVideo.onFullscreen(function() {
                         Android.log("On full screen toggled");
                         Android.onFullScreenToggled();
                     });
 
-                })
-                .onError(function(err) {
-                    Android.log("On error!");
-                    Android.onError(err);
-                })
-                .onDownloadProgress(function(progress) {
-                    Android.log("On download progress!");
-                    Android.onDownloadProgress(progress)
-                })
-                .onMetaData(function(metaData) {
-                    Android.log("On metadata");
-                    Android.onMetadata(JSON.stringify(metaData))
-                });
-        }
+                }
+            });
+        };
 
         var play = function() {
             if (typeof vectorizedVideo !== 'undefined') {

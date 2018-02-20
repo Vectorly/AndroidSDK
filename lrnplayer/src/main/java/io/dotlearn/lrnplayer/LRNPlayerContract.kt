@@ -2,13 +2,13 @@ package io.dotlearn.lrnplayer
 
 import io.dotlearn.lrnplayer.error.LRNPlayerException
 import io.dotlearn.lrnplayer.listener.*
+import io.dotlearn.lrnplayer.loader.model.VideoMetadata
 
 internal interface LRNPlayerContract {
 
     interface PlayerView {
 
-        fun prepare(accessToken: String, videoId: String, autoStart: Boolean,
-                    onPrepareListener: OnPreparedListener)
+        fun prepare(accessToken: String, videoId: String, onPrepareListener: OnPreparedListener)
         fun setOnDownloadListener(downloadProgressListener: OnDownloadProgressListener)
         fun setOnCompletionListener(completionListener: OnPlaybackCompletionListener)
         fun setOnErrorListener(errorListener: OnErrorListener)
@@ -21,19 +21,23 @@ internal interface LRNPlayerContract {
         fun seekTo(seekPos: Long)
 
         fun release()
+
+        fun showError(errorMsg: String)
+        fun showDownloadProgress(downloadPercentage: Int)
+
     }
 
     interface PlayerWebInterface {
 
         fun onMediaPrepared()
-        fun onMetadata(metaData: String)
+        fun onMetadata(videoMetadata: VideoMetadata)
         fun onError(errorMsg: String)
         fun onError(e: LRNPlayerException)
-        fun onDownloadProgress(progress: Float)
+        fun onDownloadProgress(bytesTransferred: Long, totalBytes: Long)
         fun onGetPosition(position: Long)
         fun onPlaybackCompleted()
         fun onFullScreenToggled()
-        fun log(format: String)
+        fun log(message: String)
 
     }
 

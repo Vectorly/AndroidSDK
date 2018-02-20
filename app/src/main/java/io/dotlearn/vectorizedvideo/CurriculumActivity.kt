@@ -3,17 +3,14 @@ package io.dotlearn.vectorizedvideo
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.AsyncTask
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_curriculum.*
-
 import org.dotlearn.lrncurriculum.CurriculumProvider
-import org.dotlearn.lrncurriculum.CurriculumSync
 import org.dotlearn.lrncurriculum.models.Course
 import org.dotlearn.lrncurriculum.models.Lesson
 import org.dotlearn.lrncurriculum.models.Section

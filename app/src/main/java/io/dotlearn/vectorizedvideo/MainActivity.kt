@@ -6,6 +6,7 @@ import android.widget.SeekBar
 import io.dotlearn.lrnplayer.LRNPlayerView
 import io.dotlearn.lrnplayer.error.LRNPlayerException
 import io.dotlearn.lrnplayer.listener.*
+import io.dotlearn.lrnplayer.loader.model.VideoMetadata
 import io.dotlearn.lrnplayer.model.Metadata
 import io.dotlearn.lrnplayer.utils.FullScreenUtils
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,8 +18,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        lrnPlayerView.debug(BuildConfig.DEBUG) // Only log when on a debug build
 
         setupAllListeners()
         setupPlaybackControls()
@@ -53,7 +52,7 @@ class MainActivity : AppCompatActivity() {
     private fun prepareVideo(videoId: String) {
         val token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfaWQiOiJkb3RsZWFybl9pbyIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJzYW5kYm94Ijp0cnVlLCJ0b2tlbl9pZCI6IjlhM2QwODMwLWE5NTMtNGE0Yi1iOWY5LTI3ZjZlODg4ODdmZCJ9.lMRw8ELT5unXc6BxYFQqv2g5Ysg9jWW48zy2WiFwcoo"
 
-        lrnPlayerView.prepare(token, videoId, true, object: OnPreparedListener {
+        lrnPlayerView.prepare(token, videoId, object: OnPreparedListener {
 
             override fun onPrepared(lrnPlayerView: LRNPlayerView) {
                 videoStatusTextView.text = "Video prepared"
@@ -73,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
         lrnPlayerView.setOnMetadataLoadedListener(object: OnMetadataLoadedListener {
 
-            override fun onMetadataLoaded(lrnPlayerView: LRNPlayerView, metadata: Metadata) {
+            override fun onMetadataLoaded(lrnPlayerView: LRNPlayerView, metadata: VideoMetadata) {
                 videoStatusTextView.text = "Metadata: " + metadata.toString()
                 videoTitleTextView.text = metadata.name
                 videoDescriptionTextView.text = metadata.description
@@ -83,7 +82,7 @@ class MainActivity : AppCompatActivity() {
 
         lrnPlayerView.setOnDownloadListener(object: OnDownloadProgressListener {
 
-            override fun onDownloadProgress(lrnPlayerView: LRNPlayerView, progressPercent: Float) {
+            override fun onDownloadProgress(lrnPlayerView: LRNPlayerView, progressPercent: Int) {
                 videoStatusTextView.text = "Downloaded: " + progressPercent + "%"
             }
 

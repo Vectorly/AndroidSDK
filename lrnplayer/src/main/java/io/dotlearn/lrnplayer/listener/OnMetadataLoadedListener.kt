@@ -1,6 +1,7 @@
 package io.dotlearn.lrnplayer.listener
 
 import io.dotlearn.lrnplayer.LRNPlayerView
+import io.dotlearn.lrnplayer.loader.model.VideoMetadata
 import io.dotlearn.lrnplayer.model.Metadata
 
 /**
@@ -14,6 +15,6 @@ interface OnMetadataLoadedListener {
      * @param lrnPlayerView The LRNPlayerView
      * @param metadata The metadata of the vectorized video
      */
-    fun onMetadataLoaded(lrnPlayerView: LRNPlayerView, metadata: Metadata)
+    fun onMetadataLoaded(lrnPlayerView: LRNPlayerView, metadata: VideoMetadata)
 
 }
