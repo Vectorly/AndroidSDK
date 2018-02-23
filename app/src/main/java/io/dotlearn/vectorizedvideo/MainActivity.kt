@@ -7,7 +7,6 @@ import io.dotlearn.lrnplayer.LRNPlayerView
 import io.dotlearn.lrnplayer.error.LRNPlayerException
 import io.dotlearn.lrnplayer.listener.*
 import io.dotlearn.lrnplayer.loader.model.VideoMetadata
-import io.dotlearn.lrnplayer.model.Metadata
 import io.dotlearn.lrnplayer.utils.FullScreenUtils
 import kotlinx.android.synthetic.main.activity_main.*
 

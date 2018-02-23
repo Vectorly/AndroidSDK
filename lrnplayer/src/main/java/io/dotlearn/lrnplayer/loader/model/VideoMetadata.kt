@@ -2,7 +2,7 @@ package io.dotlearn.lrnplayer.loader.model
 
 import com.google.gson.annotations.SerializedName
 
-internal data class VideoMetadata(
+data class VideoMetadata(
         @SerializedName("_id")
         val id: String,
         @SerializedName("__v")

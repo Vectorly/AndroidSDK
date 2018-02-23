@@ -1,3 +1,3 @@
 package io.dotlearn.lrnplayer.loader.model
 
-internal data class VideoDataRequest(val access_token: String, val video_id: String)
+data class VideoDataRequest(val access_token: String, val video_id: String)
