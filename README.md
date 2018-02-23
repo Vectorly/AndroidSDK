@@ -24,7 +24,11 @@ The layout for your player Activity can be very simple. You only need a LRNPlaye
 
 #### Basic Code Setup
 
-Playing a video with the View is very simple. You just need to pass an `aceesToken`, `videoId`, `autoStart` flag and an `OnPreparedListener` that gets notified when the video is ready.
+Playing a video with the View is very simple. You just need to pass an `aceesToken`, `videoId` and an `OnPreparedListener` that gets notified when the video is ready.
+
+<b>Required:</b> Your app must have the `WRITE_EXTERNAL_STORAGE` permission in your `AndroidManifest.xml` file.
+If you target Android 6.0 (Marshmallow) and above, also ensure that the user has granted this permission at [runtime](https://developer.android.com/training/permissions/requesting.html)
+
 ```kotlin
     val accessToken = "accessToken"
     val videoId = "videoId"
