@@ -1,5 +1,6 @@
 package io.dotlearn.lrnplayer.loader.di
 
+import io.dotlearn.lrnplayer.BuildConfig
 import io.dotlearn.lrnplayer.loader.FileUtils
 import io.dotlearn.lrnplayer.loader.download.Downloader
 import io.dotlearn.lrnplayer.loader.videodata.BASE_URL
@@ -34,7 +35,7 @@ internal object Injector {
     private fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
 
-        if (Logger.LOG_ENABLED) {
+        if (BuildConfig.DEBUG) {
             httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         }
         else {

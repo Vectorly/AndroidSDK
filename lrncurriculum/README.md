@@ -6,7 +6,7 @@ The Gradle dependency is available via jCenter. jCenter is the default Maven rep
 
 Add this in your (app) module's `build.gradle` file:
 ```groovy
-    implementation 'io.dotlearn.lrncurriculum:1.0.0'
+    implementation 'io.dotlearn.lrncurriculum:1.2.2'
 ```
 
 ## Basic Tutorial
@@ -33,69 +33,66 @@ Usually, you will follow the steps below when using this library:
 4. When a lesson is clicked, load all the videos in the lesson
 5. When a video is clicked, play the selected video using the `LRNPlayerView`
 
-The flow for your app can be different from this. As you will see at the bottom of the documentation,
-you can jump some steps.
+#### Initializing
+
+Before making any calls to the library, ensure that you have called the `init` function (preferably
+in your Application class `onCreate` method):
+
+```kotlin
+    CurriculumProvider.init(context)
+```
+
+You can safely call the `init` function on the main UI thread, as it doesn't block.
+All other functions from the CurriculumProvider class are synchronous and they block until the task is
+completed. You will have to call them from a different thread to avoid the `NetworkOnMainThreadException`
 
 #### Load all available courses
 Use the code below to load a list of all available courses
 ```kotlin
-    CurriculumProvider.loadCourses(object: CurriculumProvider.CourseCallback {
-                override fun onCoursesLoaded(courses: List<Course>) {
-                    // The list of available courses was successfully loaded
-                }
-    
-                override fun onCoursesLoadFailed(t: Throwable) {
-                    // An error occurred while loading courses
-                }
-    
-            })
+    try {
+        val courses = CurriculumProvider.getCourses()
+    }
+    catch (e: Exception) {
+        e.printStackTrace()
+        // An error occurred connecting to the server or loading the local curriculum
+    }
 ```
+
 
 #### Load sections in a course
 Use the code below to load all sections in a course
 ```kotlin
-    CurriculumProvider.loadSections(courseId, object: CurriculumProvider.SectionCallback {
-    
-                override fun onSectionsLoaded(courseId: String, sections: List<Section>) {
-                    // The list of sections under the specified course was loaded successfully
-                }
-    
-                override fun onSectionsLoadFailed(courseId: String, t: Throwable) {
-                    // An error occurred while loading sections
-                }
-    
-            })
+    try {
+        val sections = CurriculumProvider.getSections(courseId)
+    }
+    catch (e: Exception) {
+        e.printStackTrace()
+        // An error occurred connecting to the server or loading the local curriculum
+    }
 ```
 
 #### Load lessons in a section
 To load all the lessons in a section, use the code below
 ```kotlin
-CurriculumProvider.loadLessonsInSections(sectionId, object: CurriculumProvider.SectionLessonCallback {
-            override fun onLessonsLoaded(sectionId: String, lessons: List<Lesson>) {
-                // The list of lessons under the provided section was loaded successfully
-            }
-
-            override fun onLessonsLoadFailed(sectionId: String, t: Throwable) {
-                // An error occurred while loading lessons
-            }
-
-        })
+    try {
+        val lessons = CurriculumProvider.getLessons(sectionId)
+    }
+    catch (e: Exception) {
+        e.printStackTrace()
+        // An error occurred connecting to the server or loading the local curriculum
+    }
 ```
 
 #### Load videos in a lesson
 Finally, to load all the videos in a lesson, use the code below
 ```kotlin
-CurriculumProvider.loadVideosInLesson(lessonId, object: CurriculumProvider.LessonVideoCallback {
-
-            override fun onVideosLoaded(lessonId: String, videos: List<Video>) {
-                // The list of videos in the specified lesson has loaded successfully
-            }
-
-            override fun onVideosLoadFailed(lessonId: String, t: Throwable) {
-                // An error occurred while loading videos
-            }
-
-        })
+    try {
+        val videos = CurriculumProvider.getVideos(sectionId)
+    }
+    catch (e: Exception) {
+        e.printStackTrace()
+        // An error occurred connecting to the server or loading the local curriculum
+    }
 ```
 
 #### Additional functionality
@@ -105,64 +102,29 @@ allows you to jump a few steps down the tree.
 #### 1. Search for videos with a specific name
 You can easily search for videos in a particular course using the code below
 ```kotlin
-CurriculumProvider.searchForVideos(searchQuery, courseId, object: CurriculumProvider.SearchVideoCallback {
-
-            override fun onVideosLoaded(searchQuery: String, courseId: String, videos: List<Video>) {
-                // Successfully loaded videos containing the specified name
-            }
-
-            override fun onVideosLoadFailed(searchQuery: String, courseId: String, t: Throwable) {
-                // Error loading videos
-            }
-
-        })
+    try {
+        val videos = CurriculumProvider.searchVideos(searchQuery, courseId)
+    }
+    catch (e: Exception) {
+        e.printStackTrace()
+        // An error occurred connecting to the server or loading the local curriculum
+    }
 ```
 
-#### 2. Get all lessons in a course
-You can skip the sections and load all the lessons in a course using the code below
+When you make a request for a particular item for the first time a request is made to the server
+to download the item. Subsequent request for that item will be served from a local database.
+This local database can get stale over time and you might want to have a `Service` that runs
+periodically (like every x days) to update the local database. We created a helper class called
+`CurriculumSync` that you can use in your background service to update the local database.
+
+`CurriculumSync` provides two helper functions:
 ```kotlin
-CurriculumProvider.loadLessonsInCourse(courseId, object: CurriculumProvider.CourseLessonCallback {
-            override fun onLessonsLoaded(courseId: String, lessons: List<Lesson>) {
-                //
-            }
-
-            override fun onLessonsLoadFailed(courseId: String, t: Throwable) {
-                //
-            }
-
-        })
-```
-
-#### 3. Get all videos in a course
-You can load all videos in a course without going through sections and lessons.
-```kotlin
-CurriculumProvider.loadVideosInCourse(courseId, object: CurriculumProvider.CourseVideoCallback {
-
-            override fun onVideosLoaded(courseId: String, videos: List<Video>) {
-                //
-            }
-
-            override fun onVideosLoadFailed(courseId: String, t: Throwable) {
-                //
-            }
-
-        })
-```
-
-#### 4. Get all videos in a section
-And you can load all videos in a section without going through lessons
-```kotlin
-CurriculumProvider.loadVideosInSection(sectionId, object: CurriculumProvider.SectionVideoCallback {
-
-            override fun onVideosLoaded(sectionId: String, videos: List<Video>) {
-                //
-            }
-
-            override fun onVideosLoadFailed(sectionId: String, t: Throwable) {
-                //
-            }
-
-        })
+    // This updates all the courses, sections and lessons in the local database. It is faster
+    CurriculumSync.shallowSyncAll()
+    
+    // This updates all the courses, sections, lessons and modules in the local database. It is
+    // quite slower
+    CurriculumSync.deepSyncAll()
 ```
 
 That's all. You can see all this in action in the `CurriculumActivity` in the sample project in

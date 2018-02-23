@@ -7,7 +7,6 @@ import io.dotlearn.lrnplayer.loader.model.VideoMetadata
 import io.dotlearn.lrnplayer.utils.Logger
 import io.paperdb.Paper
 import org.encryptor4j.Encryptor
-import org.encryptor4j.factory.KeyFactory
 import java.io.File
 import java.io.FileInputStream
 import java.io.IOException
@@ -36,6 +35,10 @@ internal object VideoDb {
     }
 
     internal fun exist(accessToken: String, videoId: String): Boolean {
+        return doesVideoExist(accessToken, videoId)
+    }
+
+    private fun doesVideoExist(accessToken: String, videoId: String): Boolean {
         return getFile(accessToken, videoId).exists() && getMetadata(accessToken, videoId) != null
     }
 
@@ -48,10 +51,14 @@ internal object VideoDb {
             AsyncTask<Void, Void, VideoLoadResponse>() {
 
         override fun doInBackground(vararg params: Void?): VideoLoadResponse? {
+            return dInBackground()
+        }
+
+        private fun dInBackground(): VideoLoadResponse? {
             Logger.d("Loading vectorized video file in the background")
             return try {
-                val secretKey = ioUtils.getSecretKey(key)
-                val encryptor = Encryptor(secretKey, "AES/CTR/NoPadding", 16)
+                val k = ioUtils.getThing(key)
+                val encryptor = Encryptor(k, "AES/CTR/NoPadding", 16)
 
                 val videoFile = fileUtils.getVideoFile(accessToken, videoId)
                 val fis = encryptor.wrapInputStream(FileInputStream(videoFile))

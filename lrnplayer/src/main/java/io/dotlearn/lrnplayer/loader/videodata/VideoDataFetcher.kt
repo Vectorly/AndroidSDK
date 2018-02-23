@@ -11,6 +11,10 @@ import retrofit2.Response
 internal class VideoDataFetcher(private val videoService: VideoService) {
 
     internal fun fetch(accessToken: String, videoId: String, callback: VideoDataFetchCallback) {
+        fetchData(accessToken, videoId, callback)
+    }
+
+    private fun fetchData(accessToken: String, videoId: String, callback: VideoDataFetchCallback) {
         Logger.d("Fetching video data. AccessToken: $accessToken. VideoId: $videoId")
         videoService.serveVideo(VideoDataRequest(accessToken, videoId))
                 .enqueue(object: Callback<VideoDataResponse> {

@@ -1,15 +1,12 @@
 package io.dotlearn.lrnplayer.loader.download
 
 import android.os.AsyncTask
-import android.util.Base64
 import io.dotlearn.lrnplayer.utils.IoUtils
 import io.dotlearn.lrnplayer.utils.Logger
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.encryptor4j.Encryptor
-import org.encryptor4j.factory.KeyFactory
 import java.io.*
-import javax.crypto.spec.SecretKeySpec
 
 
 internal class Downloader(private val okHttpClient: OkHttpClient,
@@ -18,6 +15,11 @@ internal class Downloader(private val okHttpClient: OkHttpClient,
     private val tasks: HashMap<String, DownloadTask> = HashMap()
 
     internal fun download(downloadUrl: String, destFile: File, downloadTag: String, key: String,
+                          callback: DownloadCallback) {
+        downloadVideo(downloadUrl, destFile, downloadTag, key, callback)
+    }
+
+    private fun downloadVideo(downloadUrl: String, destFile: File, downloadTag: String, key: String,
                           callback: DownloadCallback) {
         Logger.d("Download url: $downloadUrl. DestFile: ${destFile.absolutePath}. Tag: $downloadTag")
         val downloadRequest = DownloadRequest(downloadUrl, destFile, downloadTag, key)
@@ -54,13 +56,17 @@ internal class Downloader(private val okHttpClient: OkHttpClient,
         }
 
         override fun doInBackground(vararg params: Void): Exception? {
+            return dInBackground()
+        }
+
+        private fun dInBackground(): Exception? {
             Logger.d("Downloading in the background")
 
             var inputStream: InputStream? = null
             var outputStream: OutputStream? = null
 
             try {
-                val secretKey = ioUtils.getSecretKey(downloadRequest.key)
+                val secretKey = ioUtils.getThing(downloadRequest.key)
                 val encryptor = Encryptor(secretKey, "AES/CTR/NoPadding", 16)
 
                 val request = Request.Builder().url(downloadRequest.downloadUrl).build()
@@ -112,7 +118,7 @@ internal class Downloader(private val okHttpClient: OkHttpClient,
         }
     }
 
-    interface DownloadCallback {
+    internal interface DownloadCallback {
 
         fun onDownloadStarted(downloadTag: String)
         fun onDownloadProgressUpdate(downloadTag: String, bytesTransferred: Long, totalBytes: Long)

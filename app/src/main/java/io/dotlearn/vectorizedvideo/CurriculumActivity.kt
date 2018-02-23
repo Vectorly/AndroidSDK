@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_curriculum.*
 import org.dotlearn.lrncurriculum.CurriculumProvider
+import org.dotlearn.lrncurriculum.CurriculumSync
 import org.dotlearn.lrncurriculum.models.Course
 import org.dotlearn.lrncurriculum.models.Lesson
 import org.dotlearn.lrncurriculum.models.Section

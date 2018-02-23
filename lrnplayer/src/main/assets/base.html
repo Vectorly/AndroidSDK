@@ -44,16 +44,20 @@
         }
 
         var loadVideo = function(videoDataBase64Encoded, videoWidth, videoHeight, hideControls, fullscreenEnabled) {
+            videoHeight = Number(videoHeight) || 450;
+            videoWidth = Number(videoWidth) || 800;
+
+            var containerId = "container";
+            var containerElement = document.getElementById(containerId);
+
+            containerElement.style.width = videoWidth + "px";
+            containerElement.style.height = videoHeight + "px";
+
             Android.log("Loading video");
             Android.log("Video width: " + videoWidth);
             Android.log("Video height: " + videoHeight);
 
-            var containerId = "container";
-            var containerElement = document.getElementById(containerId);
             var videoBlob = base64toBlob(videoDataBase64Encoded);
-
-            containerElement.style.width = videoWidth + "px";
-            containerElement.style.height = videoHeight + "px";
 
             vv.load(videoBlob, containerId, {
                 width: videoWidth,
@@ -65,9 +69,8 @@
                     Android.log("Video prepared!");
                     vectorizedVideo = videoInterface;
 
-                    containerElement.style.width = videoWidth + "px";
-                    containerElement.style.height = videoHeight + "px";
-
+                    containerElement.style.top = videoHeight/2 + "px";
+                 
                     Android.onMediaPrepared();
 
                     vectorizedVideo.onEnd(function() {

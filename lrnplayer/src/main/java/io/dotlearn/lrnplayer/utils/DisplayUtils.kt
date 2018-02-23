@@ -27,7 +27,7 @@ internal class DisplayUtils(private val windowManager: WindowManager) {
         return screenHeight
     }
 
-    private fun getControlsHeight(screenHeight: Int) = (screenHeight * 0.16).toInt()
+    private fun getControlsHeight(screenHeight: Int) = (screenHeight * 0.18).toInt()
 
     internal fun calculateHeightBasedOnWidthAndAspectRatio(aspectRatio: Double, width: Int): Int {
         return Math.ceil((width / aspectRatio)).toInt()

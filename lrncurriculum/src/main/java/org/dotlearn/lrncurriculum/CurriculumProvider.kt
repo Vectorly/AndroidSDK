@@ -6,10 +6,7 @@ import org.dotlearn.lrncurriculum.data.local.CourseDb
 import org.dotlearn.lrncurriculum.data.local.LessonDb
 import org.dotlearn.lrncurriculum.data.local.SectionDb
 import org.dotlearn.lrncurriculum.data.local.VideoDb
-import org.dotlearn.lrncurriculum.data.remote.CourseLoader
-import org.dotlearn.lrncurriculum.data.remote.LessonLoader
-import org.dotlearn.lrncurriculum.data.remote.SectionLoader
-import org.dotlearn.lrncurriculum.data.remote.VideoLoader
+import org.dotlearn.lrncurriculum.data.remote.*
 import org.dotlearn.lrncurriculum.di.Injector
 import org.dotlearn.lrncurriculum.models.Course
 import org.dotlearn.lrncurriculum.models.Lesson
@@ -27,8 +24,13 @@ object CurriculumProvider {
     private lateinit var lessonLoader: LessonLoader
     private lateinit var videoDb: VideoDb
     private lateinit var videoLoader: VideoLoader
+    private lateinit var searchLoader: SearchLoader
 
     fun init(context: Context) {
+        initialize(context)
+    }
+
+    private fun initialize(context: Context) {
         Paper.init(context)
 
         courseDb = Injector.provideCourseDb()
@@ -40,9 +42,14 @@ object CurriculumProvider {
         sectionLoader = Injector.provideSectionLoader()
         lessonLoader = Injector.provideLessonLoader()
         videoLoader = Injector.provideVideoLoader()
+        searchLoader = Injector.provideSearchLoader()
     }
 
     fun getCourses(): List<Course> {
+        return getAllCourses()
+    }
+
+    private fun getAllCourses(): List<Course> {
         val localCourses = courseDb.getCourses()
 
         return if(localCourses == null) {
@@ -57,6 +64,10 @@ object CurriculumProvider {
     }
 
     fun getSections(courseId: String): List<Section> {
+        return getSectionsInCourse(courseId)
+    }
+
+    private fun getSectionsInCourse(courseId: String): List<Section> {
         val localSections = sectionDb.getSections(courseId)
 
         return if(localSections == null) {
@@ -71,6 +82,10 @@ object CurriculumProvider {
     }
 
     fun getLessons(sectionId: String): List<Lesson> {
+        return getLessonsInSection(sectionId)
+    }
+
+    private fun getLessonsInSection(sectionId: String): List<Lesson> {
         val localLessons = lessonDb.getLessons(sectionId)
 
         return if(localLessons == null) {
@@ -85,6 +100,10 @@ object CurriculumProvider {
     }
 
     fun getVideos(lessonId: String): List<Video> {
+        return getVideosInLesson(lessonId)
+    }
+
+    private fun getVideosInLesson(lessonId: String): List<Video> {
         val localVideos = videoDb.getVideos(lessonId)
 
         return if(localVideos == null) {
@@ -96,6 +115,10 @@ object CurriculumProvider {
         else {
             localVideos
         }
+    }
+
+    fun searchVideos(searchTerm: String, courseId: String): List<Video> {
+        return searchLoader.loadVideosWithName(searchTerm, courseId)
     }
 
 }

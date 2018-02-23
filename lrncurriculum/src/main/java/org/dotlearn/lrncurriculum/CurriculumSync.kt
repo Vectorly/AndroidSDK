@@ -38,7 +38,16 @@ object CurriculumSync {
         videoLoader = Injector.provideVideoLoader()
     }
     
-    private fun syncAll() {
+    fun shallowSyncAll(): HashSet<String> {
+        return syncCoursesSectionsAndLessons()
+    }
+
+    fun deepSyncAll() {
+        return syncVideos()
+    }
+
+    private fun syncCoursesSectionsAndLessons(): HashSet<String> {
+        val lessonIdSet = HashSet<String>()
         val courses = syncCourses()
 
         for(course in courses) {
@@ -48,34 +57,44 @@ object CurriculumSync {
                 val lessons = syncLessons(section.id)
 
                 for(lesson in lessons) {
-                    syncVideos(lesson.id)
+                    lessonIdSet.add(lesson.id)
                 }
             }
         }
+
+        return lessonIdSet
     }
 
-    fun syncCourses(): List<Course> {
+    private fun syncVideos() {
+        val lessonIdSet = shallowSyncAll()
+
+        for(lessonId in lessonIdSet) {
+            syncVideos(lessonId)
+        }
+    }
+
+    private fun syncCourses(): List<Course> {
         val remoteCourses = courseLoader.loadAllCourses()
         courseDb.saveCourses(remoteCourses)
 
         return remoteCourses
     }
     
-    fun syncSections(courseId: String): List<Section> {
+    private fun syncSections(courseId: String): List<Section> {
         val remoteSections = sectionLoader.loadSectionsInCourse(courseId)
         sectionDb.saveSections(courseId, remoteSections)
 
         return remoteSections
     }
     
-    fun syncLessons(sectionId: String): List<Lesson> {
+    private fun syncLessons(sectionId: String): List<Lesson> {
         val remoteLessons = lessonLoader.loadLessonInSection(sectionId)
         lessonDb.saveLessons(sectionId, remoteLessons)
 
         return remoteLessons
     }
     
-    fun syncVideos(lessonId: String): List<Video> {
+    private fun syncVideos(lessonId: String): List<Video> {
         val remoteVideos = videoLoader.loadVideosInLesson(lessonId)
         videoDb.saveVideos(lessonId, remoteVideos)
 

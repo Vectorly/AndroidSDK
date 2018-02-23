@@ -9,10 +9,8 @@ import org.dotlearn.lrncurriculum.data.local.CourseDb
 import org.dotlearn.lrncurriculum.data.local.LessonDb
 import org.dotlearn.lrncurriculum.data.local.SectionDb
 import org.dotlearn.lrncurriculum.data.local.VideoDb
-import org.dotlearn.lrncurriculum.data.remote.CourseLoader
-import org.dotlearn.lrncurriculum.data.remote.LessonLoader
-import org.dotlearn.lrncurriculum.data.remote.SectionLoader
-import org.dotlearn.lrncurriculum.data.remote.VideoLoader
+import org.dotlearn.lrncurriculum.data.remote.*
+import org.dotlearn.lrncurriculum.utils.IoUtils
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -31,7 +29,8 @@ internal object Injector {
 
         if (BuildConfig.DEBUG) {
             httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-        } else {
+        }
+        else {
             httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.NONE
         }
 
@@ -46,7 +45,7 @@ internal object Injector {
                 .build()
     }
 
-    internal fun provideCurriculumService(): CurriculumService {
+    private fun provideCurriculumService(): CurriculumService {
         if(!::curriculumService.isInitialized) {
             curriculumService = provideRetrofit().create(CurriculumService::class.java)
         }
@@ -85,5 +84,11 @@ internal object Injector {
     internal fun provideVideoLoader(): VideoLoader {
         return VideoLoader(provideCurriculumService())
     }
+
+    internal fun provideSearchLoader(): SearchLoader {
+        return SearchLoader(provideCurriculumService())
+    }
+
+    internal fun provideIoUtils() = IoUtils()
 
 }

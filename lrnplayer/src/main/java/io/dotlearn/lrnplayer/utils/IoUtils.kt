@@ -14,7 +14,7 @@ import javax.crypto.spec.SecretKeySpec
 class IoUtils {
 
     @Throws(IOException::class)
-    fun toByteArray(`is`: InputStream): ByteArray {
+    internal fun toByteArray(`is`: InputStream): ByteArray {
         val buffer = ByteArrayOutputStream()
 
         var nRead = -1
@@ -29,7 +29,7 @@ class IoUtils {
         return buffer.toByteArray()
     }
 
-    fun closeQuietly(closeable: Closeable?) {
+    internal fun closeQuietly(closeable: Closeable?) {
         try {
             closeable?.close()
         } catch (e: IOException) {
@@ -38,9 +38,15 @@ class IoUtils {
 
     }
 
-    fun getSecretKey(key: String): Key {
-        val encodedKey = Base64.decode(md5(key), Base64.DEFAULT)
-        return SecretKeySpec(encodedKey, 0, encodedKey.size, "AES")
+    // getThing == getSecretKey. k = Key
+
+    internal fun getThing(k: String): Key {
+        return getThings(k)
+    }
+
+    private fun getThings(k: String): Key {
+        val encodedKey = Base64.decode(md5(k), Base64.DEFAULT)
+        return SecretKeySpec(encodedKey, 0, encodedKey.size, "DAES".substring(1))
     }
 
     private fun md5(s: String): String {

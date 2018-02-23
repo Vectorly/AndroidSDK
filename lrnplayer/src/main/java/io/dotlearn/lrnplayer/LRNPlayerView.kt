@@ -12,21 +12,18 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.FrameLayout
-import android.widget.ProgressBar
 import android.widget.TextView
 import io.dotlearn.lrnplayer.error.LRNPlayerException
 import io.dotlearn.lrnplayer.error.LRNPlayerNotPreparedException
-import io.dotlearn.lrnplayer.error.LRNPlayerOfflineException
 import io.dotlearn.lrnplayer.listener.*
 import io.dotlearn.lrnplayer.loader.VideoLoader
 import io.dotlearn.lrnplayer.loader.model.VideoMetadata
 import io.dotlearn.lrnplayer.utils.DisplayUtils
-import io.dotlearn.lrnplayer.utils.WirelessUtils
 
 /**
  * A custom view that plays vectorized videos
  */
-class LRNPlayerView : FrameLayout, LRNPlayerContract.PlayerView {
+class LRNPlayerView : FrameLayout {
 
     // region View Variables
     private lateinit var webView: WebView
@@ -110,7 +107,11 @@ class LRNPlayerView : FrameLayout, LRNPlayerContract.PlayerView {
         prepare(prepareRequest)
     }
 
-    override fun prepare(accessToken: String, videoId: String, onPrepareListener: OnPreparedListener) {
+    fun prepare(accessToken: String, videoId: String, onPrepareListener: OnPreparedListener) {
+        return prepareView(accessToken, videoId, onPrepareListener)
+    }
+
+    private fun prepareView(accessToken: String, videoId: String, onPrepareListener: OnPreparedListener) {
         webInterface.prepareListener = onPrepareListener
         val prepareRequest = PrepareRequest(accessToken, videoId)
 
@@ -190,60 +191,64 @@ class LRNPlayerView : FrameLayout, LRNPlayerContract.PlayerView {
         isPrepared = true
     }
 
-    override fun start() {
+    fun start() {
         if (checkIsPrepared("start()")) {
             webView.loadUrl("javascript:play();")
         }
     }
 
-    override fun pause() {
+    fun pause() {
         if (checkIsPrepared("pause()")) {
             webView.loadUrl("javascript:pause();")
         }
     }
 
-    override fun seekTo(seekPos: Long) {
+    fun seekTo(seekPos: Long) {
         if (checkIsPrepared("seekTo()")) {
             webView.loadUrl("""javascript:seekTo("$seekPos");""")
         }
     }
 
-    override fun setOnCompletionListener(completionListener: OnPlaybackCompletionListener) {
+    fun setOnCompletionListener(completionListener: OnPlaybackCompletionListener) {
         webInterface.completionListener = completionListener
     }
 
-    override fun setOnErrorListener(errorListener: OnErrorListener) {
+    fun setOnErrorListener(errorListener: OnErrorListener) {
         webInterface.errorListener = errorListener
     }
 
-    override fun setOnGetCurrentPositionListener(getCurrentPositionListener: OnGetCurrentPositionListener) {
+    fun setOnGetCurrentPositionListener(getCurrentPositionListener: OnGetCurrentPositionListener) {
         webInterface.getCurrentPositionListener = getCurrentPositionListener
     }
 
-    override fun setOnDownloadListener(downloadProgressListener: OnDownloadProgressListener) {
+    fun setOnDownloadListener(downloadProgressListener: OnDownloadProgressListener) {
         webInterface.downloadProgressListener = downloadProgressListener
     }
 
-    override fun setOnMetadataLoadedListener(metadataLoadedListener: OnMetadataLoadedListener) {
+    fun setOnMetadataLoadedListener(metadataLoadedListener: OnMetadataLoadedListener) {
         webInterface.metadataLoadedListener = metadataLoadedListener
     }
 
-    override fun setOnFullScreenToggledListener(fullScreenToggledListener: OnFullScreenToggledListener) {
+    fun setOnFullScreenToggledListener(fullScreenToggledListener: OnFullScreenToggledListener) {
         webInterface.fullScreenToggledListener = fullScreenToggledListener
     }
 
-    override fun showError(errorMsg: String) {
+    internal fun showError(errorMsg: String) {
         progressContainer.visibility = View.GONE
         errorContainer.visibility = View.VISIBLE
         errorTextView.text = errorMsg
     }
 
-    override fun showDownloadProgress(downloadPercentage: Int) {
+    internal fun showDownloadProgress(downloadPercentage: Int) {
         val progressText = downloadPercentage.toString() + "%"
         downloadProgressTextView.text = progressText
     }
 
-    override fun release() {
+    fun release() {
+        releaseAll()
+    }
+
+    private fun releaseAll() {
         VideoLoader.cancel()
         containerView.removeAllViews()
         webView.clearHistory()

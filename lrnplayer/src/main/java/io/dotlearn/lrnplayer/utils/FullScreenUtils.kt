@@ -4,9 +4,9 @@ import android.app.Activity
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 
-object FullScreenUtils {
+internal object FullScreenUtils {
 
-    fun toggleOrientation(activity: Activity) {
+    internal fun toggleOrientation(activity: Activity) {
         val orientation = activity.resources.configuration.orientation
 
         when (orientation) {

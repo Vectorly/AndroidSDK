@@ -30,7 +30,7 @@ Playing a video with the View is very simple. You just need to pass an `aceesTok
     val videoId = "videoId"
 
     val lrnPlayerView = findViewById<LRNPlayerView>(R.id.lrn_player_view)
-    lrnPlayerView.prepare(accessToken, videoId, false, object: OnPreparedListener {
+    lrnPlayerView.prepare(accessToken, videoId, object: OnPreparedListener {
             
         override fun onPrepared(lrnPlayerView: LRNPlayerView) {
             // The video has been prepared and is ready for playback. If you set autoStart
@@ -87,7 +87,7 @@ If you want to show some information about the video, you can set an `OnMetadata
     // Sets a listener when the video metadata is loaded
     lrnPlayerView.setOnMetadataLoadedListener(object: OnMetadataLoadedListener{
 
-        override fun onMetadataLoaded(lrnPlayerView: LRNPlayerView, metadata: Metadata) {
+        override fun onMetadataLoaded(lrnPlayerView: LRNPlayerView, metadata: VideoMetadata) {
             // Do something with the video metadata
         }
 
@@ -117,11 +117,6 @@ You can also get notified when a video playback completes by setting an `OnPlayb
         }
 
     })
-```
-
-To debug the player and view the logs, you can enable debugging with just one line of code:
-```kotlin
-lrnPlayerView.debug(true)
 ```
 
 That's all. You could see all this in action in the sample project in the `app` module.
