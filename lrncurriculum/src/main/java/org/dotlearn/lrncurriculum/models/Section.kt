@@ -1,3 +1,6 @@
 package org.dotlearn.lrncurriculum.models
 
-data class Section(val id: String, val version: Int, val name: String)
+import android.support.annotation.Keep
+
+@Keep
+data class Section(@Keep val id: String, @Keep val version: Int, @Keep val name: String)

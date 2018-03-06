@@ -2,6 +2,7 @@ package io.dotlearn.lrnplayer
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Build
 import android.support.v4.view.ViewCompat
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -76,6 +77,10 @@ class LRNPlayerView : FrameLayout {
         val webSettings = webView.settings
         webSettings.javaScriptEnabled = true
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            webSettings.mediaPlaybackRequiresUserGesture = false
+        }
+
         webView.addJavascriptInterface(webInterface, "Android")
 
         webView.webChromeClient = object : WebChromeClient() {
@@ -107,13 +112,15 @@ class LRNPlayerView : FrameLayout {
         prepare(prepareRequest)
     }
 
-    fun prepare(accessToken: String, videoId: String, onPrepareListener: OnPreparedListener) {
-        return prepareView(accessToken, videoId, onPrepareListener)
+    fun prepare(accessToken: String, videoId: String, autoStartVideo: Boolean,
+                onPrepareListener: OnPreparedListener) {
+        return prepareView(accessToken, videoId, autoStartVideo, onPrepareListener)
     }
 
-    private fun prepareView(accessToken: String, videoId: String, onPrepareListener: OnPreparedListener) {
+    private fun prepareView(accessToken: String, videoId: String, autoStartVideo: Boolean,
+                            onPrepareListener: OnPreparedListener) {
         webInterface.prepareListener = onPrepareListener
-        val prepareRequest = PrepareRequest(accessToken, videoId)
+        val prepareRequest = PrepareRequest(accessToken, videoId, autoStartVideo)
 
         // We need to wait for the View to be laid out before loading the video, so things like
         // get height and width will work.
@@ -158,6 +165,8 @@ class LRNPlayerView : FrameLayout {
         errorContainer.visibility = View.GONE
         downloadProgressTextView.text = "0%"
         isPrepared = false
+
+        val autoPlayVideo = prepareRequest.autoStartVideo
 
         VideoLoader.load(prepareRequest.accessToken, prepareRequest.videoId,
                 object : VideoLoader.VideoLoadCallback {
@@ -277,6 +286,7 @@ class LRNPlayerView : FrameLayout {
     }
     // endregion
 
-    internal class PrepareRequest(val accessToken: String, val videoId: String)
+    internal class PrepareRequest(val accessToken: String, val videoId: String,
+                                  val autoStartVideo: Boolean)
 
 }

@@ -20,6 +20,7 @@ internal interface CurriculumService {
 
     @GET("curriculum/lessons/in/course/{courseId}")
     fun getLessonsInCourse(@Path("courseId") courseId: String): Call<List<Lesson>>
+
     @GET("curriculum/lessons/in/section/{sectionId}")
     fun getLessonsInSection(@Path("sectionId") sectionId: String): Call<List<Lesson>>
 

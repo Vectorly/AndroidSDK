@@ -1,6 +1,79 @@
+import com.android.builder.core.BuilderConstants
+
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'maven-publish'
+
+// update these next lines to fit your submodule
+group = 'dotlearn.io'
+version = '1.2.5'
+
+// Add sources as an artifact
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier "source"
+}
+
+// Loop over all variants
+android.libraryVariants.all { variant ->
+
+    def name = variant.buildType.name
+    if (name == BuilderConstants.DEBUG) {
+        return // Skip debug builds.
+    }
+
+    variant.outputs.all { output ->
+        // This creates a publication for each variant
+        publishing.publications.create(variant.name, MavenPublication) {
+            // The sources artifact from earlier
+            artifact sourceJar
+
+            // Variant dependent artifact, e.g. release, debug
+            artifact source: output.outputFile, classifier: output.name
+
+            // Go through all the dependencies for each variant and add them to the POM
+            // file as dependencies
+            pom.withXml {
+                def dependencies = asNode().appendNode('dependencies')
+
+                // Filter out anything that's not an external dependency. You shouldn't
+                // be publishing artifacts that depend on local (e.g. project) dependencies,
+                // but who knows...
+                configurations.getByName(variant.name + "CompileClasspath").allDependencies
+                        .findAll { it instanceof ExternalDependency }
+                        .each {
+                    def dependency = dependencies.appendNode('dependency')
+
+                    dependency.appendNode('groupId', it.group)
+                    dependency.appendNode('artifactId', it.name)
+                    dependency.appendNode('version', it.version)
+                }
+            }
+        }
+    }
+}
+
+// Ensure that the publish task depends on assembly
+tasks.all { task ->
+    if (task instanceof AbstractPublishToMaven) {
+        task.dependsOn assemble
+    }
+}
+
+// Configure the destination repository with
+// S3 URL and access credentials
+publishing {
+    repositories {
+        maven {
+            url "s3://dl.android.s3.amazonaws.com"
+            credentials(AwsCredentials) {
+                accessKey "AKIAIQRH3PRSH6YGSBZA"
+                secretKey "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"
+            }
+        }
+    }
+}
 
 android {
 
@@ -14,8 +87,8 @@ android {
         minSdkVersion 14
         targetSdkVersion 27
 
-        versionCode 5
-        versionName "1.2.2"
+        versionCode 8
+        versionName "1.2.5"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -47,17 +120,6 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
 }
-
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-
-ext {
-    PUBLISH_GROUP_ID = 'dotlearn.io'
-    PUBLISH_ARTIFACT_ID = 'lrnplayer'
-    PUBLISH_VERSION = '1.2.2'
-}
-
-apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
 
 task javadoc(type: Javadoc) {
     excludes = ['**/*.kt'] // < ---- Exclude all kotlin files from javadoc file.

@@ -1,3 +1,6 @@
 package org.dotlearn.lrncurriculum.models
 
-data class Course(val id: String, val name: String)
+import android.support.annotation.Keep
+
+@Keep
+data class Course(@Keep val id: String, @Keep val name: String)

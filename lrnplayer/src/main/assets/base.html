@@ -43,7 +43,7 @@
             return blob;
         }
 
-        var loadVideo = function(videoDataBase64Encoded, videoWidth, videoHeight, hideControls, fullscreenEnabled) {
+        var loadVideo = function(videoDataBase64Encoded, videoWidth, videoHeight, autoStartVideo, hideVideoControls, fullscreenEnabled) {
             videoHeight = Number(videoHeight) || 450;
             videoWidth = Number(videoWidth) || 800;
 
@@ -62,9 +62,9 @@
             vv.load(videoBlob, containerId, {
                 width: videoWidth,
                 height: videoHeight,
-                hideControls: hideControls,
+                hideControls: hideVideoControls,
                 fullscreen: fullscreenEnabled,
-                autoplay: false,
+                autoplay: autoStartVideo,
                 callback: function(videoInterface) {
                     Android.log("Video prepared!");
                     vectorizedVideo = videoInterface;

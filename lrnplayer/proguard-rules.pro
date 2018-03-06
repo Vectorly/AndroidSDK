@@ -86,3 +86,5 @@
 # -keep public class mypackage.MyClass
 # -keep public interface mypackage.MyInterface
 # -keep public class * implements mypackage.MyInterface
+
+-keep class io.dotlearn.lrnplayer.loader.model.** { *; }

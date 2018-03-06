@@ -17,13 +17,13 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView){
     internal var getCurrentPositionListener: OnGetCurrentPositionListener? = null
 
     @JavascriptInterface
-    internal fun onGetPosition(position: Long) {
+    fun onGetPosition(position: Long) {
         log("onGetPosition($position)")
         getCurrentPositionListener?.onCurrentPlaybackPositionGotten(lrnPlayerView, position)
     }
 
     @JavascriptInterface
-    internal fun onError(errorMsg: String) {
+    fun onError(errorMsg: String) {
         log("onError($errorMsg)")
         onError(LRNPlayerException(errorMsg))
     }
@@ -55,7 +55,7 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView){
     }
 
     @JavascriptInterface
-    internal fun onMediaPrepared() {
+    fun onMediaPrepared() {
         log("onMediaPrepared()")
         lrnPlayerView.post({
             lrnPlayerView.onPrepared()
@@ -64,19 +64,19 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView){
     }
 
     @JavascriptInterface
-    internal fun onPlaybackCompleted() {
+    fun onPlaybackCompleted() {
         log("onPlaybackCompleted()")
         lrnPlayerView.post({ completionListener?.onPlaybackCompletion(lrnPlayerView) })
     }
 
     @JavascriptInterface
-    internal fun onFullScreenToggled() {
+    fun onFullScreenToggled() {
         log("onFullScreenToggled")
         lrnPlayerView.post({ fullScreenToggledListener?.onFullScreenToggled(lrnPlayerView) })
     }
 
     @JavascriptInterface
-    internal fun log(message: String) {
+    fun log(message: String) {
         Logger.d(message)
     }
 

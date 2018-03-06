@@ -3,7 +3,7 @@ package io.dotlearn.lrnplayer.model
 /**
  * A model class that holds the metadata for a vectorized video file
  */
-internal data class Metadata(
+data class Metadata(
 	val thumbnail: String? = null,
 	val defaultSize: String? = null,
 	val size: Size? = null,
