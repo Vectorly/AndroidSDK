@@ -182,7 +182,7 @@ class LRNPlayerView : FrameLayout {
                     override fun onVideoLoaded(metadata: VideoMetadata, videoDataBase64Encoded: String) {
                         webInterface.log("onVideoLoaded")
                         val stringToLoad = """javascript:loadVideo("$videoDataBase64Encoded",
-                                "$videoWidth", "$videoHeight", false, false);""".trimMargin()
+                                "$videoWidth", "$videoHeight", $autoPlayVideo, false, false);""".trimMargin()
                         webView.loadUrl(stringToLoad)
                     }
 

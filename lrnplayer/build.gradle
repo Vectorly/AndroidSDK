@@ -7,7 +7,7 @@ apply plugin: 'maven-publish'
 
 // update these next lines to fit your submodule
 group = 'dotlearn.io'
-version = '1.2.5'
+version = '1.2.6'
 
 // Add sources as an artifact
 task sourceJar(type: Jar) {

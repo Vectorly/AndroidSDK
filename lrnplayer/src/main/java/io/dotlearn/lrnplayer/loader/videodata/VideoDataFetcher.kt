@@ -16,7 +16,7 @@ internal class VideoDataFetcher(private val videoService: VideoService) {
 
     private fun fetchData(accessToken: String, videoId: String, callback: VideoDataFetchCallback) {
         Logger.d("Fetching video data. AccessToken: $accessToken. VideoId: $videoId")
-        videoService.serveVideo(VideoDataRequest(accessToken, videoId))
+        videoService.serveVideo(VideoDataRequest(accessToken, videoId, "mp3_24"))
                 .enqueue(object: Callback<VideoDataResponse> {
 
                     override fun onFailure(call: Call<VideoDataResponse>?, t: Throwable?) {
