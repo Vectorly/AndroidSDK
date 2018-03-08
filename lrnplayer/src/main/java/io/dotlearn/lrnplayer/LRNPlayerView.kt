@@ -43,18 +43,18 @@ class LRNPlayerView : FrameLayout {
 
     // region View Init
     constructor(context: Context) : super(context) {
-        init(null, 0)
+        init()
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        init(attrs, 0)
+        init()
     }
 
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
-        init(attrs, defStyle)
+        init()
     }
 
-    private fun init(attrs: AttributeSet?, defStyle: Int) {
+    private fun init() {
         val layoutView = LayoutInflater.from(context).inflate(R.layout.layout_lrnplayer, this)
 
         containerView = layoutView.findViewById(R.id.lrn_container)

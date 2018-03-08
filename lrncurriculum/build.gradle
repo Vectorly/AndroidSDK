@@ -1,92 +1,17 @@
-import com.android.builder.core.BuilderConstants
-
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'maven-publish'
-apply plugin: 'maven-publish'
-
-// update these next lines to fit your submodule
-group = 'dotlearn.io'
-version = '1.2.6'
-
-// Add sources as an artifact
-task sourceJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier "source"
-}
-
-// Loop over all variants
-android.libraryVariants.all { variant ->
-
-    def name = variant.buildType.name
-    if (name == BuilderConstants.DEBUG) {
-        return // Skip debug builds.
-    }
-
-    variant.outputs.all { output ->
-        // This creates a publication for each variant
-        publishing.publications.create(variant.name, MavenPublication) {
-            // The sources artifact from earlier
-            artifact sourceJar
-
-            // Variant dependent artifact, e.g. release, debug
-            artifact source: output.outputFile, classifier: output.name
-
-            // Go through all the dependencies for each variant and add them to the POM
-            // file as dependencies
-            pom.withXml {
-                def dependencies = asNode().appendNode('dependencies')
-
-                // Filter out anything that's not an external dependency. You shouldn't
-                // be publishing artifacts that depend on local (e.g. project) dependencies,
-                // but who knows...
-                configurations.getByName(variant.name + "CompileClasspath").allDependencies
-                        .findAll { it instanceof ExternalDependency }
-                        .each {
-                    def dependency = dependencies.appendNode('dependency')
-
-                    dependency.appendNode('groupId', it.group)
-                    dependency.appendNode('artifactId', it.name)
-                    dependency.appendNode('version', it.version)
-                }
-            }
-        }
-    }
-}
-
-// Ensure that the publish task depends on assembly
-tasks.all { task ->
-    if (task instanceof AbstractPublishToMaven) {
-        task.dependsOn assemble
-    }
-}
-
-// Configure the destination repository with
-// S3 URL and access credentials
-publishing {
-    repositories {
-        maven {
-            url "s3://dl.android.s3.amazonaws.com"
-            credentials(AwsCredentials) {
-                accessKey "AKIAIQRH3PRSH6YGSBZA"
-                secretKey "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"
-            }
-        }
-    }
-}
+apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
 
 android {
     compileSdkVersion 27
 
-    lintOptions {
-        abortOnError false
-    }
-
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 8
-        versionName "1.2.5"
+        consumerProguardFiles 'progaurd-rules.pro'
+
+        versionCode 9
+        versionName VERSION_NAME
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -103,14 +28,12 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'com.android.support:appcompat-v7:27.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    api 'com.android.support:appcompat-v7:27.1.0'
+
     implementation "com.google.code.gson:gson:2.8.2"
-    api 'io.paperdb:paperdb:2.6'
+    implementation 'io.paperdb:paperdb:2.6'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation "com.squareup.okhttp3:logging-interceptor:3.8.1"

@@ -42,6 +42,7 @@ internal object VideoDb {
         return getFile(accessToken, videoId).exists() && getMetadata(accessToken, videoId) != null
     }
 
+    @Suppress("UNUSED_PARAMETER")
     private fun getDbKey(accessToken: String, videoId: String) = videoId
 
     internal class VideoLoadTask(private val accessToken: String,
