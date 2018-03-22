@@ -48,7 +48,7 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView){
 
     internal fun onDownloadProgress(bytesTransferred: Long, totalBytes: Long) {
         lrnPlayerView.post({
-            val downloadPercentage = ((bytesTransferred.toFloat() / totalBytes.toFloat()) * 100).toInt()
+            val downloadPercentage = ((bytesTransferred.toFloat() / totalBytes.toFloat()) * 100.0).toInt()
             downloadProgressListener?.onDownloadProgress(lrnPlayerView, downloadPercentage)
             lrnPlayerView.showDownloadProgress(downloadPercentage)
         })

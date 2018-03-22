@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <title>MP3 Player</title>
+
+</head>
+
+<body style="margin: 0; padding: 0">
+
+    <audio controls id="audio">
+ <!-- <source src="hello.wav" type="audio/wav">
+  Your browser does not support the audio tag.-->
+</audio>
+
+
+<script type="application/javascript">
+
+    var audio = document.getElementById("audio");
+    audio.onerror = function(){
+        console.log("Audio error");
+        console.log(audio.error.code);
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.onload= function(){
+        var blob = new Blob([xhr.response], {type: 'audio/wav'});
+
+        var xhr2 = new XMLHttpRequest();
+        xhr2.responseType = "blob";
+        xhr2.open("GET", URL.createObjectURL(blob), true);
+        xhr2.onreadystatechange = function(){
+            if(xhr2.readyState === 4 && xhr2.status == 200) {
+
+                        console.log("xhr2 loaded");
+                       audio.src = URL.createObjectURL(xhr2.response);
+            }
+        }
+
+        xhr2.send();
+    }
+
+    xhr.open("GET", "hello.wav");
+    xhr.responseType = "arraybuffer";
+    xhr.send();
+</script>
+</body>
+
+</html>
