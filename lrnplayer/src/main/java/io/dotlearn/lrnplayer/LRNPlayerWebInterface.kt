@@ -5,6 +5,7 @@ import io.dotlearn.lrnplayer.error.LRNPlayerException
 import io.dotlearn.lrnplayer.listener.*
 import io.dotlearn.lrnplayer.loader.model.VideoMetadata
 import io.dotlearn.lrnplayer.utils.Logger
+import kotlin.math.roundToInt
 
 internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView){
 
@@ -48,9 +49,11 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView){
 
     internal fun onDownloadProgress(bytesTransferred: Long, totalBytes: Long) {
         lrnPlayerView.post({
-            val downloadPercentage = ((bytesTransferred.toFloat() / totalBytes.toFloat()) * 100.0).toInt()
-            downloadProgressListener?.onDownloadProgress(lrnPlayerView, downloadPercentage)
-            lrnPlayerView.showDownloadProgress(downloadPercentage)
+            Logger.d("onDownloadProgress. Transferred: $bytesTransferred. Total: $totalBytes")
+            val downloadPercentage = (bytesTransferred.toDouble() / totalBytes.toDouble()) * 100.0
+            val downloadPercentageRounded = downloadPercentage.roundToInt()
+            downloadProgressListener?.onDownloadProgress(lrnPlayerView, downloadPercentageRounded)
+            lrnPlayerView.showDownloadProgress(downloadPercentageRounded)
         })
     }
 

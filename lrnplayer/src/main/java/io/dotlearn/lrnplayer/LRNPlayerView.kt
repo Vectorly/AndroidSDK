@@ -20,6 +20,7 @@ import io.dotlearn.lrnplayer.listener.*
 import io.dotlearn.lrnplayer.loader.VideoLoader
 import io.dotlearn.lrnplayer.loader.model.VideoMetadata
 import io.dotlearn.lrnplayer.utils.DisplayUtils
+import io.dotlearn.lrnplayer.utils.Logger
 
 /**
  * A custom view that plays vectorized videos
@@ -249,6 +250,7 @@ class LRNPlayerView : FrameLayout {
     }
 
     internal fun showDownloadProgress(downloadPercentage: Int) {
+        Logger.d("showDownloadProgress. Progress: $downloadPercentage")
         val progressText = downloadPercentage.toString() + "%"
         downloadProgressTextView.text = progressText
     }

@@ -48,7 +48,7 @@ internal class Downloader(private val okHttpClient: OkHttpClient,
     private class DownloadTask(private val downloadRequest: DownloadRequest,
                                private val downloadCallback: DownloadCallback,
                                private val okHttpClient: OkHttpClient,
-                               private val ioUtils: IoUtils): AsyncTask<Void, Long, Exception>() {
+                               private val ioUtils: IoUtils): AsyncTask<Void, Pair<Long, Long>, Exception>() {
 
         override fun onPreExecute() {
             Logger.d("Starting video download")
@@ -75,7 +75,11 @@ internal class Downloader(private val okHttpClient: OkHttpClient,
                 inputStream = response.body()!!.byteStream()
                 outputStream = encryptor.wrapOutputStream(FileOutputStream(downloadRequest.destFile))
 
-                val totalCount = inputStream!!.available().toLong()
+                var totalCount = response.body()!!.contentLength()
+                if(totalCount == -1L) {
+                    totalCount = inputStream!!.available().toLong()
+                }
+
                 val buffer = ByteArray(8 * 1024)
                 var len = -1
                 var readLen = 0L
@@ -83,7 +87,7 @@ internal class Downloader(private val okHttpClient: OkHttpClient,
                 while ({ len = inputStream.read(buffer); len }() != -1) {
                     outputStream.write(buffer, 0, len)
                     readLen += len.toLong()
-                    publishProgress(readLen, totalCount)
+                    publishProgress(Pair(readLen, totalCount))
                 }
             }
             catch (e: IOException) {
@@ -100,9 +104,9 @@ internal class Downloader(private val okHttpClient: OkHttpClient,
             return null
         }
 
-        override fun onProgressUpdate(vararg numbers: Long?) {
-            val bytesTransferred = numbers[0] ?: 0L
-            val totalBytes = numbers[1] ?: 0L
+        override fun onProgressUpdate(vararg numbers: Pair<Long, Long>) {
+            val bytesTransferred = numbers[0].first
+            val totalBytes = numbers[0].second
             downloadCallback.onDownloadProgressUpdate(downloadRequest.requestTag, bytesTransferred, totalBytes)
             Logger.d("On progress update. Transferred: $bytesTransferred. Total: $totalBytes")
         }
