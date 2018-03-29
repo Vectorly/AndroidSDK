@@ -5,10 +5,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'maven-publish'
 
-// update these next lines to fit your submodule
-group = GROUP_ID
-version = VERSION_CODE
-
 // Add sources as an artifact
 task sourceJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -45,9 +41,9 @@ android.libraryVariants.all { variant ->
                         .each {
                     def dependency = dependencies.appendNode('dependency')
 
-                    dependency.appendNode('groupId', it.group)
+                    dependency.appendNode('groupId', GROUP_ID)
                     dependency.appendNode('artifactId', it.name)
-                    dependency.appendNode('version', it.version)
+                    dependency.appendNode('version', VERSION_CODE)
                 }
             }
         }
@@ -79,19 +75,11 @@ android {
 
     compileSdkVersion 27
 
-    lintOptions {
-        abortOnError false
-    }
-
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 27
 
-        versionCode 9
-        versionName "1.2.6"
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -100,22 +88,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
     api 'com.android.support:appcompat-v7:27.1.0'
-
-    implementation "com.google.code.gson:gson:2.8.2"
 
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation "com.squareup.okhttp3:logging-interceptor:3.8.1"
     implementation 'io.paperdb:paperdb:2.6'
-    implementation 'org.encryptor4j:encryptor4j:0.1.2'
+
 }
 
 task javadoc(type: Javadoc) {

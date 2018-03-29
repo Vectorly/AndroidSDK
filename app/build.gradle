@@ -25,6 +25,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+        exclude 'okhttp3/internal/publicsuffix/publicsuffixes.gz'
+    }
 }
 
 dependencies {
@@ -36,9 +40,7 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:27.0.2'
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
     implementation 'io.paperdb:paperdb:2.6'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
@@ -47,4 +49,8 @@ dependencies {
     implementation 'dotlearn.io:lrncurriculum:1.2'*/
     implementation project(':lrncurriculum')
     implementation project(':lrnplayer')
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
