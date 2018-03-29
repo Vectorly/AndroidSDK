@@ -6,9 +6,20 @@ The Gradle dependency is available via jCenter. jCenter is the default Maven rep
 
 Add this in your (app) module's `build.gradle` file:
 ```groovy
-    implementation 'io.dotlearn.lrnplayer:1.0.0'
+    implementation 'io.paperdb:paperdb:2.6'
+    implementation (group: 'dotlearn.io', name: 'lrnplayer', version: '1.3.8', ext: 'aar', classifier: 'release')
 ```
 
+Then add this to your project level `build.gradle` repositories:
+```groovy
+maven {
+            url "s3://dl.android.s3.amazonaws.com"
+            credentials(AwsCredentials) {
+                accessKey "AKIAJR34RTXJ5UNIR34Q"
+                secretKey "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"
+            }
+        }
+```
 ## Usage
 
 #### Layouts
