@@ -7,7 +7,7 @@ The Gradle dependency is available via jCenter. jCenter is the default Maven rep
 Add this in your (app) module's `build.gradle` file:
 ```groovy
     implementation 'io.paperdb:paperdb:2.6'
-    implementation (group: 'dotlearn.io', name: 'lrncurriculum', version: '1.3.8', ext: 'aar', classifier: 'release')
+    implementation (group: 'dotlearn.io', name: 'lrncurriculum', version: '1.4.0', ext: 'aar', classifier: 'release')
 ```
 
 Then add this to your project level `build.gradle` repositories:
