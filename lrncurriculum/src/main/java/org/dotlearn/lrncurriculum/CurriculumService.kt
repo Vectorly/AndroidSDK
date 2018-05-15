@@ -1,9 +1,6 @@
 package org.dotlearn.lrncurriculum
 
-import org.dotlearn.lrncurriculum.models.Course
-import org.dotlearn.lrncurriculum.models.Lesson
-import org.dotlearn.lrncurriculum.models.Section
-import org.dotlearn.lrncurriculum.models.Video
+import org.dotlearn.lrncurriculum.models.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -30,6 +27,8 @@ internal interface CurriculumService {
     fun getVideosInSection(@Path("sectionId") sectionId: String): Call<List<Video>>
     @GET("curriculum/videos/in/lesson/{lessonId}")
     fun getVideosInLesson(@Path("lessonId") lessonId: String): Call<List<Video>>
+    @GET("curriculum/videos/in/lesson/{lessonId}")
+    fun getQuizzesInLesson(@Path("lessonId") lessonId: String): Call<List<Quiz>>
     @GET("/curriculum/search/{searchTerm}/in/course/{courseId}")
     fun getVideosWithName(@Path("searchTerm") searchTerm: String,
                           @Path("courseId") courseId: String): Call<List<Video>>

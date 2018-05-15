@@ -31,12 +31,13 @@ The curriculum is made up of four main types of objects listed below:
            ↓
         Lessons
            ↓
-        Videos
+        Videos | Quizzes
 
 1. Course - This is also called a subject.
 2. Section - A collection of related lessons. Can also be called topics
 3. Lesson - A collection of videos explaining a concept
 4. Video - A lesson video
+5. Quiz - A lesson quiz
 
 Usually, you will follow the steps below when using this library:
 1. Load all available courses
@@ -44,6 +45,7 @@ Usually, you will follow the steps below when using this library:
 3. When a section is clicked, load all lessons in the clicked section
 4. When a lesson is clicked, load all the videos in the lesson
 5. When a video is clicked, play the selected video using the `LRNPlayerView`
+6. When the user completes a lesson, show the quizzes for that lesson using `LRNQuestion`
 
 #### Initializing
 
@@ -96,10 +98,22 @@ To load all the lessons in a section, use the code below
 ```
 
 #### Load videos in a lesson
-Finally, to load all the videos in a lesson, use the code below
+To load all the videos in a lesson, use the code below
 ```kotlin
     try {
         val videos = CurriculumProvider.getVideos(sectionId)
+    }
+    catch (e: Exception) {
+        e.printStackTrace()
+        // An error occurred connecting to the server or loading the local curriculum
+    }
+```
+
+#### Load quizzes in a lesson
+Finally, to load all the quizzes in a lesson, use the code below
+```kotlin
+    try {
+        val quizzes = CurriculumProvider.getQuizzes(sectionId)
     }
     catch (e: Exception) {
         e.printStackTrace()

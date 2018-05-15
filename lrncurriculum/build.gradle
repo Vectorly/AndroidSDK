@@ -96,9 +96,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
 
-    implementation 'io.paperdb:paperdb:2.6'
+    api 'io.paperdb:paperdb:2.6'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation "com.squareup.okhttp3:logging-interceptor:3.8.1"

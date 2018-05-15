@@ -1,18 +1,9 @@
 package org.dotlearn.lrncurriculum
 
-import org.dotlearn.lrncurriculum.data.local.CourseDb
-import org.dotlearn.lrncurriculum.data.local.LessonDb
-import org.dotlearn.lrncurriculum.data.local.SectionDb
-import org.dotlearn.lrncurriculum.data.local.VideoDb
-import org.dotlearn.lrncurriculum.data.remote.CourseLoader
-import org.dotlearn.lrncurriculum.data.remote.LessonLoader
-import org.dotlearn.lrncurriculum.data.remote.SectionLoader
-import org.dotlearn.lrncurriculum.data.remote.VideoLoader
+import org.dotlearn.lrncurriculum.data.local.*
+import org.dotlearn.lrncurriculum.data.remote.*
 import org.dotlearn.lrncurriculum.di.Injector
-import org.dotlearn.lrncurriculum.models.Course
-import org.dotlearn.lrncurriculum.models.Lesson
-import org.dotlearn.lrncurriculum.models.Section
-import org.dotlearn.lrncurriculum.models.Video
+import org.dotlearn.lrncurriculum.models.*
 
 @Suppress("JoinDeclarationAndAssignment")
 object CurriculumSync {
@@ -25,17 +16,21 @@ object CurriculumSync {
     private val lessonLoader: LessonLoader
     private val videoDb: VideoDb
     private val videoLoader: VideoLoader
+    private val quizDb: QuizDb
+    private val quizLoader: QuizLoader
 
     init {
         courseDb = Injector.provideCourseDb()
         sectionDb = Injector.provideSectionDb()
         lessonDb = Injector.provideLessonDb()
         videoDb = Injector.provideVideoDb()
+        quizDb = Injector.provideQuizDb()
 
         courseLoader = Injector.provideCourseLoader()
         sectionLoader = Injector.provideSectionLoader()
         lessonLoader = Injector.provideLessonLoader()
         videoLoader = Injector.provideVideoLoader()
+        quizLoader = Injector.provideQuizLoader()
     }
     
     fun shallowSyncAll(): HashSet<String> {
@@ -43,7 +38,12 @@ object CurriculumSync {
     }
 
     fun deepSyncAll() {
-        return syncVideos()
+        val lessonIdSet = shallowSyncAll()
+
+        for(lessonId in lessonIdSet) {
+            syncVideos(lessonId)
+            syncQuizzes(lessonId)
+        }
     }
 
     private fun syncCoursesSectionsAndLessons(): HashSet<String> {
@@ -63,14 +63,6 @@ object CurriculumSync {
         }
 
         return lessonIdSet
-    }
-
-    private fun syncVideos() {
-        val lessonIdSet = shallowSyncAll()
-
-        for(lessonId in lessonIdSet) {
-            syncVideos(lessonId)
-        }
     }
 
     private fun syncCourses(): List<Course> {
@@ -99,6 +91,13 @@ object CurriculumSync {
         videoDb.saveVideos(lessonId, remoteVideos)
 
         return remoteVideos
+    }
+
+    private fun syncQuizzes(lessonId: String): List<Quiz> {
+        val remoteQuizzes = quizLoader.loadQuizzesInLesson(lessonId)
+        quizDb.saveQuizzes(lessonId, remoteQuizzes)
+
+        return remoteQuizzes
     }
     
 }

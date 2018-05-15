@@ -2,16 +2,10 @@ package org.dotlearn.lrncurriculum
 
 import android.content.Context
 import io.paperdb.Paper
-import org.dotlearn.lrncurriculum.data.local.CourseDb
-import org.dotlearn.lrncurriculum.data.local.LessonDb
-import org.dotlearn.lrncurriculum.data.local.SectionDb
-import org.dotlearn.lrncurriculum.data.local.VideoDb
+import org.dotlearn.lrncurriculum.data.local.*
 import org.dotlearn.lrncurriculum.data.remote.*
 import org.dotlearn.lrncurriculum.di.Injector
-import org.dotlearn.lrncurriculum.models.Course
-import org.dotlearn.lrncurriculum.models.Lesson
-import org.dotlearn.lrncurriculum.models.Section
-import org.dotlearn.lrncurriculum.models.Video
+import org.dotlearn.lrncurriculum.models.*
 
 @Suppress("JoinDeclarationAndAssignment")
 object CurriculumProvider {
@@ -23,7 +17,9 @@ object CurriculumProvider {
     private lateinit var lessonDb: LessonDb
     private lateinit var lessonLoader: LessonLoader
     private lateinit var videoDb: VideoDb
+    private lateinit var quizDb: QuizDb
     private lateinit var videoLoader: VideoLoader
+    private lateinit var quizLoader: QuizLoader
     private lateinit var searchLoader: SearchLoader
 
     fun init(context: Context) {
@@ -37,12 +33,14 @@ object CurriculumProvider {
         sectionDb = Injector.provideSectionDb()
         lessonDb = Injector.provideLessonDb()
         videoDb = Injector.provideVideoDb()
+        quizDb = Injector.provideQuizDb()
 
         courseLoader = Injector.provideCourseLoader()
         sectionLoader = Injector.provideSectionLoader()
         lessonLoader = Injector.provideLessonLoader()
         videoLoader = Injector.provideVideoLoader()
         searchLoader = Injector.provideSearchLoader()
+        quizLoader = Injector.provideQuizLoader()
     }
 
     fun getCourses(): List<Course> {
@@ -114,6 +112,24 @@ object CurriculumProvider {
         }
         else {
             localVideos
+        }
+    }
+
+    fun getQuizzes(lessonId: String): List<Quiz> {
+        return getQuizzesInLesson(lessonId)
+    }
+
+    private fun getQuizzesInLesson(lessonId: String): List<Quiz> {
+        val localQuizzes = quizDb.getQuizzes(lessonId)
+
+        return if(localQuizzes == null) {
+            val remoteQuizzes = quizLoader.loadQuizzesInLesson(lessonId)
+            quizDb.saveQuizzes(lessonId, remoteQuizzes)
+
+            remoteQuizzes
+        }
+        else {
+            localQuizzes
         }
     }
 

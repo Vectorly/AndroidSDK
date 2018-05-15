@@ -14,12 +14,12 @@ internal class Downloader(private val okHttpClient: OkHttpClient,
 
     private val tasks: HashMap<String, DownloadTask> = HashMap()
 
-    internal fun download(downloadUrl: String, destFile: File, downloadTag: String, key: String,
+    internal fun download(downloadUrl: String?, destFile: File, downloadTag: String, key: String,
                           callback: DownloadCallback) {
         downloadVideo(downloadUrl, destFile, downloadTag, key, callback)
     }
 
-    private fun downloadVideo(downloadUrl: String, destFile: File, downloadTag: String, key: String,
+    private fun downloadVideo(downloadUrl: String?, destFile: File, downloadTag: String, key: String,
                           callback: DownloadCallback) {
         Logger.d("Download url: $downloadUrl. DestFile: ${destFile.absolutePath}. Tag: $downloadTag")
         val downloadRequest = DownloadRequest(downloadUrl, destFile, downloadTag, key)
@@ -69,6 +69,12 @@ internal class Downloader(private val okHttpClient: OkHttpClient,
                 val secretKey = ioUtils.getThing(downloadRequest.key)
                 val encryptor = Encryptor(secretKey, "AES/CTR/NoPadding", 16)
 
+                if(downloadRequest.downloadUrl == null) {
+                    Logger.e("Error downloading video. Video downloadUrl is null. Url: %s" +
+                            downloadRequest.downloadUrl)
+                    return NullPointerException("Video download url is null")
+                }
+
                 val request = Request.Builder().url(downloadRequest.downloadUrl).build()
                 val response = okHttpClient.newCall(request).execute()
 
@@ -90,7 +96,7 @@ internal class Downloader(private val okHttpClient: OkHttpClient,
                     publishProgress(Pair(readLen, totalCount))
                 }
             }
-            catch (e: IOException) {
+            catch (e: Exception) {
                 e.printStackTrace()
                 Logger.e("Error downloading video: $e")
                 return e

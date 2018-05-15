@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/lrncurriculum/lrncurriculum.iml" filepath="$PROJECT_DIR$/lrncurriculum/lrncurriculum.iml" />
       <module fileurl="file://$PROJECT_DIR$/lrnplayer/lrnplayer.iml" filepath="$PROJECT_DIR$/lrnplayer/lrnplayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lrnquestion/lrnquestion.iml" filepath="$PROJECT_DIR$/lrnquestion/lrnquestion.iml" />
     </modules>
   </component>
 </project>

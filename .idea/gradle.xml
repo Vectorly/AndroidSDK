@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/lrncurriculum" />
             <option value="$PROJECT_DIR$/lrnplayer" />
+            <option value="$PROJECT_DIR$/lrnquestion" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

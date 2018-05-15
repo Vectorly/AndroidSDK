@@ -81,3 +81,11 @@
 }
 
 -keep class org.dotlearn.lrncurriculum.models.** { *; }
+
+-keep class org.bouncycastle.** { *; }
+-keepnames class org.bouncycastle.** { *; }
+-dontwarn org.bouncycastle.**
+
+-keep class org.apache.commons.** { *; }
+-keepnames class org.apache.commons.** { *; }
+-dontwarn org.apache.commons.**

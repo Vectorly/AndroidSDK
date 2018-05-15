@@ -1,0 +1,116 @@
+import com.android.builder.core.BuilderConstants
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'maven-publish'
+
+// update these next lines to fit your submodule
+group = GROUP_ID
+version = VERSION_CODE
+
+// Add sources as an artifact
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier "source"
+}
+
+// Loop over all variants
+android.libraryVariants.all { variant ->
+
+    def name = variant.buildType.name
+    if (name == BuilderConstants.DEBUG) {
+        return // Skip debug builds.
+    }
+
+    variant.outputs.all { output ->
+        // This creates a publication for each variant
+        publishing.publications.create(variant.name, MavenPublication) {
+            // The sources artifact from earlier
+            artifact sourceJar
+
+            // Variant dependent artifact, e.g. release, debug
+            artifact source: output.outputFile, classifier: output.name
+
+            // Go through all the dependencies for each variant and add them to the POM
+            // file as dependencies
+            pom.withXml {
+                def dependencies = asNode().appendNode('dependencies')
+
+                // Filter out anything that's not an external dependency. You shouldn't
+                // be publishing artifacts that depend on local (e.g. project) dependencies,
+                // but who knows...
+                configurations.getByName(variant.name + "CompileClasspath").allDependencies
+                        .findAll { it instanceof ExternalDependency }
+                        .each {
+                    def dependency = dependencies.appendNode('dependency')
+
+                    dependency.appendNode('groupId', it.group)
+                    dependency.appendNode('artifactId', it.name)
+                    dependency.appendNode('version', it.version)
+                }
+            }
+        }
+    }
+}
+
+// Ensure that the publish task depends on assembly
+tasks.all { task ->
+    if (task instanceof AbstractPublishToMaven) {
+        task.dependsOn assemble
+    }
+}
+
+// Configure the destination repository with
+// S3 URL and access credentials
+publishing {
+    repositories {
+        maven {
+            url AWS_S3_RELEASE_BUCKET
+            credentials(AwsCredentials) {
+                accessKey AWS_S3_ACCESS_KEY
+                secretKey AWS_S3_SECRET_KEY
+            }
+        }
+    }
+}
+
+android {
+    compileSdkVersion 27
+
+
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.google.code.gson:gson:2.8.4'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    api 'io.paperdb:paperdb:2.6'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+repositories {
+    mavenCentral()
+}

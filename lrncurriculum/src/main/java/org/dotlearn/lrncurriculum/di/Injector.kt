@@ -5,10 +5,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.dotlearn.lrncurriculum.BASE_URL
 import org.dotlearn.lrncurriculum.BuildConfig
 import org.dotlearn.lrncurriculum.CurriculumService
-import org.dotlearn.lrncurriculum.data.local.CourseDb
-import org.dotlearn.lrncurriculum.data.local.LessonDb
-import org.dotlearn.lrncurriculum.data.local.SectionDb
-import org.dotlearn.lrncurriculum.data.local.VideoDb
+import org.dotlearn.lrncurriculum.data.local.*
 import org.dotlearn.lrncurriculum.data.remote.*
 import org.dotlearn.lrncurriculum.utils.IoUtils
 import retrofit2.Retrofit
@@ -81,12 +78,20 @@ internal object Injector {
         return VideoDb()
     }
 
+    internal fun provideQuizDb(): QuizDb {
+        return QuizDb()
+    }
+
     internal fun provideVideoLoader(): VideoLoader {
         return VideoLoader(provideCurriculumService())
     }
 
     internal fun provideSearchLoader(): SearchLoader {
         return SearchLoader(provideCurriculumService())
+    }
+
+    internal fun provideQuizLoader(): QuizLoader {
+        return QuizLoader(provideCurriculumService())
     }
 
     internal fun provideIoUtils() = IoUtils()
