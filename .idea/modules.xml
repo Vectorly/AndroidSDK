@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Programming-VectorizedVideoAndroid.iml" filepath="$PROJECT_DIR$/Programming-VectorizedVideoAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/VectorizedVideoAndroid.iml" filepath="$PROJECT_DIR$/VectorizedVideoAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/VectorizedVideoAndroid-app.iml" filepath="$PROJECT_DIR$/app/VectorizedVideoAndroid-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lrnplayer/VectorizedVideoAndroid-lrnplayer.iml" filepath="$PROJECT_DIR$/lrnplayer/VectorizedVideoAndroid-lrnplayer.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/lrncurriculum/lrncurriculum.iml" filepath="$PROJECT_DIR$/lrncurriculum/lrncurriculum.iml" />
       <module fileurl="file://$PROJECT_DIR$/lrnplayer/lrnplayer.iml" filepath="$PROJECT_DIR$/lrnplayer/lrnplayer.iml" />

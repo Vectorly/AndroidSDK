@@ -1,129 +1,84 @@
 <!DOCTYPE html>
-<html>
-
-<head lang="en">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>Video Player</title>
-    <script type="application/javascript" src="vv.js"></script>
+    <title>Vectorly embedded video</title>
+    <script src="vv.js"></script>
+    <style type="text/css">
+        ::-webkit-media-controls {
+            display:none !important;
+        }
+
+        #container{
+            position: absolute;
+            left: 0;
+            top: 0;
+
+
+        }
+
+
+        body{
+            width: 100%;
+            height: 300px;
+            background-color: red;
+        }
+
+
+
+
+    </style>
 
 </head>
+<body>
 
-<body style="margin: 0; padding: 0">
+<div id="container" style="width: 100%;"></div>
 
-    <div id="container"></div>
-
-    <script type="application/javascript">
-        var vectorizedVideo;
-
-        function base64toBlob(b64Data, contentType, sliceSize) {
-            contentType = contentType || '';
-            sliceSize = sliceSize || 512;
-
-            var byteCharacters = atob(b64Data);
-            var byteArrays = [];
-
-            for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-                var slice = byteCharacters.slice(offset, offset + sliceSize);
-
-                var byteNumbers = new Array(slice.length);
-                for (var i = 0; i < slice.length; i++) {
-                    byteNumbers[i] = slice.charCodeAt(i);
-                }
-
-                var byteArray = new Uint8Array(byteNumbers);
-
-                byteArrays.push(byteArray);
-            }
-
-            var blob = new Blob(byteArrays, {
-                type: contentType
-            });
-            return blob;
-        }
-
-        var loadVideo = function(videoDataBase64Encoded, videoWidth, videoHeight, autoStartVideo, hideVideoControls, fullscreenEnabled) {
-            videoHeight = Number(videoHeight) || 450;
-            videoWidth = Number(videoWidth) || 800;
-
-            var containerId = "container";
-            var containerElement = document.getElementById(containerId);
-
-            containerElement.style.width = videoWidth + "px";
-            containerElement.style.height = videoHeight + "px";
-
-            Android.log("Loading video");
-            Android.log("Video width: " + videoWidth);
-            Android.log("Video height: " + videoHeight);
-
-            var videoBlob = base64toBlob(videoDataBase64Encoded);
-
-            vv.load(videoBlob, containerId, {
-                width: videoWidth,
-                height: videoHeight,
-                hideControls: hideVideoControls,
-                fullscreen: fullscreenEnabled,
-                autoplay: autoStartVideo,
-                callback: function(videoInterface) {
-                    Android.log("Video prepared!");
-                    vectorizedVideo = videoInterface;
-
-                    containerElement.style.top = videoHeight / 2 + "px";
-
-                    Android.onMediaPrepared();
-
-                    vectorizedVideo.onEnd(function() {
-                        Android.log("On playback completed");
-                        Android.onPlaybackCompleted();
-                    });
-
-                    vectorizedVideo.onFullscreen(function() {
-                        Android.log("On full screen toggled");
-                        Android.onFullScreenToggled();
-                    });
-
-                }
-            });
-        };
-
-        var play = function() {
-            if (typeof vectorizedVideo !== 'undefined') {
-                Android.log("Starting playback");
-                vectorizedVideo.play();
-            }
-        }
-
-        var pause = function() {
-            if (typeof vectorizedVideo !== 'undefined') {
-                Android.log("Pausing playback");
-                vectorizedVideo.pause();
-            }
-        }
-
-        var seekTo = function(seekToPos) {
-            if (typeof vectorizedVideo !== 'undefined') {
-                Android.log("Seeking to: " + seekToPos);
-                vectorizedVideo.seek(seekToPos);
-            }
-        }
-
-        var getMetadata = function() {
-            if (typeof vectorizedVideo !== 'undefined') {
-                Android.log("Getting metadata");
-                Android.onMetadata(JSON.stringify(vectorizedVideo.meta));
-            }
-        }
-
-        var getPosition = function() {
-            if (typeof vectorizedVideo !== 'undefined') {
-                Android.log("Getting playback position");
-                Android.onGetPosition(vectorizedVideo.getTime());
-            }
-        }
-
-    </script>
 
 </body>
 
+<script>
+
+    document.body.style.height = window.innerWidth/16*9 + "px";
+
+
+
+
+    window.loadVideo = function(video_id, token) {
+
+        console.log("Loading video from within vv.js");
+        console.log(video_id);
+
+
+        var video = document.createElement("video");
+        video.src = "s3://" +  video_id;
+        video.preload = "none";
+        video.style.display ="none";
+        video.type = "video/lrn";
+
+        video.setAttribute("type", "video/lrn");
+
+        video.id = "video-container";
+       // video.setAttribute("webkit-playsinline", "true");
+        video.setAttribute("x-api-host", "https://stream-staging.vectorly.io");
+
+        if (token) video.setAttribute("x-auth-token", token);
+
+         Android.onMediaPrepared();
+        container.appendChild(video);
+
+              window.onresize = function() {};
+
+          setTimeout(function(){
+
+
+          }, 200);
+
+
+    };
+
+
+</script>
+
 </html>
+

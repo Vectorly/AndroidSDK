@@ -23,7 +23,10 @@ internal object VideoLoader {
         videoDownloader.cancelAll()
     }
 
-    private fun loadVideo(accessToken: String, videoId: String, key: String, callback: VideoLoadCallback) {
+    private fun loadVideo( videoId: String, accessToken: String, key: String, callback: VideoLoadCallback) {
+
+        callback.onVideoLoaded(videoId, accessToken)
+        /*
         if(!VideoDb.exist(accessToken, videoId)) {
             Logger.d("Video metadata and file is available on device")
             fetchVideoData(accessToken, videoId, key, callback)
@@ -42,7 +45,7 @@ internal object VideoLoader {
                         }
 
                     })
-        }
+        }*/
     }
 
     private fun fetchVideoData(accessToken: String, videoId: String, key: String, callback: VideoLoadCallback) {
@@ -97,7 +100,7 @@ internal object VideoLoader {
 
         fun onVideoLoadStarted()
         fun onVideoLoadProgress(bytesTransferred: Long, totalBytes: Long)
-        fun onVideoLoaded(metadata: VideoMetadata, videoDataBase64Encoded: String)
+        fun onVideoLoaded(videoId: String, accessToken: String)
         fun onVideoLoadError(e: Exception)
 
     }

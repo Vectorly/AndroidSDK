@@ -118,10 +118,16 @@ class LRNPlayerView : FrameLayout {
         return prepareView(accessToken, videoId, autoStartVideo, onPrepareListener)
     }
 
-    private fun prepareView(accessToken: String, videoId: String, autoStartVideo: Boolean,
+    private fun prepareView( videoId: String, accessToken: String, autoStartVideo: Boolean,
                             onPrepareListener: OnPreparedListener) {
+/*
+        val stringToLoad = """javascript:loadVideo("$videoId",
+                                "$accessToken");""".trimMargin()
+        webView.loadUrl(stringToLoad)
+*/
+
         webInterface.prepareListener = onPrepareListener
-        val prepareRequest = PrepareRequest(accessToken, videoId, autoStartVideo)
+        val prepareRequest = PrepareRequest(videoId, accessToken,  autoStartVideo)
 
         // We need to wait for the View to be laid out before loading the video, so things like
         // get height and width will work.
@@ -139,6 +145,7 @@ class LRNPlayerView : FrameLayout {
     private fun prepare(prepareRequest: PrepareRequest?) {
         if (prepareRequest != null) {
             if (isWebViewLoaded) {
+                println("Calculaing width and height")
                 val widthHeightPair = calculateWidthAndHeight()
                 loadVideo(prepareRequest, widthHeightPair.first, widthHeightPair.second)
                 this.prepareRequest = null
@@ -162,6 +169,9 @@ class LRNPlayerView : FrameLayout {
     }
 
     private fun loadVideo(prepareRequest: PrepareRequest, videoWidth: Int, videoHeight: Int) {
+
+        println("Inside of load video.....")
+
         progressContainer.visibility = View.VISIBLE
         errorContainer.visibility = View.GONE
         downloadProgressTextView.text = "0%"
@@ -169,7 +179,7 @@ class LRNPlayerView : FrameLayout {
 
         val autoPlayVideo = prepareRequest.autoStartVideo
 
-        VideoLoader.load(prepareRequest.accessToken, prepareRequest.videoId,
+        VideoLoader.load( prepareRequest.videoId, prepareRequest.accessToken,
                 object : VideoLoader.VideoLoadCallback {
                     override fun onVideoLoadStarted() {
                         webInterface.log("onVideoLoadStarted()")
@@ -180,10 +190,13 @@ class LRNPlayerView : FrameLayout {
                         webInterface.onDownloadProgress(bytesTransferred, totalBytes)
                     }
 
-                    override fun onVideoLoaded(metadata: VideoMetadata, videoDataBase64Encoded: String) {
+                    override fun onVideoLoaded(videoId: String, accessToken: String) {
+
+                        println("Calling on video loaded")
+
                         webInterface.log("onVideoLoaded")
-                        val stringToLoad = """javascript:loadVideo("$videoDataBase64Encoded",
-                                "$videoWidth", "$videoHeight", $autoPlayVideo, false, false);""".trimMargin()
+                        val stringToLoad = """javascript:loadVideo("$videoId",
+                                "$accessToken");""".trimMargin()
                         webView.loadUrl(stringToLoad)
                     }
 
@@ -288,7 +301,7 @@ class LRNPlayerView : FrameLayout {
     }
     // endregion
 
-    internal class PrepareRequest(val accessToken: String, val videoId: String,
+    internal class PrepareRequest(val videoId: String, val accessToken: String,
                                   val autoStartVideo: Boolean)
 
 }

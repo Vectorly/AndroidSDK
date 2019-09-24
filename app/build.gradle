@@ -45,11 +45,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
-    /*implementation 'dotlearn.io:lrnplayer:1.2'
-    implementation 'dotlearn.io:lrncurriculum:1.2'*/
-    implementation project(':lrncurriculum')
+
     implementation project(':lrnplayer')
-    implementation project(':lrnquestion')
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
