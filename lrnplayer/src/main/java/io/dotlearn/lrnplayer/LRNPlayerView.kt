@@ -71,6 +71,7 @@ class LRNPlayerView : FrameLayout {
         setupWebView()
     }
 
+
     private fun getWindowManager() = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
 
     @SuppressLint("SetJavaScriptEnabled", "AddJavascriptInterface")
@@ -109,6 +110,8 @@ class LRNPlayerView : FrameLayout {
     // endregion
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+
+        println("Layout changed")
         super.onLayout(changed, l, t, r, b)
         prepare(prepareRequest)
     }
@@ -117,6 +120,14 @@ class LRNPlayerView : FrameLayout {
                 onPrepareListener: OnPreparedListener) {
         return prepareView(accessToken, videoId, autoStartVideo, onPrepareListener)
     }
+
+
+
+    fun download(accessToken: String, videoId: String, autoStartVideo: Boolean,
+                onPrepareListener: OnPreparedListener) {
+        return prepareView(accessToken, videoId, autoStartVideo, onPrepareListener)
+    }
+
 
     private fun prepareView( videoId: String, accessToken: String, autoStartVideo: Boolean,
                             onPrepareListener: OnPreparedListener) {

@@ -29,6 +29,8 @@ internal class LRNPlayerWebInterface(private val lrnPlayerView: LRNPlayerView){
         onError(LRNPlayerException(errorMsg))
     }
 
+
+
     internal fun onError(e: LRNPlayerException) {
         log("onError($e")
         lrnPlayerView.showError("An error occurred while loading video")

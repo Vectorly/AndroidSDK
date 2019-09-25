@@ -1,5 +1,6 @@
 package com.mobymagic.vectorizedvideo
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.SeekBar
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         prepareVideo("48fe698e-22b0-4528-9722-26ed00ab79ef")
     }
 
+
     private fun setupPlaybackControls() {
 
         setupSeekBarControls()
@@ -35,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun prepareVideo(videoId: String) {
-        val token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2aWRlb19pZCI6IjQ4ZmU2OThlLTIyYjAtNDUyOC05NzIyLTI2ZWQwMGFiNzllZiIsImV4cGlyeSI6NDcyMjU0MTkxMzQ4OX0.JUHrPTLAxJBjHHjjOZNH9PWUxxNGZo90_lp_rkguLQY"
+        val token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWRlb19pZCI6IjQ4ZmU2OThlLTIyYjAtNDUyOC05NzIyLTI2ZWQwMGFiNzllZiIsImV4cGlyeSI6MTU3MjAzODExMzIxMn0.xG0vh_Gko2Vc8Mk8K57jaIx4FuDrFYYX6oWBxH62CTc"
         lrnPlayerView.prepare(videoId,  token,true, object: OnPreparedListener {
 
             override fun onPrepared(lrnPlayerView: LRNPlayerView) {
