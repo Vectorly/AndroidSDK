@@ -1,19 +1,19 @@
-package io.vectorly.lrnquestion.utils
+package io.vectorly.player.utils
 
 import android.util.Log
-import io.vectorly.lrnquestion.BuildConfig
+import io.vectorly.player.BuildConfig
 
 internal object Logger {
 
-    private const val LOG_TAG = "LrnQuestion"
+    private const val LOG_TAG = "LrnPlayer"
 
-    fun e(message: String) {
+    internal fun e(message: String) {
         if(BuildConfig.DEBUG) {
             Log.e(LOG_TAG, message)
         }
     }
 
-    fun d(message: String) {
+    internal fun d(message: String) {
         if(BuildConfig.DEBUG) {
             Log.d(LOG_TAG, message)
         }

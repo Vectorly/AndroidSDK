@@ -1,15 +1,13 @@
 package com.mobymagic.vectorizedvideo
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.SeekBar
-import io.dotlearn.lrnplayer.LRNPlayerView
-import io.dotlearn.lrnplayer.error.LRNPlayerException
-import io.dotlearn.lrnplayer.listener.*
-import io.dotlearn.lrnplayer.loader.model.VideoMetadata
-import io.dotlearn.lrnplayer.utils.FullScreenUtils
-import io.dotlearn.vectorizedvideo.R
+import io.vectorly.player.VectorlyPlayer
+import io.vectorly.player.error.LRNPlayerException
+import io.vectorly.player.listener.*
+import io.vectorly.player.loader.model.VideoMetadata
+import io.vectorly.player.utils.FullScreenUtils
+import io.vectorly.vectorizedvideo.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 const val EXTRA_VIDEO_ID = "EXTRA_VIDEO_ID"
@@ -23,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         setupAllListeners()
         setupPlaybackControls()
 
-        prepareVideo("48fe698e-22b0-4528-9722-26ed00ab79ef")
+        loadVideo("48fe698e-22b0-4528-9722-26ed00ab79ef")
     }
 
 
@@ -36,11 +34,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun prepareVideo(videoId: String) {
+    private fun loadVideo(videoId: String) {
         val token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWRlb19pZCI6IjQ4ZmU2OThlLTIyYjAtNDUyOC05NzIyLTI2ZWQwMGFiNzllZiIsImV4cGlyeSI6MTU3MjAzODExMzIxMn0.xG0vh_Gko2Vc8Mk8K57jaIx4FuDrFYYX6oWBxH62CTc"
-        lrnPlayerView.prepare(videoId,  token,true, object: OnPreparedListener {
+        vectorlyPlayer.load(videoId,  token,true, object: OnLoadListener {
 
-            override fun onPrepared(lrnPlayerView: LRNPlayerView) {
+            override fun onLoaded(vectorlyPlayer: VectorlyPlayer) {
+
+                println("Video loaded!")
 
             }
 
@@ -48,60 +48,66 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupAllListeners() {
-        lrnPlayerView.setOnErrorListener(object: OnErrorListener {
 
-            override fun onError(lrnPlayerView: LRNPlayerView, e: LRNPlayerException) {
+        /*
+        vectorlyPlayer.setOnErrorListener(object: OnErrorListener {
 
-            }
-
-        })
-
-        lrnPlayerView.setOnMetadataLoadedListener(object: OnMetadataLoadedListener {
-
-            override fun onMetadataLoaded(lrnPlayerView: LRNPlayerView, metadata: VideoMetadata) {
+            override fun onError(vectorlyPlayer: VectorlyPlayer, e: LRNPlayerException) {
 
             }
 
         })
 
-        lrnPlayerView.setOnDownloadListener(object: OnDownloadProgressListener {
+        vectorlyPlayer.setOnMetadataLoadedListener(object: OnMetadataLoadedListener {
 
-            override fun onDownloadProgress(lrnPlayerView: LRNPlayerView, progressPercent: Int) {
-
-            }
-
-        })
-
-        lrnPlayerView.setOnCompletionListener(object: OnPlaybackCompletionListener {
-
-            override fun onPlaybackCompletion(lrnPlayerView: LRNPlayerView) {
+            override fun onMetadataLoaded(vectorlyPlayer: VectorlyPlayer, metadata: VideoMetadata) {
 
             }
 
         })
 
-        lrnPlayerView.setOnFullScreenToggledListener(object: OnFullScreenToggledListener {
+        vectorlyPlayer.setOnDownloadListener(object: OnDownloadProgressListener {
 
-            override fun onFullScreenToggled(lrnPlayerView: LRNPlayerView) {
+            override fun onDownloadProgress(vectorlyPlayer: VectorlyPlayer, progressPercent: Int) {
+
+            }
+
+        })
+
+        vectorlyPlayer.setOnCompletionListener(object: OnPlaybackCompletionListener {
+
+            override fun onPlaybackCompletion(vectorlyPlayer: VectorlyPlayer) {
+
+            }
+
+        })
+
+        vectorlyPlayer.setOnFullScreenToggledListener(object: OnFullScreenToggledListener {
+
+            override fun onFullScreenToggled(vectorlyPlayer: VectorlyPlayer) {
                 FullScreenUtils.toggleOrientation(this@MainActivity)
             }
 
         })
+
+         */
     }
 
+
+    /*
     @Override
     override fun onPause() {
         super.onPause()
         // When the activity is paused, also pause the video playback
-        lrnPlayerView.pause()
-    }
+        vectorlyPlayer.pause()
+    }*/
 
     @Override
     override fun onDestroy() {
         super.onDestroy()
         // When the activity is being destroyed or the player is no longer needed, call the release
         // function to free up system resources
-        lrnPlayerView.release()
+        vectorlyPlayer.release()
     }
 
 }

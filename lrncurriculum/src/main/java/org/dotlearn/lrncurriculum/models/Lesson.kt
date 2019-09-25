@@ -1,4 +1,4 @@
-package org.dotlearn.lrncurriculum.models
+package org.dotlearn.vectorlyPlayercurriculum.models
 
 import android.support.annotation.Keep
 

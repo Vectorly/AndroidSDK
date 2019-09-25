@@ -1,4 +1,4 @@
-package io.dotlearn.lrnquestion;
+package io.vectorly.lrnquestion;
 
 import android.os.Parcel;
 import android.os.Parcelable;

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.dotlearn.lrnquestion">
+    package="io.vectorly.lrnquestion">
 
     <uses-permission android:name="android.permission.INTERNET" />
 

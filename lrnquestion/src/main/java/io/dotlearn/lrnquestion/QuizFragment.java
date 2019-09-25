@@ -1,4 +1,4 @@
-package io.dotlearn.lrnquestion;
+package io.vectorly.lrnquestion;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import io.dotlearn.lrnquestion.utils.Logger;
+import io.vectorly.lrnquestion.utils.Logger;
 
 public class QuizFragment extends Fragment {
 

@@ -6,12 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="io.dotlearn.vectorizedvideo.com.dotlearn.vectorizedvideo.MainActivity">
+    tools:context="io.vectorly.vectorizedvideo.com.dotlearn.vectorizedvideo.MainActivity">
 
-    <io.dotlearn.lrnplayer.LRNPlayerView
-        android:id="@+id/lrnPlayerView"
+    <io.vectorly.player.VectorlyPlayer
+        android:id="@+id/vectorlyPlayer"
         android:layout_width="match_parent"
-        android:background="@color/colorPrimaryDark"
         android:layout_height="match_parent"/>
 
 

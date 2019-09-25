@@ -1,4 +1,4 @@
-package io.dotlearn.lrnquestion.utils
+package io.vectorly.lrnquestion.utils
 
 
 import java.security.NoSuchAlgorithmException

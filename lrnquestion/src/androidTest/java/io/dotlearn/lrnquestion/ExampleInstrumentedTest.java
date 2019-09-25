@@ -1,4 +1,4 @@
-package io.dotlearn.lrnquestion;
+package io.vectorly.lrnquestion;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("io.dotlearn.lrnquestion.test", appContext.getPackageName());
+        assertEquals("io.vectorly.lrnquestion.test", appContext.getPackageName());
     }
 }

@@ -87,7 +87,7 @@
 # -keep public interface mypackage.MyInterface
 # -keep public class * implements mypackage.MyInterface
 
--keep class io.dotlearn.lrnplayer.loader.model.** { *; }
+-keep class io.vectorly.lrnplayer.loader.model.** { *; }
 
 -keep class org.bouncycastle.** { *; }
 -keepnames class org.bouncycastle.** { *; }

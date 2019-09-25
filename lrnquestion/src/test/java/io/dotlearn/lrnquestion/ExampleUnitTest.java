@@ -1,4 +1,4 @@
-package io.dotlearn.lrnquestion;
+package io.vectorly.lrnquestion;
 
 import org.junit.Test;
 

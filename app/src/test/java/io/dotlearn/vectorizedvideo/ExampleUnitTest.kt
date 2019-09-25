@@ -1,4 +1,4 @@
-package io.dotlearn.vectorizedvideo
+package io.vectorly.vectorizedvideo
 
 import org.junit.Test
 

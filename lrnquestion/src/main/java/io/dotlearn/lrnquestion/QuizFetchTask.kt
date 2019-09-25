@@ -1,10 +1,10 @@
-package io.dotlearn.lrnquestion
+package io.vectorly.lrnquestion
 
 import android.annotation.SuppressLint
 import android.os.AsyncTask
 import com.google.gson.Gson
-import io.dotlearn.lrnquestion.utils.IoUtils
-import io.dotlearn.lrnquestion.utils.Logger
+import io.vectorly.lrnquestion.utils.IoUtils
+import io.vectorly.lrnquestion.utils.Logger
 import io.paperdb.Paper
 import okhttp3.OkHttpClient
 import okhttp3.Request
