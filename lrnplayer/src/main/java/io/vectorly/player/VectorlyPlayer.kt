@@ -17,8 +17,11 @@ import android.widget.TextView
 import io.vectorly.player.error.LRNPlayerException
 import io.vectorly.player.error.LRNPlayerNotPreparedException
 import io.vectorly.player.listener.*
+import io.vectorly.player.loader.VideoDb
 import io.vectorly.player.loader.VideoLoader
+import io.vectorly.player.loader.di.Injector
 import io.vectorly.player.utils.DisplayUtils
+import io.vectorly.player.loader.download.*
 
 
 /**
@@ -29,7 +32,6 @@ class VectorlyPlayer : FrameLayout {
     // region View Variables
     private lateinit var webView: WebView
     private lateinit var progressContainer: View
-    private lateinit var downloadProgressTextView: TextView
     private lateinit var errorContainer: View
     private lateinit var errorTextView: TextView
     private lateinit var containerView: FrameLayout
@@ -40,6 +42,9 @@ class VectorlyPlayer : FrameLayout {
     private var prepareRequest: PrepareRequest? = null
     private lateinit var webInterface: VectorlyPlayerWebInterface
     private lateinit var displayUtils: DisplayUtils
+    private val videoDownloader = Injector.provideDownloader()
+    private  val baseDownloadUrl = "https://stream-staging.vectorly.io/mobile/encrypted"
+
 
     // region View Init
     constructor(context: Context) : super(context) {
@@ -60,7 +65,6 @@ class VectorlyPlayer : FrameLayout {
         containerView = layoutView.findViewById(R.id.vectorly_container)
         webView = layoutView.findViewById(R.id.vectorly_web_view)
         progressContainer = layoutView.findViewById(R.id.progress_container)
-        downloadProgressTextView = layoutView.findViewById(R.id.download_progress_text_view)
         errorContainer = layoutView.findViewById(R.id.error_container)
         errorTextView = layoutView.findViewById(R.id.error_text_view)
 
@@ -115,9 +119,26 @@ class VectorlyPlayer : FrameLayout {
         prepare(prepareRequest)
     }
 
-    fun load(accessToken: String, videoId: String, autoStartVideo: Boolean,
+    fun load( videoId: String,  accessToken: String, autoStartVideo: Boolean,
                 onLoadListener: OnLoadListener) {
-        return prepareView(accessToken, videoId, autoStartVideo, onLoadListener)
+        return prepareView( videoId, accessToken, autoStartVideo, onLoadListener)
+    }
+
+
+    fun exists( videoId: String, accessToken: String): Boolean {
+        return VideoDb.exist(videoId, accessToken)
+    }
+
+    fun delete( videoId: String, accessToken: String): Boolean {
+        return VideoDb.delete(videoId, accessToken);
+    }
+
+    fun download(videoId: String, accessToken: String,  downloadListener: DownloadListener) {
+
+        val downloadURL = baseDownloadUrl + "/video/" + videoId + "/token/" + accessToken;
+
+        videoDownloader.download(downloadURL, VideoDb.getFile(videoId, accessToken), "fsd", VideoLoader.getStuff(videoId, accessToken), downloadListener);
+
     }
 
 
@@ -173,33 +194,55 @@ class VectorlyPlayer : FrameLayout {
 
         progressContainer.visibility = View.VISIBLE
         errorContainer.visibility = View.GONE
-        downloadProgressTextView.text = "0%"
         isPrepared = false
 
-        val autoPlayVideo = prepareRequest.autoStartVideo
 
         VideoLoader.load( prepareRequest.videoId, prepareRequest.accessToken,
                 object : VideoLoader.VideoLoadCallback {
-                    override fun onVideoLoadStarted() {
-                        webInterface.log("onVideoLoadStarted()")
-                    }
 
-                    override fun onVideoLoadProgress(bytesTransferred: Long, totalBytes: Long) {
-                        webInterface.log("onVideoLoadProgress()")
-                        webInterface.onDownloadProgress(bytesTransferred, totalBytes)
-                    }
 
-                    override fun onVideoLoaded(videoId: String, accessToken: String) {
+                    override fun onLocalVideoNotFound(videoId: String, accessToken: String) {
 
                         println("Calling on video loaded")
 
                         webInterface.log("onVideoLoaded")
-                        val stringToLoad = """javascript:loadVideo("$videoId",
+                        val stringToLoad = """javascript:loadVideoWeb("$videoId",
                                 "$accessToken");""".trimMargin()
                         webView.loadUrl(stringToLoad)
                     }
 
-                    override fun onVideoLoadError(e: Exception) {
+                    override fun onLocalVideoFound(videoDataBase64Encoded: String) {
+
+                        webInterface.log("onVideoLoaded")
+
+                        var chunksSent = 0;
+                        val chunkLength = 200000;
+
+
+                        while (chunksSent <  videoDataBase64Encoded.length){
+
+                            var chunkToSend = "";
+
+                            if(videoDataBase64Encoded.length < chunksSent + chunkLength ){
+                                chunkToSend = videoDataBase64Encoded.substring(chunksSent);
+                            } else{
+                                chunkToSend = videoDataBase64Encoded.substring(chunksSent, chunksSent+chunkLength);
+                            }
+
+                            chunksSent = chunksSent + chunkToSend.length;
+
+                            val chunkToLoad = """javascript:loadVideoBase64Chunk("$chunkToSend");""".trimMargin()
+                            webView.loadUrl(chunkToLoad)
+
+                        }
+
+                        val stringToLoad = """javascript:loadVideoBase64();""".trimMargin()
+                        webView.loadUrl(stringToLoad)
+
+
+                    }
+
+                    override fun onLocalVideoLoadError(e: Exception) {
                         webInterface.log("onVideoLoadError")
                         webInterface.onError(LRNPlayerException(e.toString()))
                     }
@@ -255,70 +298,59 @@ class VectorlyPlayer : FrameLayout {
     internal class PrepareRequest(val videoId: String, val accessToken: String,
                                   val autoStartVideo: Boolean)
 
+
+
+    fun start() {
+        if (checkIsPrepared("start()")) {
+            webView.loadUrl("javascript:play();")
+        }
+    }
+
+    fun pause() {
+        if (checkIsPrepared("pause()")) {
+            webView.loadUrl("javascript:pause();")
+        }
+    }
+
+    fun seekTo(seekPos: Long) {
+        if (checkIsPrepared("seekTo()")) {
+            webView.loadUrl("""javascript:seekTo("$seekPos");""")
+        }
+    }
+
+    fun getCurrentPosition(getCurrentPositionListener: OnGetCurrentPositionListener){
+        webInterface.getCurrentPositionListener = getCurrentPositionListener
+        webView.loadUrl("javascript:getPosition();")
+
+    }
+
+    fun setOnCompletionListener(completionListener: OnPlaybackCompletionListener) {
+        webInterface.completionListener = completionListener
+    }
+
+    fun setOnErrorListener(errorListener: OnErrorListener) {
+        webInterface.errorListener = errorListener
+    }
+
+    fun setOnGetCurrentPositionListener(getCurrentPositionListener: OnGetCurrentPositionListener) {
+
+    }
+
+
+
 }
+
+
 
 
 
 
 /*
 
-    fun download(accessToken: String, videoId: String, autoStartVideo: Boolean,
-                onPrepareListener: OnLoadListener) {
-        return prepareView(accessToken, videoId, autoStartVideo, onPrepareListener)
-    }
+
 */
 
 
-/*
-
-fun start() {
-    if (checkIsPrepared("start()")) {
-        webView.loadUrl("javascript:play();")
-    }
-}
-
-fun pause() {
-    if (checkIsPrepared("pause()")) {
-        webView.loadUrl("javascript:pause();")
-    }
-}
-
-fun seekTo(seekPos: Long) {
-    if (checkIsPrepared("seekTo()")) {
-        webView.loadUrl("""javascript:seekTo("$seekPos");""")
-    }
-}
-
-fun setOnCompletionListener(completionListener: OnPlaybackCompletionListener) {
-    webInterface.completionListener = completionListener
-}
-
-fun setOnErrorListener(errorListener: OnErrorListener) {
-    webInterface.errorListener = errorListener
-}
-
-fun setOnGetCurrentPositionListener(getCurrentPositionListener: OnGetCurrentPositionListener) {
-    webInterface.getCurrentPositionListener = getCurrentPositionListener
-}
-
-fun setOnDownloadListener(downloadProgressListener: OnDownloadProgressListener) {
-    webInterface.downloadProgressListener = downloadProgressListener
-}
-
-fun setOnMetadataLoadedListener(metadataLoadedListener: OnMetadataLoadedListener) {
-    webInterface.metadataLoadedListener = metadataLoadedListener
-}
-
-fun setOnFullScreenToggledListener(fullScreenToggledListener: OnFullScreenToggledListener) {
-    webInterface.fullScreenToggledListener = fullScreenToggledListener
-}
 
 
 
-    internal fun showDownloadProgress(downloadPercentage: Int) {
-        Logger.d("showDownloadProgress. Progress: $downloadPercentage")
-        val progressText = downloadPercentage.toString() + "%"
-        downloadProgressTextView.text = progressText
-    }
-
- */

@@ -31,16 +31,22 @@
 </head>
 <body>
 
-<div id="container" style="width: 100%;"></div>
+<div id="container"></div>
 
 
 </body>
 
 <script>
 
+
+
+
+
+
+
     var videoObject;
 
-    window.loadVideo = function(video_id, token) {
+    window.loadVideoWeb = function(video_id, token) {
 
         var video = document.createElement("video");
         video.src = "s3://" +  video_id;
@@ -57,16 +63,106 @@
 
         if (token) video.setAttribute("x-auth-token", token);
 
-
-
         container.appendChild(video);
+        
         Android.onMediaPrepared();
 
 
+        videoObject = new VVideo("#video-container");
+    };
 
 
+     var videoDataBase64 = "";
+
+     window.loadVideoBase64Chunk = function(videoDataChunk) {
+
+        videoDataBase64 = videoDataBase64 + videoDataChunk;
 
     };
+
+
+     window.loadVideoBase64 = function() {
+
+        var videoBlob = base64toBlob(videoDataBase64);
+
+
+        vv.load(videoBlob, "container", {
+            width: window.innerWidth,
+            height:window.innerHeight,
+            hideControls: false,
+            fullscreen: true,
+            autoplay: false,
+            callback: function (video) {
+
+             $("#container").css({
+                position: "relative",
+                transform: "none",
+                top: "0",
+                left: "0",
+                display: "inline-block",
+                marginBottom: "0px",
+            });
+
+                videoObject = video;
+
+
+            }
+
+        });
+
+        Android.onMediaPrepared();
+    };
+
+
+     function base64toBlob(b64Data, contentType, sliceSize) {
+        contentType = contentType || '';
+        sliceSize = sliceSize || 512;
+        var byteCharacters = atob(b64Data);
+        var byteArrays = [];
+        for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+            var slice = byteCharacters.slice(offset, offset + sliceSize);
+            var byteNumbers = new Array(slice.length);
+            for (var i = 0; i < slice.length; i++) {
+                byteNumbers[i] = slice.charCodeAt(i);
+            }
+            var byteArray = new Uint8Array(byteNumbers);
+            byteArrays.push(byteArray);
+        }
+        var blob = new Blob(byteArrays, {
+            type: contentType
+        });
+        return blob;
+    }
+    
+    
+    
+    
+        var play = function() {
+            if (typeof videoObject !== 'undefined') {
+                Android.log("Starting playback");
+                videoObject.play();
+            }
+        }
+        var pause = function() {
+            if (typeof videoObject !== 'undefined') {
+                Android.log("Pausing playback");
+                videoObject.pause();
+            }
+        }
+        var seekTo = function(seekToPos) {
+            if (typeof videoObject !== 'undefined') {
+                Android.log("Seeking to: " + seekToPos);
+                videoObject.seek(seekToPos);
+            }
+        }
+
+        var getPosition = function() {
+            if (typeof videoObject !== 'undefined') {
+                Android.log("Getting playback position");
+                Android.onGetPosition(videoObject.getTime());
+            }
+        }
+
 
 
 

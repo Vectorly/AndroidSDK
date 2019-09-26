@@ -11,9 +11,7 @@ internal class VectorlyPlayerWebInterface(private val vectorlyPlayer: VectorlyPl
 
     internal var prepareListener: OnLoadListener? = null
     internal var completionListener: OnPlaybackCompletionListener? = null
-    internal var downloadProgressListener: OnDownloadProgressListener? = null
     internal var errorListener: OnErrorListener? = null
-    internal var metadataLoadedListener: OnMetadataLoadedListener? = null
     internal var fullScreenToggledListener: OnFullScreenToggledListener? = null
     internal var getCurrentPositionListener: OnGetCurrentPositionListener? = null
 
@@ -43,20 +41,6 @@ internal class VectorlyPlayerWebInterface(private val vectorlyPlayer: VectorlyPl
         }
     }
 
-    internal fun onMetadata(videoMetadata: VideoMetadata) {
-        vectorlyPlayer.post({
-            metadataLoadedListener?.onMetadataLoaded(vectorlyPlayer, videoMetadata)
-        })
-    }
-
-    internal fun onDownloadProgress(bytesTransferred: Long, totalBytes: Long) {
-        vectorlyPlayer.post({
-            Logger.d("onDownloadProgress. Transferred: $bytesTransferred. Total: $totalBytes")
-            val downloadPercentage = (bytesTransferred.toDouble() / totalBytes.toDouble()) * 100.0
-            val downloadPercentageRounded = downloadPercentage.roundToInt()
-            downloadProgressListener?.onDownloadProgress(vectorlyPlayer, downloadPercentageRounded)
-        })
-    }
 
     @JavascriptInterface
     fun onMediaPrepared() {

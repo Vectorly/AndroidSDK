@@ -1,6 +1,7 @@
 package io.vectorly.player.loader.download
 
 import android.os.AsyncTask
+import io.vectorly.player.listener.DownloadListener
 import io.vectorly.player.utils.IoUtils
 import io.vectorly.player.utils.Logger
 import okhttp3.OkHttpClient
@@ -15,12 +16,12 @@ internal class Downloader(private val okHttpClient: OkHttpClient,
     private val tasks: HashMap<String, DownloadTask> = HashMap()
 
     internal fun download(downloadUrl: String?, destFile: File, downloadTag: String, key: String,
-                          callback: DownloadCallback) {
+                          callback: DownloadListener) {
         downloadVideo(downloadUrl, destFile, downloadTag, key, callback)
     }
 
     private fun downloadVideo(downloadUrl: String?, destFile: File, downloadTag: String, key: String,
-                          callback: DownloadCallback) {
+                          callback: DownloadListener) {
         Logger.d("Download url: $downloadUrl. DestFile: ${destFile.absolutePath}. Tag: $downloadTag")
         val downloadRequest = DownloadRequest(downloadUrl, destFile, downloadTag, key)
         val downloadTask = DownloadTask(downloadRequest, callback, okHttpClient, ioUtils)
@@ -46,7 +47,7 @@ internal class Downloader(private val okHttpClient: OkHttpClient,
     }
 
     private class DownloadTask(private val downloadRequest: DownloadRequest,
-                               private val downloadCallback: DownloadCallback,
+                               private val downloadCallback: DownloadListener,
                                private val okHttpClient: OkHttpClient,
                                private val ioUtils: IoUtils): AsyncTask<Void, Pair<Long, Long>, Exception>() {
 
@@ -128,13 +129,6 @@ internal class Downloader(private val okHttpClient: OkHttpClient,
         }
     }
 
-    internal interface DownloadCallback {
 
-        fun onDownloadStarted(downloadTag: String)
-        fun onDownloadProgressUpdate(downloadTag: String, bytesTransferred: Long, totalBytes: Long)
-        fun onDownloadError(downloadTag: String, e: Exception)
-        fun onDownloadCompleted(downloadTag: String)
-
-    }
 
 }

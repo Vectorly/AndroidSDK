@@ -11,6 +11,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 /**
  * Dependency injection helper object
@@ -24,9 +25,13 @@ internal object Injector {
     private fun provideOkHttpClient(): OkHttpClient {
         if(!::okHttpClient.isInitialized) {
             okHttpClient = OkHttpClient.Builder()
+                    .connectTimeout(15, TimeUnit.SECONDS)
+                    .writeTimeout(15, TimeUnit.SECONDS)
+                    .readTimeout(30, TimeUnit.SECONDS)
                     .addInterceptor(provideHttpLoggingInterceptor())
                     .build()
         }
+
 
         return okHttpClient
     }

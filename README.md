@@ -45,7 +45,7 @@ If you target Android 6.0 (Marshmallow) and above, also ensure that the user has
     val videoId = "videoId"
 
     val vectorlyPlayer = findViewById<LRNPlayerView>(R.id.vectorly_player_view)
-    vectorlyPlayer.prepare(accessToken, videoId, object: OnPreparedListener {
+    vectorlyPlayer.prepare(videoId, accessToken,  object: OnPreparedListener {
             
         override fun onPrepared(vectorlyPlayer: LRNPlayerView) {
             // The video has been prepared and is ready for playback. If you set autoStart

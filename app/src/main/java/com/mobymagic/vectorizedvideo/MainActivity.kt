@@ -18,11 +18,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+      //  val accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWRlb19pZCI6IjQ4ZmU2OThlLTIyYjAtNDUyOC05NzIyLTI2ZWQwMGFiNzllZiIsImV4cGlyeSI6MTU3MjAzODExMzIxMn0.xG0vh_Gko2Vc8Mk8K57jaIx4FuDrFYYX6oWBxH62CTc"
+        val accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWRlb19pZCI6ImY1YmU1OWMwLWRlMjMtNGIwZC04YTM4LTViNzVhYThjOTZjNyIsImV4cGlyeSI6MTU3MjA2NzUwMTU5NX0.Hu1ZT67XgcRhB5s7Tem3M3zdfBUpWa6StV5hGgjEqkQ";
+
+
+     //   val accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWRlb19pZCI6IjRlZGMzMjc4LWE5NzUtNDlmMy04M2U5LTU0MTJjMmUxMmNmNyIsImV4cGlyeSI6MTU3MjA3MDE2MjA4MH0.leqRq4KwcdB32s4pl6h6Ym09DjgLtGHmIV5XBoAWkTU";
+
+
+    //    val videoId = "48fe698e-22b0-4528-9722-26ed00ab79ef";
+        val videoId = "f5be59c0-de23-4b0d-8a38-5b75aa8c96c7"
+
+       // val videoId = "4edc3278-a975-49f3-83e9-5412c2e12cf7";
+
         setupAllListeners()
         setupPlaybackControls()
 
-        loadVideo("48fe698e-22b0-4528-9722-26ed00ab79ef")
+        loadVideo(videoId, accessToken)
+
+
     }
+
+
 
 
     private fun setupPlaybackControls() {
@@ -34,18 +51,53 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun loadVideo(videoId: String) {
-        val token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2aWRlb19pZCI6IjQ4ZmU2OThlLTIyYjAtNDUyOC05NzIyLTI2ZWQwMGFiNzllZiIsImV4cGlyeSI6MTU3MjAzODExMzIxMn0.xG0vh_Gko2Vc8Mk8K57jaIx4FuDrFYYX6oWBxH62CTc"
-        vectorlyPlayer.load(videoId,  token,true, object: OnLoadListener {
+    private fun loadVideo(videoId: String, accessToken: String) {
+
+        vectorlyPlayer.load(videoId, accessToken,true, object: OnLoadListener {
 
             override fun onLoaded(vectorlyPlayer: VectorlyPlayer) {
 
-                println("Video loaded!")
+               // Video Loaded
 
             }
 
         })
+
+
     }
+
+
+
+    private fun downloadVideo(videoId: String, accessToken: String) {
+
+        vectorlyPlayer.download(videoId,  accessToken, object: DownloadListener {
+
+            override fun onDownloadStarted(downloadTag: String) {
+
+                println("Download started");
+
+            }
+
+            override fun onDownloadError(downloadTag: String, e: Exception) {
+                println("Download error");
+                println("excecption: " + e.stackTrace);
+            }
+
+            override fun onDownloadProgressUpdate(downloadTag: String, bytesTransferred: Long, totalBytes: Long) {
+
+                println("Download progress");
+
+            }
+
+            override fun onDownloadCompleted(downloadTag: String) {
+                println("Download copleted");
+            }
+
+
+
+        })
+    }
+
 
     private fun setupAllListeners() {
 
@@ -58,29 +110,7 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        vectorlyPlayer.setOnMetadataLoadedListener(object: OnMetadataLoadedListener {
 
-            override fun onMetadataLoaded(vectorlyPlayer: VectorlyPlayer, metadata: VideoMetadata) {
-
-            }
-
-        })
-
-        vectorlyPlayer.setOnDownloadListener(object: OnDownloadProgressListener {
-
-            override fun onDownloadProgress(vectorlyPlayer: VectorlyPlayer, progressPercent: Int) {
-
-            }
-
-        })
-
-        vectorlyPlayer.setOnCompletionListener(object: OnPlaybackCompletionListener {
-
-            override fun onPlaybackCompletion(vectorlyPlayer: VectorlyPlayer) {
-
-            }
-
-        })
 
         vectorlyPlayer.setOnFullScreenToggledListener(object: OnFullScreenToggledListener {
 
@@ -94,13 +124,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    /*
-    @Override
-    override fun onPause() {
-        super.onPause()
-        // When the activity is paused, also pause the video playback
-        vectorlyPlayer.pause()
-    }*/
+
 
     @Override
     override fun onDestroy() {

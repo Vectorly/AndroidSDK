@@ -5,13 +5,25 @@ import java.io.File
 
 internal class FileUtils {
 
-    internal fun getVideoFile(accessToken: String, videoId: String): File {
+    internal fun getVideoFile( videoId: String, accessToken: String): File {
         val videoDir = File(getVideoDirectory(accessToken))
         // Create video directory if it doesn't exist
         if (!videoDir.exists())
             videoDir.mkdirs()
 
-        return File(videoDir, videoId)
+        val file = File(videoDir, videoId);
+
+        println("Getting file");
+        println(file)
+
+        return file
+    }
+
+    internal fun deleteVideoFile( videoId: String, accessToken: String): Boolean {
+
+        val file = getVideoFile(videoId, accessToken)
+
+        return  file.delete();
     }
 
     private fun getVideoDirectory(accessToken: String): String {
