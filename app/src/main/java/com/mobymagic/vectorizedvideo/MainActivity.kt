@@ -3,10 +3,7 @@ package com.mobymagic.vectorizedvideo
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import io.vectorly.player.VectorlyPlayer
-import io.vectorly.player.error.LRNPlayerException
 import io.vectorly.player.listener.*
-import io.vectorly.player.loader.model.VideoMetadata
-import io.vectorly.player.utils.FullScreenUtils
 import io.vectorly.vectorizedvideo.R
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -35,10 +32,11 @@ class MainActivity : AppCompatActivity() {
         setupPlaybackControls()
 
         loadVideo(videoId, accessToken)
+        downloadVideo(videoId,accessToken)
 
-
+       // vectorlyPlayer.delete(videoId,accessToken)
+        vectorlyPlayer.exists(videoId,accessToken)
     }
-
 
 
 
@@ -90,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onDownloadCompleted(downloadTag: String) {
-                println("Download copleted");
+                println("Download completed");
             }
 
 
@@ -104,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         /*
         vectorlyPlayer.setOnErrorListener(object: OnErrorListener {
 
-            override fun onError(vectorlyPlayer: VectorlyPlayer, e: LRNPlayerException) {
+            override fun onError(vectorlyPlayer: VectorlyPlayer, e: VectorPlayerException) {
 
             }
 
