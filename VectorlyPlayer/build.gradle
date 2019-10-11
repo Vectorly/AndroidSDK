@@ -4,6 +4,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
+
 
 // update these next lines to fit your submodule
 group = GROUP_ID
@@ -94,6 +96,43 @@ android {
     }
 }
 
+ext {
+    bintrayRepo = 'VectorlyPlayer' // your repo name
+    bintrayName = 'io.vectorly.player' // has to be same as your library module name
+    publishedGroupId = 'io.vectorly.player' // your module package name
+    libraryName = 'io.vectorly.player'
+    artifact = 'io.vectorly.player' // has to be same as your library module name
+    libraryDescription = 'VectorlyPlayer is a simple View that you can plugin to your Android apps to quickly get vectorized video playback working.'
+    siteUrl = 'https://github.com/Vectorly/AndroidSDK'
+    gitUrl = 'https://github.com/Vectorly/AndroidSDK.git'
+    libraryVersion = '1.0.0'
+    developerId = 'shawinder'
+    developerName = 'Shawinder'
+    developerEmail = 'shawinder.impinge@gmail.com'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    pkg {
+        userOrg = 'vectorly'
+        repo = "VectorlyPlayer"
+        name = "VectorlyPlayer"
+        websiteUrl = "https://github.com/Vectorly/AndroidSDK"
+        vcsUrl = "https://github.com/Vectorly/AndroidSDK.git"
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -107,6 +146,19 @@ dependencies {
 
 }
 
-task javadoc(type: Javadoc) {
-    excludes = ['**/*.kt'] // < ---- Exclude all kotlin files from javadoc file.
+if (project.rootProject.file('local.properties').exists()) {
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
 }
+
+/*tasks.withType(Javadoc) {
+    options.addBooleanOption('Xdoclint:none', true)
+}*/
+
+tasks.withType(Javadoc).all {
+    enabled = false
+}
+
+//task javadoc(type: Javadoc) {
+//    excludes = ['**/*.kt'] // < ---- Exclude all kotlin files from javadoc file.
+//}

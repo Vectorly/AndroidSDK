@@ -217,7 +217,6 @@ class VectorlyPlayer : FrameLayout {
                         var chunksSent = 0;
                         val chunkLength = 200000;
 
-
                         while (chunksSent <  videoDataBase64Encoded.length){
 
                             var chunkToSend = "";
@@ -232,7 +231,6 @@ class VectorlyPlayer : FrameLayout {
 
                             val chunkToLoad = """javascript:loadVideoBase64Chunk("$chunkToSend");""".trimMargin()
                             webView.loadUrl(chunkToLoad)
-
                         }
 
                         val stringToLoad = """javascript:loadVideoBase64();""".trimMargin()

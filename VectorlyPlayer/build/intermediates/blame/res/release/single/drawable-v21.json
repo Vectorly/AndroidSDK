@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "F:\\Workspace\\AndroidSDK\\VectorlyPlayer\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\admin.IMPINGE81\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f743ad587644e2a19b4b32df1385b8f2\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "F:\\Workspace\\AndroidSDK\\VectorlyPlayer\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\admin.IMPINGE81\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f743ad587644e2a19b4b32df1385b8f2\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "F:\\Workspace\\AndroidSDK\\VectorlyPlayer\\build\\intermediates\\res\\merged\\release\\drawable-v21\\notification_action_background.xml",
+        "source": "C:\\Users\\admin.IMPINGE81\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\60e55a23ad0fff8427bd4aa591e11b3e\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
+        "merged": "F:\\Workspace\\AndroidSDK\\VectorlyPlayer\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\admin.IMPINGE81\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f743ad587644e2a19b4b32df1385b8f2\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    }
+]

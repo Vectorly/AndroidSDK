@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="F:\Workspace\AndroidSDK\VectorlyPlayer\src\main\assets"><file name="base.html" path="F:\Workspace\AndroidSDK\VectorlyPlayer\src\main\assets\base.html"/><file name="vv.js" path="F:\Workspace\AndroidSDK\VectorlyPlayer\src\main\assets\vv.js"/></source><source path="F:\Workspace\AndroidSDK\VectorlyPlayer\build\generated\assets\shaders\release"/></dataSet><dataSet config="release"><source path="F:\Workspace\AndroidSDK\VectorlyPlayer\src\release\assets"/></dataSet></merger>

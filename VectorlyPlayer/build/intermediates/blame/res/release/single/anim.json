@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "F:\\Workspace\\AndroidSDK\\VectorlyPlayer\\build\\intermediates\\res\\merged\\release\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\admin.IMPINGE81\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f743ad587644e2a19b4b32df1385b8f2\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "F:\\Workspace\\AndroidSDK\\VectorlyPlayer\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\admin.IMPINGE81\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f743ad587644e2a19b4b32df1385b8f2\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "F:\\Workspace\\AndroidSDK\\VectorlyPlayer\\build\\intermediates\\res\\merged\\release\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\admin.IMPINGE81\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f743ad587644e2a19b4b32df1385b8f2\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "F:\\Workspace\\AndroidSDK\\VectorlyPlayer\\build\\intermediates\\res\\merged\\release\\anim\\abc_tooltip_enter.xml",
+        "source": "C:\\Users\\admin.IMPINGE81\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f743ad587644e2a19b4b32df1385b8f2\\res\\anim\\abc_tooltip_enter.xml"
+    },
+    {
+        "merged": "F:\\Workspace\\AndroidSDK\\VectorlyPlayer\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\admin.IMPINGE81\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f743ad587644e2a19b4b32df1385b8f2\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "F:\\Workspace\\AndroidSDK\\VectorlyPlayer\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\admin.IMPINGE81\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f743ad587644e2a19b4b32df1385b8f2\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "F:\\Workspace\\AndroidSDK\\VectorlyPlayer\\build\\intermediates\\res\\merged\\release\\anim\\abc_tooltip_exit.xml",
+        "source": "C:\\Users\\admin.IMPINGE81\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f743ad587644e2a19b4b32df1385b8f2\\res\\anim\\abc_tooltip_exit.xml"
+    },
+    {
+        "merged": "F:\\Workspace\\AndroidSDK\\VectorlyPlayer\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\admin.IMPINGE81\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f743ad587644e2a19b4b32df1385b8f2\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "F:\\Workspace\\AndroidSDK\\VectorlyPlayer\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\admin.IMPINGE81\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f743ad587644e2a19b4b32df1385b8f2\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "F:\\Workspace\\AndroidSDK\\VectorlyPlayer\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\admin.IMPINGE81\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f743ad587644e2a19b4b32df1385b8f2\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "F:\\Workspace\\AndroidSDK\\VectorlyPlayer\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\admin.IMPINGE81\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f743ad587644e2a19b4b32df1385b8f2\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "F:\\Workspace\\AndroidSDK\\VectorlyPlayer\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\admin.IMPINGE81\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\f743ad587644e2a19b4b32df1385b8f2\\res\\anim\\abc_slide_out_top.xml"
+    }
+]

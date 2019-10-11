@@ -10,439 +10,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edc0dff2-58d9-4bc1-a5d9-375a369eda09" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gradle/4.4/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.4/fileContent/fileContent.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/VectorizedVideoAndroid.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle____local_aars___F__Workspace_VectorizedVideoAndroid_VectorlyPlayer_libs_encryptor4j_0_1_2_jar_unspecified_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_core_common_1_1_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_core_runtime_1_1_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_common_1_1_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_27_1_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_appcompat_v7_27_1_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cardview_v7_27_1_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_1_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_solver_1_1_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_recyclerview_v7_27_1_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_annotations_27_1_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_compat_27_1_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_ui_27_1_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_utils_27_1_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_fragment_27_1_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_vector_drawable_27_1_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_esotericsoftware_kryo_4_0_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_esotericsoftware_minlog_1_3_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_esotericsoftware_reflectasm_1_11_3_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_CymChad_BaseRecyclerViewAdapterHelper_2_9_34_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_findbugs_jsr305_2_0_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_7_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_2_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_javawriter_2_1_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_logging_interceptor_3_8_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_8_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_13_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_converter_gson_2_3_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_retrofit_2_3_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__de_javakaffee_kryo_serializers_0_40_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_paperdb_paperdb_2_6_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_12_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sf_kxml_kxml2_2_3_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_integration_1_3_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_annotations_13_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_2_31_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_2_31_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jre7_1_2_31_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_objenesis_objenesis_2_5_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_5_0_4_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorizedVideoAndroid.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/VectorlyPlayer.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/generated/source/buildConfig/debug/io/vectorly/player/BuildConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/generated/source/r/debug/android/arch/core/R.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/generated/source/r/debug/android/arch/lifecycle/R.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/generated/source/r/debug/android/arch/lifecycle/livedata/core/R.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/generated/source/r/debug/android/arch/lifecycle/viewmodel/R.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/generated/source/r/debug/android/support/compat/R.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/generated/source/r/debug/android/support/coreui/R.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/generated/source/r/debug/android/support/coreutils/R.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/generated/source/r/debug/android/support/fragment/R.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/generated/source/r/debug/android/support/graphics/drawable/R.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/generated/source/r/debug/android/support/graphics/drawable/animated/R.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/generated/source/r/debug/io/paperdb/R.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/generated/source/r/debug/io/vectorly/player/R.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/attr/R.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/arch/core/R.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/arch/lifecycle/R.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/arch/lifecycle/livedata/core/R.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/arch/lifecycle/viewmodel/R.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/compat/R$attr.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/compat/R$bool.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/compat/R$color.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/compat/R$dimen.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/compat/R$drawable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/compat/R$id.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/compat/R$integer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/compat/R$layout.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/compat/R$string.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/compat/R$style.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/compat/R$styleable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/compat/R.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreui/R$attr.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreui/R$bool.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreui/R$color.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreui/R$dimen.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreui/R$drawable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreui/R$id.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreui/R$integer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreui/R$layout.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreui/R$string.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreui/R$style.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreui/R$styleable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreui/R.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreutils/R$attr.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreutils/R$bool.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreutils/R$color.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreutils/R$dimen.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreutils/R$drawable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreutils/R$id.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreutils/R$integer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreutils/R$layout.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreutils/R$string.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreutils/R$style.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreutils/R$styleable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/coreutils/R.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/fragment/R$attr.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/fragment/R$bool.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/fragment/R$color.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/fragment/R$dimen.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/fragment/R$drawable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/fragment/R$id.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/fragment/R$integer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/fragment/R$layout.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/fragment/R$string.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/fragment/R$style.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/fragment/R$styleable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/fragment/R.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/R$attr.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/R$bool.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/R$color.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/R$dimen.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/R$drawable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/R$id.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/R$integer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/R$layout.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/R$string.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/R$style.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/R$styleable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/R.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$attr.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$bool.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$color.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$dimen.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$drawable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$id.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$integer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$layout.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$string.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$style.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$styleable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/v7/appcompat/R$anim.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/v7/appcompat/R$attr.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/v7/appcompat/R$bool.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/v7/appcompat/R$color.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/v7/appcompat/R$dimen.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/v7/appcompat/R$drawable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/v7/appcompat/R$id.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/v7/appcompat/R$integer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/v7/appcompat/R$layout.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/v7/appcompat/R$string.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/v7/appcompat/R$style.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/v7/appcompat/R$styleable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/android/support/v7/appcompat/R.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/io/paperdb/R.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/io/vectorly/player/BuildConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/io/vectorly/player/R$anim.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/io/vectorly/player/R$attr.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/io/vectorly/player/R$bool.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/io/vectorly/player/R$color.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/io/vectorly/player/R$dimen.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/io/vectorly/player/R$drawable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/io/vectorly/player/R$id.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/io/vectorly/player/R$integer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/io/vectorly/player/R$layout.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/io/vectorly/player/R$string.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/io/vectorly/player/R$style.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/io/vectorly/player/R$styleable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/classes/debug/io/vectorly/player/R.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/extractedTypedefs/debug/typedefs.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/incremental/compileDebugAidl/dependency.store" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/incremental/debug-mergeJavaRes/merge-state" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/incremental/debug-mergeJniLibs/merge-state" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/incremental/mergeDebugShaders/merger.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/incremental/packageDebugAssets/merger.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/incremental/packageDebugResources/merged.dir/values/values.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/incremental/packageDebugResources/merger.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/intermediate-jars/debug/classes.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/intermediate-jars/debug/res.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/javaPrecompile/debug/annotationProcessors.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/manifests/aapt/debug/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/manifests/aapt/debug/output.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/manifests/full/debug/output.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/packaged-classes/debug/classes.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/packaged-classes/debug/libs/encryptor4j-0.1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/packaged_res/debug/values/values.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/public_res/debug/public.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/symbols/debug/R.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/transforms/mergeJavaRes/debug/0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/transforms/mergeJavaRes/debug/__content__.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/transforms/mergeJniLibs/debug/__content__.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/transforms/stripDebugSymbol/debug/__content__.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/build-history.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/inputs/source-to-output.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/inputs/source-to-output.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/inputs/source-to-output.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/constants.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/constants.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/constants.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/constants.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/constants.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/constants.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/constants.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/java-sources-proto-map.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/java-sources-proto-map.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/java-sources-proto-map.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/java-sources-proto-map.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/java-sources-proto-map.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/java-sources-proto-map.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/java-sources-proto-map.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/package-parts.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/package-parts.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/package-parts.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/proto.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/proto.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/proto.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/subtypes.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/subtypes.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/subtypes.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/subtypes.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/subtypes.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/subtypes.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/supertypes.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/supertypes.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/supertypes.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/supertypes.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/jvm/kotlin/supertypes.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/file-to-id.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/file-to-id.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/file-to-id.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/file-to-id.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/id-to-file.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/id-to-file.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/caches-jvm/lookups/lookups.tab_i.len" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/data-container-format-version.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/format-version.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/gradle-format-version.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/kotlin/compileDebugKotlin/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/outputs/aar/VectorlyPlayer-debug.aar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/META-INF/VectorlyPlayer_debug.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/VectorlyPlayer$PrepareRequest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/VectorlyPlayer$loadVideo$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/VectorlyPlayer$setupWebView$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/VectorlyPlayer$setupWebView$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/VectorlyPlayer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/VectorlyPlayerWebInterface$onError$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/VectorlyPlayerWebInterface$onFullScreenToggled$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/VectorlyPlayerWebInterface$onMediaPrepared$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/VectorlyPlayerWebInterface$onPlaybackCompleted$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/VectorlyPlayerWebInterface.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/error/VectorPlayerException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/error/VectorPlayerNotPreparedException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/error/VectorPlayerOfflineException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/listener/DownloadListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/listener/OnDownloadProgressListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/listener/OnErrorListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/listener/OnFullScreenToggledListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/listener/OnGetCurrentPositionListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/listener/OnLoadListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/listener/OnMetadataLoadedListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/listener/OnPlaybackCompletionListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/FileUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/VideoDb$VideoLoadCallback.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/VideoDb$VideoLoadResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/VideoDb$VideoLoadTask.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/VideoDb.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/VideoLoader$VideoLoadCallback.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/VideoLoader$loadVideo$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/VideoLoader.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/di/Injector$provideOkHttpClient$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/di/Injector$provideVideoService$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/di/Injector.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/download/DownloadRequest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/download/Downloader$DownloadTask$dInBackground$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/download/Downloader$DownloadTask.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/download/Downloader.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/model/VideoDataRequest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/model/VideoDataResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/model/VideoMetadata.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/model/VideoSize.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/videodata/VideoDataFetcher$VideoDataFetchCallback.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/videodata/VideoDataFetcher$fetchData$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/videodata/VideoDataFetcher.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/videodata/VideoService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/loader/videodata/VideoServiceKt.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/model/Metadata.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/model/Size.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/utils/DisplayUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/utils/FullScreenUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/utils/IoUtils$toByteArray$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/utils/IoUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/utils/Logger.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/build/tmp/kotlin-classes/debug/io/vectorly/player/utils/WirelessUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/assets/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/assets/vv.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/error/VectorPlayerException.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/res/drawable-hdpi/ic_error_79dp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/res/drawable-xhdpi/ic_error_79dp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/res/drawable-xxhdpi/ic_error_79dp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/res/layout/layout_vectorplayer.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/kotlin-build/version.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lrncurriculum/lrncurriculum.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lrnquestion/lrnquestion.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle____local_aars___F__Workspace_VectorizedVideoAndroid_VectorlyPlayer_libs_encryptor4j_0_1_2_jar_unspecified_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_core_runtime_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_core_runtime_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_appcompat_v7_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_appcompat_v7_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cardview_v7_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cardview_v7_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_recyclerview_v7_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_recyclerview_v7_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_compat_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_compat_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_ui_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_ui_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_utils_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_utils_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_fragment_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_fragment_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_vector_drawable_27_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_vector_drawable_27_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_CymChad_BaseRecyclerViewAdapterHelper_2_9_34_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_CymChad_BaseRecyclerViewAdapterHelper_2_9_34_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__io_paperdb_paperdb_2_6_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_paperdb_paperdb_2_6_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobymagic/vectorizedvideo/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobymagic/vectorizedvideo/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/libs/encryptor4j-0.1.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/libs/encryptor4j-0.1.2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/proguard-rules.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/assets/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/packagedAssets/debug/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/assets/vv.js" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/packagedAssets/debug/vv.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/VectorlyPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/VectorlyPlayer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/VectorlyPlayerWebInterface.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/VectorlyPlayerWebInterface.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/error/LRNPlayerException.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/error/LRNPlayerNotPreparedException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/error/VectorPlayerNotPreparedException.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/error/LRNPlayerOfflineException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/error/VectorPlayerOfflineException.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/listener/OnDownloadListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/listener/OnDownloadListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/listener/OnDownloadProgressListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/listener/OnDownloadProgressListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/listener/OnErrorListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/listener/OnErrorListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/listener/OnFullScreenToggledListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/listener/OnFullScreenToggledListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/listener/OnGetCurrentPositionListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/listener/OnGetCurrentPositionListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/listener/OnLoadListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/listener/OnLoadListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/listener/OnMetadataLoadedListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/listener/OnMetadataLoadedListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/listener/OnPlaybackCompletionListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/listener/OnPlaybackCompletionListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/loader/FileUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/loader/FileUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/loader/VideoDb.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/loader/VideoDb.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/loader/VideoLoader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/loader/VideoLoader.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/loader/di/Injector.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/loader/di/Injector.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/loader/download/DownloadRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/loader/download/DownloadRequest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/loader/download/Downloader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/loader/download/Downloader.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/loader/model/VideoDataRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/loader/model/VideoDataRequest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/loader/model/VideoDataResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/loader/model/VideoDataResponse.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/loader/model/VideoMetadata.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/loader/model/VideoMetadata.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/loader/model/VideoSize.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/loader/model/VideoSize.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/loader/videodata/VideoDataFetcher.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/loader/videodata/VideoDataFetcher.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/loader/videodata/VideoService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/loader/videodata/VideoService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/model/Metadata.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/model/Metadata.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/model/Size.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/model/Size.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/utils/DisplayUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/utils/DisplayUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/utils/FullScreenUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/utils/FullScreenUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/utils/IoUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/utils/IoUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/utils/Logger.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/utils/Logger.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/java/io/vectorly/player/utils/WirelessUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/utils/WirelessUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/res/drawable-hdpi/ic_error_79dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ic_error_79dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/res/drawable-xhdpi/ic_error_79dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ic_error_79dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/res/drawable-xxhdpi/ic_error_79dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/packaged_res/debug/drawable-xxhdpi-v4/ic_error_79dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/res/layout/layout_lrnplayer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/build/intermediates/packaged_res/debug/layout/layout_vectorplayer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrnplayer/src/main/res/values/public.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/res/values/public.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VectorizedVideoAndroid.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/VectorlyPlayer/VectorlyPlayer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/VectorlyPlayer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VectorlyPlayer/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VectorlyPlayer/build/generated/source/buildConfig/debug/io/vectorly/player/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/build/generated/source/buildConfig/debug/io/vectorly/player/BuildConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/VectorlyPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/VectorlyPlayer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -468,86 +82,46 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mobymagic/vectorizedvideo/MainActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-462">
-              <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
-              <folding>
-                <element signature="e#39#432#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1694">
+              <caret line="82" selection-start-line="82" selection-end-line="82" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/VectorlyPlayer/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+            <state relative-caret-position="2156">
+              <caret line="98" column="4" lean-forward="true" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/res/layout/layout_vectorplayer.xml">
+        <entry file="file://$PROJECT_DIR$/local.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+            <state relative-caret-position="198">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
             </state>
           </provider>
-          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/assets/base.html">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/VectorlyPlayer.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="316" column="9" selection-start-line="316" selection-start-column="9" selection-end-line="316" selection-end-column="9" />
-              <folding>
-                <element signature="e#28#866#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="176">
+              <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/loader/VideoDb.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="829">
-              <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/error/VectorPlayerNotPreparedException.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/listener/OnDownloadProgressListener.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="15" column="66" selection-start-line="15" selection-start-column="66" selection-end-line="15" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
     </leaf>
@@ -555,7 +129,14 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>lrn</find>
+      <find>javadoc</find>
+      <find>delete</find>
+      <find>kotlin_version</find>
+      <find>version</find>
     </findStrings>
+    <dirStrings>
+      <dir>F:\Workspace\AndroidSDK</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -563,8 +144,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mobymagic/vectorizedvideo/MainActivity.kt" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mobymagic/vectorizedvideo/MainActivity.kt" />
+        <option value="$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/VectorlyPlayer.kt" />
+        <option value="$PROJECT_DIR$/local.properties" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/VectorlyPlayer/build.gradle" />
       </list>
     </option>
   </component>
@@ -580,30 +165,82 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="VectorizedVideoAndroid" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VectorizedVideoAndroid" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="AndroidSDK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AndroidSDK" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
-              <item name="VectorizedVideoAndroid" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VectorizedVideoAndroid" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="AndroidSDK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AndroidSDK" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="VectorlyPlayer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="AndroidSDK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AndroidSDK" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="VectorlyPlayer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AndroidSDK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AndroidSDK" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="VectorlyPlayer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AndroidSDK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AndroidSDK" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="VectorlyPlayer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AndroidSDK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AndroidSDK" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="VectorlyPlayer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AndroidSDK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AndroidSDK" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="VectorlyPlayer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+              <item name="vectorly" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AndroidSDK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AndroidSDK" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="VectorlyPlayer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+              <item name="vectorly" type="462c0819:PsiDirectoryNode" />
+              <item name="player" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="device.picker.selection" value="e931978e" />
+    <property name="device.picker.selection" value="42007e969a9284bb" />
     <property name="not.eligible.for.single.variant.sync" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="sync.plugin.last.upgrade.timestamp" value="1570713889003" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -694,26 +331,27 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.32995737" />
-      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4983871" visible="true" weight="0.19402985" />
+      <window_info id="Structure" order="2" sideWeight="0.5016129" side_tool="true" weight="0.32995737" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="6" />
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Capture Tool" order="8" />
-      <window_info anchor="bottom" id="Find" weight="0.32900432" />
-      <window_info anchor="bottom" id="Run" order="0" />
+      <window_info anchor="bottom" id="Run" order="0" weight="0.32900432" />
       <window_info anchor="bottom" id="Logcat" order="1" weight="0.5649351" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="4" visible="true" weight="0.32900432" />
-      <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" weight="0.32900432" />
+      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.49946696" weight="0.32900432" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50053304" side_tool="true" weight="0.32900432" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32900432" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.32900432" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49946696" weight="0.32900432" />
       <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="9" weight="0.32900432" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
@@ -735,6 +373,53 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/assets/vv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="110" column="26925" selection-start-line="110" selection-start-column="26925" selection-end-line="110" selection-end-column="26925" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/res/layout/layout_vectorplayer.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/assets/base.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/loader/VideoDb.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1034">
+          <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="96" selection-start-column="78" selection-end-column="96" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/error/VectorPlayerNotPreparedException.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/listener/OnDownloadProgressListener.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -750,62 +435,58 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/res/layout/layout_vectorplayer.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/assets/vv.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="110" column="26925" selection-start-line="110" selection-start-column="26925" selection-end-line="110" selection-end-column="26925" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/assets/base.html">
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/VectorlyPlayer.kt">
+    <entry file="file://$PROJECT_DIR$/local.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="316" column="9" selection-start-line="316" selection-start-column="9" selection-end-line="316" selection-end-column="9" />
-          <folding>
-            <element signature="e#28#866#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/loader/VideoDb.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="829">
-          <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/error/VectorPlayerNotPreparedException.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+        <state relative-caret-position="198">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mobymagic/vectorizedvideo/MainActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-462">
-          <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
-          <folding>
-            <element signature="e#39#432#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1694">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/VectorlyPlayer/src/main/java/io/vectorly/player/VectorlyPlayer.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        <state relative-caret-position="176">
+          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/reports/lint-results.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/src/core-api/org/gradle/api/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="356" column="9" selection-start-line="356" selection-start-column="9" selection-end-line="356" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/src/core-api/org/gradle/api/artifacts/Dependency.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VectorlyPlayer/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2156">
+          <caret line="98" column="4" lean-forward="true" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="4" />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,10 @@
+io.vectorly.player.loader.di.Injector$provideOkHttpClient$1
+io.vectorly.player.loader.di.Injector$provideVideoService$1
+io.vectorly.player.utils.Logger:
+    private static final java.lang.String LOG_TAG
+org.encryptor4j.DHPeer:
+    private static final java.lang.String ALGORITHM
+org.encryptor4j.ECDHPeer:
+    private static final java.lang.String ALGORITHM
+org.encryptor4j.Encryptor:
+    private static final java.lang.String DEFAULT_ALGORITHM
